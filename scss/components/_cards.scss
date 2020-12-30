@@ -1,0 +1,31 @@
+/*--Bootstrap class--*/
+.card {
+    background-color: $clr-white;
+    box-shadow: 2px 2px 10px 4px rgba(0, 0, 255, .1);
+    border: none;
+    width: 24rem;
+    a {
+        font-family: SourceSansPro;
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: bold;
+    }
+    .card-body {
+        text-align: center;
+        &.addToCart {
+            display: inline-block;
+            background-color: $clr-inactiveConfirm;
+            color: $clr-text; 
+            &:hover {
+                background-color: $clr-activeConfirm;
+                a {
+                    color: $clr-white;  
+                }
+            }
+            svg {
+                width: 2.4rem;
+            }
+        }
+    }
+ }
+

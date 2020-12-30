@@ -1,0 +1,740 @@
+/* =================== FONTS =================== */
+/* 
+@font-face {
+   font-family: SourceSansPro;
+   src: url("../assets/fonts/SourceSansPro-Regular.ttf");
+   font-style: normal;
+   font-weight: regular;
+}
+
+@font-face {
+   font-family: SourceSansPro;
+   src: url("../assets/fonts/SourceSansPro-Bold.ttf");
+   font-style: normal;
+   font-weight: bold;
+}
+
+@font-face {
+   font-family: Montserrat;
+   src: url("../assets/fonts/Montserrat-Light.ttf");
+   font-style: normal;
+   font-weight: 300;
+}
+
+@font-face {
+   font-family: Montserrat;
+   src: url("../assets/fonts/Montserrat-Bold.ttf");
+   font-style: normal;
+   font-weight: bold;
+}
+
+@font-face {
+   font-family: Montserrat;
+   src: url("../assets/fonts/Montserrat-Regular.ttf");
+   font-style: normal;
+   font-weight: regular;
+}
+*/
+/* ============================================= */
+
+/*===================== VARS ===================*/
+
+/* TODO: Revisar paleta de colores */
+/*
+:root {
+   --clr-white: white;
+   --clr-purple: hsl(282, 33%, 22%);
+   --clr-light-purple: hsla(282, 33%, 22%, 0.702);
+   --clr-light-lilac: hsl(305, 13%, 90%);
+   --clr-lilac: hsl(282, 43%, 74%);
+   --clr-orange: hsl(31, 100%, 48%);
+   --clr-light-orange: hsl(31, 100%, 48%, 0.3);
+   --background-products: hsl(305, 13%, 95%);
+   --text: hsl(210, 10%, 23%);
+   --inactiveDelete: hsla(9, 100%, 64%, 0.5);
+   --activeDelete: hsl(9, 100%, 64%);
+   --inactiveConfirm: hsla(145, 63%, 49%, 0.5);
+   --activeConfirm: hsl(145, 63%, 49%);
+}*/
+
+/* ============================================= */
+
+/*============ COMMON PROPERTIES ===============*/
+/*
+* {
+   margin: 0;
+   padding: 0;
+   text-decoration: none;
+   box-sizing: border-box;
+}
+
+html {
+   font-size: 62.5%;
+}
+
+body {
+   font-size: 1.6rem;
+   font-family: Montserrat, sans-serif;
+   font-style: normal;
+   font-weight: 300;
+   line-height: 1;
+}
+
+h1, h2, h3, h4, h5 {
+   color: var(--text);
+   font-weight: bold;
+   line-height: 1;
+}
+
+h1 {
+   font-size: 3.2rem;
+}
+
+h2 {
+   font-size: 2.4rem;
+}
+
+h3 {
+   font-size: 1.6rem;
+}
+
+h4 {
+   font-size: 1.2rem;
+}
+
+header, footer {
+   background-color: var(--clr-light-lilac);
+   width: 100%;
+} 
+
+p {
+   color: var(--text);
+   font-family: SourceSansPro, sans-serif;
+   font-style: normal;
+   font-weight: regular;
+   word-spacing: 3px;
+}
+
+ul {
+   margin: 0;
+   padding: 0;
+}
+
+img {
+   width: 100%;
+   height: auto;
+}
+
+a {
+   color: var(--text);
+   text-decoration: none;
+}
+
+.title {
+   text-align: center;
+   margin: 2.4rem 0 2.4rem;
+}
+
+.subtitle {
+   text-align: left;
+   padding: 24px 0 24px 24px;
+}
+
+.social a img {
+   width: 2.4rem;
+}*/
+
+/*----------------- MAIN CONTAINER ---------------*/
+
+/* .gridContainer {
+   width: 100%;
+   display: grid;
+   grid-template-columns: repeat(12, 1fr);
+   grid-template-rows: auto;
+}
+
+.header {
+   grid-column: 1 / 13;
+   grid-row: 1 / 2;
+}
+
+.content {
+   grid-column: 1 / 13;
+   grid-row: 2 / 3;
+}
+
+.footer {
+   grid-column: 1 / 13;
+   grid-row: 3 / 4;
+} */
+
+/*------------------------------------------------*/
+
+/*----------------- PRODUCTS GRID  --------------------*/
+/*
+.productsSection article, .categoriesSection {
+   background-color: var(--background-products);
+}
+
+.productList {
+   padding: 32px;
+   margin: 1.6rem;
+    display: grid;
+   grid-template-columns: repeat(auto-fit, 240px);
+   grid-template-rows: minmax(360px, auto);
+   grid-gap: 2.4rem;
+   justify-content: center; 
+}*/
+/* 
+.card {
+   background-color: var(--clr-white);
+   box-shadow: 2px 2px 10px 4px rgba(0, 0, 255, .1);
+   border: none;
+   width: 24rem;
+}
+
+.card a {
+   font-family: SourceSansPro;
+   font-size: 1.6rem;
+   font-style: normal;
+   font-weight: bold;
+}
+
+.card-body {
+   text-align: center;
+}
+
+.addToCart {
+   display: inline-block;
+   background-color: var(--inactiveConfirm);
+   color: var(--text);
+} */
+
+/* .addToCart:hover {
+   background-color: var(--activeConfirm);
+}
+
+.addToCart:hover a {
+   color: var(--clr-white);
+}
+
+.addToCart svg {
+   width: 2.4rem;
+} */
+
+/*----------------- PRODUCTS GRID END--------------------*/
+
+/*================================================*/
+
+/*================== HEADER ===================== */
+/*
+.header {
+   width: 100%;
+   display: flex;
+   flex-flow: column nowrap;
+   position: sticky;
+   top: 0;
+   z-index: 1000;
+   margin-bottom: 6.4rem;
+}
+
+.headerContent {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: space-between;
+   align-items: center;
+   padding: 8px 16px;
+   width: 100%;
+   height: 100%;
+}
+
+ .logotype {
+   min-width: 4.8rem;
+}
+
+.headerContent .logotype {
+   order: 1;
+   margin-right: 1.6rem;
+} */
+
+/* .searchContainer {
+   background-color: var(--clr-white);
+   margin: .8rem 0;
+   padding: 8px;
+   width: 300px;
+   order: 2;
+}
+
+.searchContainer form {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: space-between;
+   align-items: center;
+   height: 100%;
+}
+
+.searchContainer form input {
+   font-weight: 300;
+   font-size: 1.6rem;
+   border: none;
+} */
+
+/* .icon.search {
+   background-image: url(../assets/images/search.svg);
+   background-repeat: no-repeat;
+   filter: invert(91%) sepia(15%) saturate(4106%) hue-rotate(197deg) brightness(89%) contrast(90%);
+}
+
+.iconCart {
+   order: 3;
+}
+
+.iconCart a img {
+   width: 3.2rem;
+} 
+
+.emptyDiv {
+   order: 4;
+}*/
+
+/*================================================*/
+
+/*========== NAVIGATION BAR (inside the Header) ===== */
+/* 
+.navbar {
+   width: 100%;
+   position: relative;
+   display: inline-block;
+   padding: 0;
+}
+
+.menu {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: center;
+   list-style: none;
+   font-size: 0;
+}
+
+.menu li {
+   background-color: hsl(204, 8%, 86%);
+   display: inline-block;
+   font-size: 2.4rem;
+   padding: 0 .8rem;
+   position: relative;
+}
+
+.menu li a {
+   color: var(--text);
+   display: block;
+   padding: 8px;
+   text-decoration: none;
+}
+
+.subMenu {
+   background-color: var(--clr-white);
+   display: none;
+   position: absolute;
+   left: 20px;
+   text-align: center;
+   margin: auto;
+}
+
+.subMenu li {
+   background-color: var(--clr-light-lilac);
+   font-size: 2.4rem;
+   text-align: left;
+   padding-left: 16px;
+   position: relative;
+   width: 300px;
+}
+
+.menu li:hover {
+   background-color: var(--clr-light-purple);
+}
+
+.menu li:hover>a {
+   color: white;
+}
+
+.subMenu li a {
+   color: var(--text);
+   padding: 10px;
+}
+
+.subMenu li:hover a {
+   color: var(--clr-white);
+}
+
+.menu li:hover .subMenu {
+   display: block;
+}
+
+.menu li.active {
+   background-color: var(--clr-purple);
+}
+
+.menu li.active>a {
+   color: var(--clr-white);
+} */
+
+/* ====================== END NAVIGATION ======================== */
+
+/* =================== FOOTER ================== */
+
+/* .footer {
+   display: flex;
+   flex-flow: row nowrap;
+}
+
+.footerContent {
+   width: 80%;
+   display: flex;
+   flex-flow: column nowrap;
+   justify-content: space-between;
+   align-items: center;
+   margin: auto;
+}
+
+.footer .logotype {
+   margin: .8rem 1.6rem;
+}
+
+.social {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: space-around;
+   width: 20%;
+}
+
+.copy {
+   width: 100%;
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: center;
+   align-items: flex-end;
+}
+
+.copy>p {
+   margin-right: 2.4rem;
+} */
+
+/* ============================================= */
+
+/*================= INDEX PAGE ================*/
+
+/* .mainTitle {
+   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAATklEQVQoU2NkYGAwZmBgOMuAACA+CKCIMSIpADGRNaEYgKwQ3WQUjTCF6CYhWw2WAynEpgjmIpg7jUlSiM0TWK2GWUOUZ7ApxggeogIcABHJFtftKVfJAAAAAElFTkSuQmCC
+);
+   background-repeat: no-repeat;
+   background-size: cover;
+   padding: 16px;
+}
+
+.mainTitle img {
+   display: block;
+   margin: auto;
+   width: auto;
+   height: 320px;
+} */
+
+/*--- Carousel content -- */
+
+/* .news, .features {
+   border: 3px solid var(--clr-orange);
+   background-color: var(--clr-light-orange);
+   text-align: center;
+   width: 50%;
+   margin: 2.4rem auto 2.4rem;
+} */
+
+/* --------------------- */
+
+/* .indexMain .title {
+   display: block;
+   padding: 16px
+} */
+
+.productNewsList .productImg, .productImg {
+   display: inline-block;
+   margin: 0 .8rem .8rem .8rem;
+}
+/* 
+.categoriesSection {
+   padding: 32px;
+   margin: 1.6rem;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 320px);
+   grid-template-rows: auto;
+   gap: 16px;
+   justify-content: center;
+} */
+
+/* .categoryCard {
+   background-color: var(--clr-white);
+   display: flex;
+   flex-flow: column nowrap;
+   align-items: center;
+   width: 100%;
+   height: auto;
+   transition: all .5s;
+   /* Revisar estas medidas 
+}
+
+.categoryCard:hover {
+   transform: translate(-2px, -2px);
+   box-shadow: 2px 2px 10px 4px rgba(0, 0, 255, .1);
+}
+
+.categoryCard .subtitle {
+   padding: 24px;
+}
+
+.categoryImg {
+   width: 180px;
+   height: 240px;
+   margin: 0 auto;
+} */
+
+/*==============================================*/
+
+/*===============   CATALOG PAGE   ===============*/
+
+.productFeaturedList {
+   width: 100%;
+   margin: auto;
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: center;
+}
+
+.filter {
+   font-size: 1.2rem;
+   font-weight: bold;
+   color: var(--text);
+   margin: 1.6rem;
+}
+
+.filter form fieldset {
+   padding: 4px 8px 8px 8px;
+   display: flex;
+   justify-content: space-evenly;
+}
+
+/*==============================================*/
+
+/*===============   NEWS PAGE   ===============*/
+
+.newsSectionTitle {
+   height: 160px;
+}
+
+.newsSectionTitle p {
+   font-family: SourceSansPro;
+   font-size: 2.4rem;
+   font-style: normal;
+   font-weight: regular;
+   text-align: center;
+}
+
+/*==============================================*/
+
+/*===============   ABOUT PAGE   ===============*/
+
+.aboutContainer {
+   background-color: hsl(271, 13%, 98%);
+   padding: 6.4rem;
+}
+
+.aboutContainer section {
+   background-image: linear-gradient(45deg, var(--clr-light-purple), transparent);
+   padding: 2.4rem;
+}
+
+.aboutContainer section .aboutText {
+   padding: 1.6rem;
+   font-size: 2.4rem;
+}
+
+.aboutUsSection, .aboutProductsSection {
+   margin-bottom: 6.4rem;
+}
+
+/*==============================================*/
+
+/*================   CART PAGE   ===============*/
+
+/* TODO: Modificar vista de carrito y form y agregar estilos */
+
+.cartForm {
+   padding: 0;
+   margin: 0;
+   margin-bottom: 1.6rem;
+}
+
+.cartContent, .dataContent {
+   margin: 0;
+   padding: 0;
+   background-color: hsl(271, 13%, 98%);
+}
+
+/* -------CART TABLE------ */
+
+table {
+   border-collapse: collapse;
+   width: 100%;
+   text-align: center;
+}
+
+td, tr, th {
+   border: 1px solid green;
+   padding: .8rem;
+}
+
+thead tr th {
+   font-size: 2rem;
+   font-weight: normal;
+   background-color: var(--clr-light-lilac);
+}
+
+tfoot td:last-child {
+   font-size: 1.6rem;
+   font-weight: bold;
+   opacity: .8;
+}
+
+/* ------- CUSTOMER FORM ------ */
+
+#form {
+   padding: 1.6rem;
+}
+
+fieldset legend {
+   font-size: 2rem;
+   font-weight: normal;
+   margin-bottom: 3.2rem;
+   float: none;
+}
+
+.inputForm input {
+   border: none;
+   border-bottom: 1px solid var(--clr-purple);
+   caret-color: var(--clr-orange);
+   margin-bottom: 1.6rem;
+}
+
+.form-check-input {
+   border: 1px solid var(--clr-light-purple)!important;
+}
+
+.form-control:focus {
+   color: var(--text);
+   background-color: #fff;
+   border-color: var(--clr-lilac);
+   outline: 0;
+   box-shadow: 0 0 0 0.25rem var(--clr-light-lilac);
+}
+
+.form-check-input, .form-check-input:checked {
+   border-color: var(--clr-light-purple);
+}
+
+.form-check-input:checked {
+   background-color: var(--clr-light-purple);
+}
+
+.form-check-input:focus {
+   border-color: var(--clr-lilac);
+   outline: 0;
+   box-shadow: 0 0 0 0.25rem var(--clr-light-lilac);
+}
+
+.inputForm input[type="text"], .inputForm input[type="email"], .inputForm input[type="number"] {
+   height: 2.4rem;
+   color: var(--text);
+   transition: all .4s;
+}
+
+.inputForm input[type="text"]:focus, .inputForm input[type="email"]:focus, .inputForm input[type="number"]:focus {
+   border-bottom: 2px solid var(--clr-purple);
+   transform: scale(1, 1.2);
+}
+
+.groupFormButtons {
+   display: flex;
+   justify-content: center;
+   align-content: center;
+   margin-top: 1.6rem;
+}
+
+.groupFormButtons input {
+   margin-right: 1.6rem;
+}
+
+/*==============================================*/
+
+/*==================== BUTTONS =================*/
+/* 
+.button {
+   height: auto;
+   min-width: 80px;
+   max-width: auto;
+   padding: .4rem;
+   font-size: 1.2rem;
+   text-transform: uppercase;
+}
+
+.button.default {
+   background-color: var(--clr-light-lilac);
+   border: 1px solid var(--clr-purple);
+}
+
+.button.delete {
+   background-color: var(--inactiveDelete);
+   border: 1px solid var(--activeDelete);
+}
+
+.button.confirm {
+   background-color: var(--inactiveConfirm);
+   border: 1px solid var(--activeConfirm);
+}
+
+.button.default, .button.delete, .button.confirm {
+   transition: all.4s;
+}
+
+.button.default:hover, .button.delete:hover, .button.confirm:hover {
+   transform: scale(1.15);
+}
+
+.button.default:focus, .button.delete:focus, .button.confirm:focus {
+   outline: none;
+}
+
+.button.default:hover {
+   background-color: var(--clr-purple);
+   color: var(--clr-white);
+}
+
+.button.confirm:hover {
+   background-color: var(--activeConfirm);
+   color: var(--clr-white);
+}
+
+.button.delete:hover {
+   background-color: var(--activeDelete);
+   color: var(--clr-white);
+} */
+
+/*==============================================*/
+
+/*==================== ICONS =================*/
+
+/* Corregir iconos */
+
+.icon {
+   width: 3.2rem;
+   /* height: 2.4rem; */
+}
+
+/*==============================================*/

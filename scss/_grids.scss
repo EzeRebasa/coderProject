@@ -1,0 +1,42 @@
+/*--- Main Container ---*/
+.mainGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+}
+
+.mainGrid__header {
+  grid-column: 1 / 13;
+  grid-row: 1 / 2;
+}
+
+.mainGrid__main {
+  grid-column: 1 / 13;
+  grid-row: 2 / 3;
+}
+
+.mainGrid__footer {
+  grid-column: 1 / 13;
+  grid-row: 3 / 4;
+}
+/*------------------------*/
+/*--- ProductsList Grid---*/
+
+.listGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 240px);
+  grid-template-rows: minmax(360px, auto);
+  grid-gap: 2.4rem;
+  justify-content: center;
+}
+/*------------------------*/
+
+/*------ Categories Grid-------*/
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 320px);
+  grid-template-rows: auto;
+  grid-gap: 2.4rem;
+  justify-content: center;
+}

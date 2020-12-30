@@ -1,0 +1,59 @@
+.indexMain {
+  .indexMain__title {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAATklEQVQoU2NkYGAwZmBgOMuAACA+CKCIMSIpADGRNaEYgKwQ3WQUjTCF6CYhWw2WAynEpgjmIpg7jUlSiM0TWK2GWUOUZ7ApxggeogIcABHJFtftKVfJAAAAAElFTkSuQmCC);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 16px;
+
+    img {
+      display: block;
+      margin: auto;
+      width: auto;
+      height: 320px;
+    }
+  }
+
+  /*--- Carousel content -- */
+  .indexMain__news {
+    @extend %carousel;
+    .indexMain__news__title {
+      @extend %title;
+    }
+  }
+  /* --------------------- */
+
+  .indexMain__categories {
+    .indexMain__categories__title {
+      @extend %subtitle;
+      padding: 16px;
+    }
+    .indexMain__categories__section {
+      padding: 32px;
+      margin: 1.6rem;
+    }
+
+    .indexMain__categories__card {
+      background-color: $clr-white;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      width: 100%;
+      height: auto;
+      transition: all 0.5s;
+      &:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 2px 2px 10px 4px rgba(0, 0, 255, .1);
+      }
+      &--title {
+        @extend %subtitle;
+        padding: 24px;
+      }
+      &--img {
+        width: 180px;
+        height: 240px;
+        margin: 0 auto;
+      }
+      
+    }
+  }
+}

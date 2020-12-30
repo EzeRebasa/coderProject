@@ -1,0 +1,34 @@
+.footer {
+  /*margin & padding in generic-classes/%pannels */
+  display: flex;
+  flex-flow: row nowrap;
+
+  .footer__logo {
+    @extend %logoSize;
+  }
+
+  .footer__content {
+    width: 80%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    .footer__content__social {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      gap: 16px;
+    }
+    .footer__content__copy {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: flex-end;
+      & > p {
+        margin-right: 2.4rem;
+      }
+    }
+  }
+}

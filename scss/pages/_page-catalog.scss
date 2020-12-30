@@ -1,0 +1,28 @@
+.catalogMain {
+  /*--Features--*/
+  .catalogMain__features {
+    @extend %carousel;
+  }
+  .catalogMain__features__title {
+    @extend %title;
+  }
+  /*--------------*/
+  /*---- Products Catalog ----*/
+  .catalogMain__products {
+    .catalogMain__products__filter {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $clr-text;
+      margin: 1.6rem;
+      
+      form {
+        fieldset {
+          padding: 4px 8px 8px 8px;
+          display: flex;
+          justify-content: space-evenly;
+        }
+      }
+    }
+  }
+  /*--------------------------*/
+}

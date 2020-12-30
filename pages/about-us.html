@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sitio de compras donde encontrarás perfumes, ropa casual y camisetas de fútbol">    <meta name="keywords" content="PERFUMES, CHOMBAS, CAMISETAS, ROPA, CASUAL, FUTBOL">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/pruebacss.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title> Eureka - Conocenos </title>
+</head>
+
+<body>
+    <div class="mainGrid">
+        <!----------- HEADER ------------>
+        <header class="header mainGrid__header">
+            <div class="header__content">
+                <div id="logo" class="header__logo">
+                    <a href="../index.html"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka"></a>
+                </div>
+                <div class="header__search">
+                    <form action="#" class="search__form">
+                        <input type="text" placeholder="Buscar Artículo">
+                        <input type="submit" value=""><span class="icon--search"></span>
+                    </form>
+                </div>
+                <div class="header__cart">
+                    <a href="cart.html"><img src="../assets/images/shopping-cart.svg" alt="Carrito"
+                            class="icon--cart"><span class="badge bg-danger"> 1 </span></a>
+                </div>
+            </div>
+            <nav class="navbar">
+                <ul class="navbar__menu">
+                    <li><a href="../index.html"> HOME </a></li>
+                    <li><a href="catalog.html"> CATALOGO </a>
+                        <ul class="navbar__submenu">
+                            <div class="navbar__submenu--bg">
+                                <li><a href="catalog.html#perfume"> Perfumes </a></li>
+                                <li><a href="catalog.html#casual"> Ropa casual </a></li>
+                                <li><a href="catalog.html#sport"> Ropa deportiva </a></li>
+                            </div>
+                        </ul>
+                    </li>
+                    <li><a href="news.html"> NOVEDADES </a></li>
+                    <li class="active"><a href="about-us.html"> CONOCENOS </a></li>
+                </ul>
+            </nav>
+        </header>
+        <!------------------------------->
+
+        <!------------ ABOUT ------------>
+        <main class="main mainGrid__main">
+            <h1 class="title"> ¿QUIENES SOMOS? </h1>
+            <div class="container-fluid aboutContainer">
+                <section class="row aboutUsSection" data-aos="fade-up-right">
+                    <div class="col-lg-3 col-md-3 col-sm-12 "><img src="https://loremflickr.com/200/200" alt="Nosotros"
+                            class="img-fluid"></div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 aboutText">
+                        <p> Hola! Mi nombre es Lucas, creador de "Eureka", desde 2017 funcionamos como distribuidora de
+                            perfumes
+                            españoles triple A
+                            e incorporamos recientemente productos de indumentaria.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="row aboutProductsSection" data-aos="fade-up-left">
+                    <div class="col-lg-9 col-md-9 col-sm-12 aboutText">
+                        <p> Parrafo acerca de los Productos </p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12"><img src="https://loremflickr.com/200/200" alt="Producto">
+                    </div>
+                </section>
+
+                <section class="row aboutLocalizationSection" data-aos="fade-up-right">
+                    <div class="col-lg-3 col-md-3 col-sm-12"><iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d700.2636704321703!2d-57.54654770510846!3d-37.99864694076692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584dc04b87ec85b%3A0xbca2344bdb579ad0!2sC%C3%B3rdoba%20%26%20Avenida%20Pedro%20Luro%2C%20Mar%20del%20Plata%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1sen!2sar!4v1607613259667!5m2!1sen!2sar"
+                            frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"
+                            class="img-fluid"></iframe></div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 aboutText">
+                        <p> Nos encontramos en la ciudad de Mar del Plata, pero realizamos también envíos
+                            fuera de la ciudad. En caso de que vivas en la ciudad
+                            podés acordar el retiro de tu compra por WhatsApp.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <!------------------------------->
+        <!----------- FOOTER ------------>
+        <footer class="footer mainGrid__footer">
+            <div class="footer__logo">
+                <a href="#logo"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka"></a>
+            </div>
+            <div class="footer__content">
+                <div class="footer__content__social">
+                    <a href="https://www.facebook.com/search/top?q=eureka%20fragancias" target="_blank"><img
+                            src="../assets/images/logo-facebook.svg" alt="Icono de Facebook con enlace a Eureka"
+                            class="icon"></a>
+                    <a href="https://www.instagram.com/eureka.tiendaonline/" target="_blank"><img
+                            src="../assets/images/logo-instagram.svg" alt="Icono de Instagram con enlace a Eureka"
+                            class="icon"></a>
+                    <a href="#"><img src="../assets/images/logo-whatsapp.svg"
+                            alt="Icono de WhatsApp para comunicarse con Eureka" class="icon"></a>
+                    <a href="#"><img src="../assets/images/logo-gmail.svg"
+                            alt="Icono de Gmail para comunicarse con Eureka" class="icon"></a>
+                </div>
+                <div class="footer__content__copy">
+                    <p> Copyright &copy; 2020 Ezequiel Rebasa</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!------------------------------->
+    <!-- Bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- Animation script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

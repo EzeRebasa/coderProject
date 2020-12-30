@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1;
+}
+
+@for $i from 1 to 5 {
+  h#{$i} {
+    color: $clr-text;
+    font-weight: bold;
+    line-height: 1;
+    margin: 0;
+  }
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+h5 {
+  font-size: 1rem;
+}
+
+.header,
+.footer {
+  @extend %panels;
+}
+
+p {
+  color: $clr-text;
+  font-family: SourceSansPro, sans-serif;
+  font-style: normal;
+  font-weight: regular;
+  word-spacing: 3px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+a {
+  color: $clr-text;
+  text-decoration: none;
+}
+
+/*---- Icons ----*/
+.icon {
+  &--search {
+    width: $iconWidth;
+    background-image: url(../assets/images/search.svg);
+    background-repeat: no-repeat;
+    filter: invert(91%) sepia(15%) saturate(4106%) hue-rotate(197deg)
+      brightness(89%) contrast(90%);
+  }
+  &--cart {
+    width: $iconWidth + 0.8rem;
+  }
+}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sitio de compras donde encontrarás perfumes, ropa casual y camisetas de fútbol">
+    <meta name="keywords" content="PERFUMES, CHOMBAS, CAMISETAS, ROPA, CASUAL, FUTBOL">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/pruebacss.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title> Eureka - Carrito </title>
+</head>
+
+<body>
+    <div class="mainGrid">
+        <!------------- HEADER -------------->
+        <header class="header mainGrid__header">
+            <!-- <div class="header__content"> -->
+                <!--<div id="logo" class="logotype">
+                    <a href="../index.html"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka"></a>
+                </div>
+                <div class="searchContainer">
+                    <form action="">
+                        <input type="text" placeholder="Buscar Artículo">
+                        <input type="submit" value=""><span class="icon search"></span>
+                    </form>
+                </div>
+
+                <div class="emptyDiv"></div>
+            </div>
+            <nav class="navbar">
+                <ul class="menu">
+                    <li><a href="../index.html"> HOME </a></li>
+                    <li><a href="catalog.html"> CATALOGO </a>
+                        <ul class="subMenu">
+                            <li><a href="catalog.html#perfume"> Perfumes </a></li>
+                            <li><a href="catalog.html#casual"> Ropa casual </a></li>
+                            <li><a href="catalog.html#sport"> Ropa deportiva </a></li>
+                        </ul>
+                    </li>
+                    <li><a href="news.html"> NOVEDADES </a></li>
+                    <li><a href="about-us.html"> CONOCENOS </a></li>
+                </ul>
+            </nav> -->
+                <!-- <div id="logo" class="logotype">
+                <a href="../index.html"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka"></a>
+            </div>
+            <div class="searchContainer">
+                <form action="">
+                    <input type="text" placeholder="Buscar Artículo">
+                    <input type="submit" value=""><span class="icon search"></span>
+                </form>
+            </div> -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid header__content">
+                        <div id="logo" class="header__logo">
+                            <a href="../index.html"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka"></a>
+                        </div>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../index.html">HOME</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="catalog.html">CATALOGO</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="news.html">NOVEDADES</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="about-us.html">CONOCENOS</a>
+                                </li>
+
+                            </ul>
+                            <div class="header__search">
+                                <form action="#" class="search__form">
+                                    <input type="text" placeholder="Buscar Artículo">
+                                    <input type="submit" value=""><span class="icon--search"></span>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!------------------------------->
+        <!------------- CART ------------>
+        <main class="main mainGrid__main">
+            <!-- La idea es armar un pedido y que se envie la información del pedido junto a los datos del
+        comprador al WhatsApp del vendedor... ( Algo similar a Tupperware) -->
+            <h1 class=" title"> ~ MI CARRITO ~ </h1>
+            <!-- <div class="cartContainer"> -->
+            <div class="container-fluid">
+                <!-- <div class="cartProductsContainer"> -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8 col-sm-8 cartForm">
+                        <form action="#">
+                            <div class="table-responsive">
+                                <table cellspacing=0 cellpadding=0 class="table table-cebra">
+                                    <thead>
+                                        <tr>
+                                            <th> Producto </th>
+                                            <th> Cantidad </th>
+                                            <th> Precio Unitario ($)</th>
+                                            <th> Subtotal ($) </th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>Item 1</th>
+                                            <td>
+                                                < 3>
+                                            </td>
+                                            <td> 150 </td>
+                                            <td> 450 </td>
+                                            <td><input type="button" value="Quitar" class="button--delete"></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2"><input type="submit" value="CONFIRMAR PEDIDO"
+                                                    class="button--confirm">
+                                            </td>
+                                            <td colspan="3"> Total : $ 450 </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!------------------------------->
+                    <!-------- CUSTOMER DATA ----------->
+                    <!-- <div class="cartFormContainer"> -->
+                    <div class="col-lg-5 col-md-8 col-sm-8  dataContent">
+                        <form action="#" id="form">
+                            <fieldset>
+                                <legend> Datos de cliente </legend>
+                                <div class="inputForm ">
+                                    <label for="firstname" class="form-label"> Nombre </label>
+                                    <input type="text" name="firstname" class="form-control" id="firstname" required>
+                                </div>
+                                <div class="inputForm">
+                                    <label for="lastname" class="form-label"> Apellido </label>
+                                    <input type="text" name="lastname" class="form-control" id="lastname" required>
+                                </div>
+                                <div class="inputForm">
+                                    <label for="email" class="form-label"> Email </label>
+                                    <input type="email" name="email" class="form-control" id="email"
+                                        placeholder="usuario@mail.com" required>
+                                </div>
+                                <div class="inputForm">
+                                    <label for="phone" class="form-label"> Celular de Contacto </label>
+                                    <input type="text" name="phone" class="form-control" id="phone" required>
+                                </div>
+                                <div class="inputForm">
+                                    <label for="address" class="form-label"> Domicilio </label>
+                                    <input type="text" name="address" class="form-control" id="address" required>
+                                </div>
+
+                                <div class="inputForm form-check form-check-inline">
+                                    <input type="radio" name="building" class="form-check-input" id="building"
+                                        value="house" checked>
+                                    <label for="building" class="form-check-label"> Casa </label>
+                                </div>
+                                <div class="inputForm form-check form-check-inline">
+                                    <input type="radio" name="building" class="form-check-input" id="building"
+                                        value="apartment">
+                                    <label for="building" class="form-check-label"> Departamento </label>
+                                </div>
+
+                                <div class="inputForm">
+                                    <label for="order" class="form-label"> Pedido </label>
+                                    <textarea name="order" class="form-control" id="order"
+                                        readonly>Acá se pegara la confirmacion del pedido</textarea>
+                                </div>
+                                <div class="inputForm groupFormButtons">
+                                    <input type="reset" value="LIMPIAR FORMULARIO" class="button--default">
+                                    <input type="submit" value="REALIZAR PEDIDO" class="button--confirm"
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="exampleModalLabel"> Solicitud de pedido </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Su pedido ha sido realizado! A la brevedad lo contactaremos para la confirmacion del
+                                mismo.
+                                Muchas gracias por elegir EUREKA!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="button--default" data-bs-dismiss="modal">Cerrar</button>
+                                <!-- <button type="button" class="button confirm" data-bs-dismiss="modal">Aceptar</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------------------->
+                <!------------------------------->
+                <div class="col-12">
+                    <h2 class="subtitle"> MEDIOS DE PAGO </h2>
+                    AGREGAR IMAGENES DE MEDIOS DE PAGO
+                </div>
+            </div>
+        </main>
+        <!------------------------------->
+        <!----------- FOOTER ------------>
+        <footer class="footer mainGrid__footer">
+            <div class="footer__logo">
+                <a href="#logo"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka"></a>
+            </div>
+            <div class="footer__content">
+                <div class="footer__content__social">
+                    <a href="https://www.facebook.com/search/top?q=eureka%20fragancias" target="_blank"><img
+                            src="../assets/images/logo-facebook.svg" alt="Icono de Facebook con enlace a Eureka"
+                            class="icon"></a>
+                    <a href="https://www.instagram.com/eureka.tiendaonline/" target="_blank"><img
+                            src="../assets/images/logo-instagram.svg" alt="Icono de Instagram con enlace a Eureka"
+                            class="icon"></a>
+                    <a href="#"><img src="../assets/images/logo-whatsapp.svg"
+                            alt="Icono de WhatsApp para comunicarse con Eureka" class="icon"></a>
+                    <a href="#"><img src="../assets/images/logo-gmail.svg"
+                            alt="Icono de Gmail para comunicarse con Eureka" class="icon"></a>
+                </div>
+                <div class="footer__content__copy">
+                    <p> Copyright &copy; 2020 Ezequiel Rebasa</p>
+                </div>
+            </div>
+        </footer>
+        <!------------------------------->
+    </div>
+    <!-- Bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <script>
+        function myFunction(x) {
+            x.classList.toggle("change");
+        }
+    </script>
+
+</body>
+
+
+</html>

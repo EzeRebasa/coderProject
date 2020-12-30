@@ -1,0 +1,49 @@
+/*==================== BUTTONS =================*/
+
+.button {
+  height: auto;
+  min-width: 80px;
+  max-width: auto;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  transition: all .4s;
+
+  &:hover {
+    transform: scale(1.15); 
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.button--default {
+  @extend .button;
+  background-color: $clr-light-lilac;
+  border: 1px solid $clr-purple;
+  &:hover {
+    background-color: $clr-purple;
+    color: $clr-white;  
+  }
+}
+
+.button--delete {
+  @extend .button;
+  background-color: $clr-inactiveDelete;
+  border: 1px solid $clr-activeDelete;
+  &:hover {
+    background-color: $clr-activeDelete;
+    color: $clr-white;  
+  }
+}
+
+.button--confirm {
+    @extend .button;
+    background-color: $clr-inactiveConfirm;
+    border: 1px solid $clr-activeConfirm;
+    &:hover {
+        background-color: $clr-activeConfirm;
+        color: $clr-white;  
+      }
+ }
