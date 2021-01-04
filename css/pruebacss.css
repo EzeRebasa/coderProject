@@ -435,3 +435,5 @@ a {
       padding: 4px 8px 8px 8px;
       display: flex;
       justify-content: space-evenly; }
+      .catalogMain .catalogMain__products .catalogMain__products__filter form fieldset .filterItem select {
+        width: 100%; }
