@@ -48,11 +48,11 @@
 .productsSection article, .categoriesSection {
   background-color: #f4f1f4; }
 
-.indexMain .indexMain__news .indexMain__news__title, .catalogMain .catalogMain__features__title {
+.indexMain .indexMain__news .indexMain__news__title, .catalogMain .catalogMain__features__title, .newsMain .newsMain__sectionTitle--title {
   text-align: center;
   margin: 2.4rem 0 2.4rem; }
 
-.indexMain .indexMain__categories .indexMain__categories__title, .indexMain .indexMain__categories .indexMain__categories__card--title {
+.indexMain .indexMain__categories .indexMain__categories__title, .indexMain .indexMain__categories .indexMain__categories__card--title, .newsMain .newsMain__products .newsMain__products__article--title {
   text-align: left;
   padding: 24px 0 24px 24px; }
 
@@ -437,3 +437,12 @@ a {
       justify-content: space-evenly; }
       .catalogMain .catalogMain__products .catalogMain__products__filter form fieldset .filterItem select {
         width: 100%; }
+
+.newsMain .newsMain__sectionTitle {
+  height: 160px; }
+  .newsMain .newsMain__sectionTitle p {
+    font-family: SourceSansPro;
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: regular;
+    text-align: center; }

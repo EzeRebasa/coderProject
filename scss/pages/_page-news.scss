@@ -1,0 +1,24 @@
+.newsMain {
+  .newsMain__sectionTitle {
+    height: 160px;
+    &--title {
+      @extend %title;
+    }
+
+    p {
+      font-family: SourceSansPro;
+      font-size: 2.4rem;
+      font-style: normal;
+      font-weight: regular;
+      text-align: center;
+    }
+  }
+
+  .newsMain__products {
+    .newsMain__products__article {
+        &--title {
+            @extend %subtitle;
+        }
+    }
+  }
+}
