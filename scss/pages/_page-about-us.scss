@@ -11,15 +11,18 @@
       background-image: linear-gradient(45deg, $clr-light-purple, transparent);
       padding: 24px;
 
-      .aboutMain__content__about, .aboutMain__content__products, .aboutMain__content__localization{
-          &--text{
-              padding: 16px;
-              font-size: 2.4rem;
-          }
+      .aboutMain__content__about,
+      .aboutMain__content__products,
+      .aboutMain__content__localization {
+        &--text {
+          padding: 16px;
+          font-size: 2.4rem;
+        }
       }
     }
-    .aboutMain__content__about, .aboutMain__content__products{
-        margin-bottom: 6.4rem;
-      }
+    .aboutMain__content__about,
+    .aboutMain__content__products {
+      margin-bottom: 6.4rem;
+    }
   }
 }
