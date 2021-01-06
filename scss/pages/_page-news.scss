@@ -16,6 +16,7 @@
 
   .newsMain__products {
     .newsMain__products__article {
+        @extend %productsList;
         &--title {
             @extend %subtitle;
         }

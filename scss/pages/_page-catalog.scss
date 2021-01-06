@@ -29,6 +29,15 @@
         }
       }
     }
+
+    .catalogMain__products__section {
+      .catalogMain__products__section__article{
+        @extend %productsList;
+        &--title {
+          @extend %subtitle;
+        }
+      }
+    }
   }
   /*--------------------------*/
 }

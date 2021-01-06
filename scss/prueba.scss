@@ -34,19 +34,14 @@
 /*--- PRODUCTS CARD ---*/
 @import "components/cards";
 
-.productList {
-    padding: 32px;
-    margin: 1.6rem;
-}
-
-.productsSection {
-    article {
-        @extend %backgroundList;
-    }
-}
-.categoriesSection {
-    @extend %backgroundList;
-}
+// .productsSection {
+//     article {
+//         @extend %backgroundList;
+//     }
+// }
+// .categoriesSection {
+//     @extend %backgroundList;
+// }
 /*---------------------*/
 /*------ FOOTER -------*/
 @import "components/footer";
