@@ -1,0 +1,59 @@
+.cartMain {
+    &--title {
+        @extend %title;
+    }
+
+    .cartMain__container {
+        .cartMain__container__row {
+            .cartMain__container__row__cartForm {
+                padding: 0;
+                height: fit-content;
+                margin-bottom: 1.6rem;
+               
+                form {
+                    div {
+                        margin: 0 1.6rem;
+                        /*---------- CART TABLE ---------*/
+                        .table {
+                            background-color: hsl(271, 13%, 98%);
+                            border-collapse: collapse;
+                            text-align: center;
+                            vertical-align: middle;
+                            width: 100%;
+
+                            td, tr, th {
+                                border: none;
+                                padding: .8rem;
+                             }
+
+                            thead {
+                                tr,
+                                th {
+                                    font-size: 2rem;
+                                    font-weight: normal;
+                                    background-color: $clr-lilac;
+                                }
+                            }
+
+                            tfoot {
+                                td{
+                                    &:last-child {
+                                        font-size: 1.6rem;
+                                        font-weight: bold;
+                                        opacity: .8;
+                                    }
+                                }
+                            }
+                        }
+                        /*---------------------------*/
+                    }
+                }
+            }
+
+            .cartMain__container__row__dataClient {
+                background-color: hsl(271, 13%, 98%);
+        
+            }
+        }
+    }
+}

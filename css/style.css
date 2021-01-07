@@ -566,12 +566,12 @@ a {
 
 /* TODO: Modificar vista de carrito y form y agregar estilos */
 
-.cartForm {
+/* .cartForm {
    padding: 0;
    margin: 0;
    margin-bottom: 1.6rem;
-}
-
+} */
+/* 
 .cartContent, .dataContent {
    margin: 0;
    padding: 0;
@@ -579,7 +579,7 @@ a {
 }
 
 /* -------CART TABLE------ */
-
+/*
 table {
    border-collapse: collapse;
    width: 100%;
@@ -601,7 +601,7 @@ tfoot td:last-child {
    font-size: 1.6rem;
    font-weight: bold;
    opacity: .8;
-}
+} */
 
 /* ------- CUSTOMER FORM ------ */
 

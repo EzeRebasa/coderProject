@@ -91,18 +91,18 @@
         </header>
         <!------------------------------->
         <!------------- CART ------------>
-        <main class="main mainGrid__main">
+        <main class="cartMain mainGrid__main">
             <!-- La idea es armar un pedido y que se envie la información del pedido junto a los datos del
         comprador al WhatsApp del vendedor... ( Algo similar a Tupperware) -->
-            <h1 class=" title"> ~ MI CARRITO ~ </h1>
+            <h1 class="cartMain--title"> ~ MI CARRITO ~ </h1>
             <!-- <div class="cartContainer"> -->
-            <div class="container-fluid">
+            <div class="container-fluid cartMain__container">
                 <!-- <div class="cartProductsContainer"> -->
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 col-md-8 col-sm-8 cartForm">
+                <div class="row justify-content-center cartMain__container__row">
+                    <div class="col-lg-6 col-md-8 col-sm-10 cartMain__container__row__cartForm">
                         <form action="#">
                             <div class="table-responsive">
-                                <table cellspacing=0 cellpadding=0 class="table table-cebra">
+                                <table cellspacing=0 cellpadding=0 class="table">
                                     <thead>
                                         <tr>
                                             <th> Producto </th>
@@ -116,7 +116,16 @@
                                         <tr>
                                             <th>Item 1</th>
                                             <td>
-                                                < 3>
+                                                < 3 >
+                                            </td>
+                                            <td> 150 </td>
+                                            <td> 450 </td>
+                                            <td><input type="button" value="Quitar" class="button--delete"></td>
+                                        </tr>
+                                         <tr>
+                                            <th>Item 2</th>
+                                            <td>
+                                                < 2 >
                                             </td>
                                             <td> 150 </td>
                                             <td> 450 </td>
@@ -128,7 +137,7 @@
                                             <td colspan="2"><input type="submit" value="CONFIRMAR PEDIDO"
                                                     class="button--confirm">
                                             </td>
-                                            <td colspan="3"> Total : $ 450 </td>
+                                            <td colspan="3"> Total : $ 900 </td>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -139,7 +148,7 @@
                     <!------------------------------->
                     <!-------- CUSTOMER DATA ----------->
                     <!-- <div class="cartFormContainer"> -->
-                    <div class="col-lg-5 col-md-8 col-sm-8  dataContent">
+                    <div class="col-lg-5 col-md-8 col-sm-10  cartMain__container__row__dataClient">
                         <form action="#" id="form">
                             <fieldset>
                                 <legend> Datos de cliente </legend>
