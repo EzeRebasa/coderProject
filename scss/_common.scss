@@ -79,8 +79,8 @@ a {
 
 /*---- Icons ----*/
 .icon {
+  width: $iconWidth;
   &--search {
-    width: $iconWidth;
     background-image: url(../assets/images/search.svg);
     background-repeat: no-repeat;
     filter: invert(91%) sepia(15%) saturate(4106%) hue-rotate(197deg)
