@@ -10,10 +10,12 @@
   /*---- Products Catalog ----*/
   .catalogMain__products {
     .catalogMain__products__filter {
+      background-color: $clr-light-orange;
+      color: $clr-text;
       font-size: 1.2rem;
       font-weight: bold;
-      color: $clr-text;
       margin: 1.6rem;
+      padding: 1.6rem;
       
       form {
         fieldset {
@@ -21,6 +23,9 @@
           display: flex;
           justify-content: space-evenly;
 
+          legend {
+            float:none;
+          }
           .filterItem {
             select {
               width: 100%;
