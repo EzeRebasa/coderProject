@@ -23,6 +23,7 @@
   /* --------------------- */
 
   .indexMain__categories {
+    @extend %productsList;
     .indexMain__categories__title {
       @extend %subtitle;
       padding: 16px;
