@@ -12,11 +12,9 @@
     .catalogMain__products__filter {
       background-color: $clr-light-orange;
       color: $clr-text;
-      font-size: 1.2rem;
-      font-weight: bold;
       margin: 1.6rem;
       padding: 1.6rem;
-      
+
       form {
         fieldset {
           padding: 4px 8px 8px 8px;
@@ -24,9 +22,15 @@
           justify-content: space-evenly;
 
           legend {
-            float:none;
+            font-size: 1.6rem;
+            font-weight: bold;
+            float: none;
           }
           .filterItem {
+            font-size: 1.2rem;
+            label {
+              font-weight: bold;
+            }
             select {
               width: 100%;
             }
@@ -36,7 +40,7 @@
     }
 
     .catalogMain__products__section {
-      .catalogMain__products__section__article{
+      .catalogMain__products__section__article {
         @extend %productsList;
         &--title {
           @extend %subtitle;

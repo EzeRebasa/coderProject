@@ -5,6 +5,8 @@
 
     .cartMain__container {
         .cartMain__container__row {
+            font-family: SourceSansPro;
+            font-weight: 500;
             .cartMain__container__row__cartForm {
                 padding: 0;
                 height: fit-content;
@@ -29,11 +31,13 @@
                             }
 
                             thead {
+                                vertical-align: middle;
                                 tr,
                                 th {
-                                    font-size: 2rem;
-                                    font-weight: normal;
+                                    font-size: 1.8rem;
+                                    font-weight: 500;
                                     background-color: $clr-lilac;
+                                    text-transform: uppercase;
                                 }
                             }
 
@@ -54,15 +58,16 @@
 
             .cartMain__container__row__dataClient {
                 padding: 0;
-                
+
                 #form {
                     background-color: hsl(271, 13%, 95%);
                     margin: 0 1.6rem;
                     padding: 16px;
                     fieldset {
                         legend {
-                            font-size: 2rem;
-                            font-weight: normal;
+                            font-size: 1.8rem;
+                            font-weight: 500;
+                            text-transform: uppercase;
                             margin-bottom: 3.2rem;
                             float: none;
                         }
@@ -104,7 +109,7 @@
                                     transform: scale(1, 1.2);
                                 }
                             }
-                            
+
                             &.groupFormButtons {
                                 display: flex;
                                 justify-content: center;
@@ -120,25 +125,22 @@
             }
 
             .cartMain__container__row__payMethods {
-   
-                margin: 3.2rem ;
+                margin: 3.2rem;
 
                 &--title {
                     @extend %title;
                 }
 
                 &--imgs {
-                    ul{
+                    ul {
                         list-style: none;
                         display: flex;
                         flex-flow: row nowrap;
                         justify-content: space-between;
                         li {
-                    
                             width: 160px;
                         }
                     }
-
                 }
             }
         }

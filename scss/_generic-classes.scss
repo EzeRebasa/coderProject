@@ -19,11 +19,13 @@
 %title {
   text-align: center;
   margin: 2.4rem 0 2.4rem;
+  font-size: 3.2rem;
 }
 
 %subtitle {
   text-align: left;
   padding: 24px 0 24px 24px;
+  font-size: 2.4rem;
 }
 
 %carousel {
@@ -32,4 +34,21 @@
   text-align: center;
   width: 50%;
   margin: 2.4rem auto 2.4rem;
+}
+
+@media only screen and (max-width: 992px) {
+  %title {
+    font-size: 2.8rem;
+  }
+  %subtitle {
+    font-size: 2rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  %title {
+    font-size: 2.4rem;
+  }
+  %subtitle {
+    font-size: 1.8rem;
+  }
 }
