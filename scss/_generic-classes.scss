@@ -28,6 +28,12 @@
   font-size: 2.4rem;
 }
 
+%categoryTitle {
+  text-align: center;
+  margin: 2.4rem 0 2.4rem;
+  font-size: 2rem;
+}
+
 %carousel {
   border: 3px solid var(--clr-orange);
   background-color: var(--clr-light-orange);
@@ -43,6 +49,9 @@
   %subtitle {
     font-size: 2rem;
   }
+  %categoryTitle {
+    font-size: 1.8rem;
+  }
 }
 @media only screen and (max-width: 768px) {
   %title {
@@ -50,5 +59,8 @@
   }
   %subtitle {
     font-size: 1.8rem;
+  }
+  %categoryTitle {
+    font-size: 1.6rem;
   }
 }

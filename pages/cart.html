@@ -14,80 +14,43 @@
 <body>
     <div class="mainGrid">
         <!------------- HEADER -------------->
-        <header class="header mainGrid__header">
-            <!-- <div class="header__content"> -->
-                <!--<div id="logo" class="logotype">
-                    <a href="../index.html"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka"></a>
-                </div>
-                <div class="searchContainer">
-                    <form action="">
-                        <input type="text" placeholder="Buscar Artículo">
-                        <input type="submit" value=""><span class="icon search"></span>
-                    </form>
-                </div>
-
-                <div class="emptyDiv"></div>
-            </div>
-            <nav class="navbar">
-                <ul class="menu">
-                    <li><a href="../index.html"> HOME </a></li>
-                    <li><a href="catalog.html"> CATALOGO </a>
-                        <ul class="subMenu">
-                            <li><a href="catalog.html#perfume"> Perfumes </a></li>
-                            <li><a href="catalog.html#casual"> Ropa casual </a></li>
-                            <li><a href="catalog.html#sport"> Ropa deportiva </a></li>
-                        </ul>
-                    </li>
-                    <li><a href="news.html"> NOVEDADES </a></li>
-                    <li><a href="about-us.html"> CONOCENOS </a></li>
-                </ul>
-            </nav> -->
-                <!-- <div id="logo" class="logotype">
+  
+        <nav class="navbarResponsive mainGrid__header">
+            <div class="logo">
                 <a href="../index.html"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka"></a>
             </div>
-            <div class="searchContainer">
-                <form action="">
+            <div class="nav__search">
+                <form action="#" class="search__form">
                     <input type="text" placeholder="Buscar Artículo">
-                    <input type="submit" value=""><span class="icon search"></span>
+                    <input type="submit" value=""><span class="icon--search"></span>
                 </form>
-            </div> -->
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid header__content">
-                        <div id="logo" class="header__logo">
-                            <a href="../index.html"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka"></a>
-                        </div>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../index.html">HOME</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="catalog.html">CATALOGO</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="news.html">NOVEDADES</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="about-us.html">CONOCENOS</a>
-                                </li>
-
-                            </ul>
-                            <div class="header__search">
-                                <form action="#" class="search__form">
-                                    <input type="text" placeholder="Buscar Artículo">
-                                    <input type="submit" value=""><span class="icon--search"></span>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
             </div>
-        </header>
+             <ul class="navbarResponsive__links">
+               <li>
+                 <a  href="../index.html">HOME</a>
+                </li>
+                <li class="dropdown">
+                    <a href="catalog.html"> CATALOGO </a>
+                    <ul class="navbar__submenu">
+                            <li><a href="catalog.html#perfume"> Perfumes </a></li>
+                            <li><a href="catalog.html#casual"> Ropa casual </a></li>
+                            <li><a href="catalog.html#sport"> Ropa deportiva </a></li> 
+                    </ul>
+                    
+                </li>
+                <li>
+                    <a  href="news.html">NOVEDADES</a>
+                </li>
+                <li>
+                    <a  href="about-us.html">CONOCENOS</a>
+                </li>                 
+             </ul>
+             <div class="burguer">
+                 <div class="line1"></div>
+                 <div class="line2"></div>
+                 <div class="line3"></div>
+             </div>
+        </nav>
         <!------------------------------->
         <!------------- CART ------------>
         <main class="cartMain mainGrid__main">
@@ -279,10 +242,8 @@
         crossorigin="anonymous"></script>
     <script src="/js/bootstrap.min.js"></script>
 
-    <script>
-        function myFunction(x) {
-            x.classList.toggle("change");
-        }
+    <script src="../js/app.js">
+        
     </script>
 
 </body>

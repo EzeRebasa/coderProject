@@ -41,7 +41,7 @@
   padding: 8px 16px 0 16px;
   width: 100%; }
 
-.header .header__content .header__logo, .footer .footer__logo {
+.header .header__content .header__logo, .logo, .footer .footer__logo {
   min-width: 4.8rem;
   max-width: 5.6rem; }
 
@@ -55,10 +55,15 @@
   margin: 2.4rem 0 2.4rem;
   font-size: 3.2rem; }
 
-.indexMain .indexMain__categories .indexMain__categories__title, .indexMain .indexMain__categories .indexMain__categories__card--title, .catalogMain .catalogMain__products .catalogMain__products__section .catalogMain__products__section__article--title, .newsMain .newsMain__products .newsMain__products__article--title {
+.indexMain .indexMain__categories .indexMain__categories__title, .catalogMain .catalogMain__products .catalogMain__products__section .catalogMain__products__section__article--title, .newsMain .newsMain__products .newsMain__products__article--title {
   text-align: left;
   padding: 24px 0 24px 24px;
   font-size: 2.4rem; }
+
+.indexMain .indexMain__categories .indexMain__categories__card--title {
+  text-align: center;
+  margin: 2.4rem 0 2.4rem;
+  font-size: 2rem; }
 
 .indexMain .indexMain__news, .catalogMain .catalogMain__features {
   border: 3px solid var(--clr-orange);
@@ -70,14 +75,18 @@
 @media only screen and (max-width: 992px) {
   .indexMain .indexMain__news .indexMain__news__title, .catalogMain .catalogMain__features__title, .newsMain .newsMain__sectionTitle--title, .aboutMain .aboutMain__title, .cartMain--title, .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__payMethods--title {
     font-size: 2.8rem; }
-  .indexMain .indexMain__categories .indexMain__categories__title, .indexMain .indexMain__categories .indexMain__categories__card--title, .catalogMain .catalogMain__products .catalogMain__products__section .catalogMain__products__section__article--title, .newsMain .newsMain__products .newsMain__products__article--title {
-    font-size: 2rem; } }
+  .indexMain .indexMain__categories .indexMain__categories__title, .catalogMain .catalogMain__products .catalogMain__products__section .catalogMain__products__section__article--title, .newsMain .newsMain__products .newsMain__products__article--title {
+    font-size: 2rem; }
+  .indexMain .indexMain__categories .indexMain__categories__card--title {
+    font-size: 1.8rem; } }
 
 @media only screen and (max-width: 768px) {
   .indexMain .indexMain__news .indexMain__news__title, .catalogMain .catalogMain__features__title, .newsMain .newsMain__sectionTitle--title, .aboutMain .aboutMain__title, .cartMain--title, .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__payMethods--title {
     font-size: 2.4rem; }
-  .indexMain .indexMain__categories .indexMain__categories__title, .indexMain .indexMain__categories .indexMain__categories__card--title, .catalogMain .catalogMain__products .catalogMain__products__section .catalogMain__products__section__article--title, .newsMain .newsMain__products .newsMain__products__article--title {
-    font-size: 1.8rem; } }
+  .indexMain .indexMain__categories .indexMain__categories__title, .catalogMain .catalogMain__products .catalogMain__products__section .catalogMain__products__section__article--title, .newsMain .newsMain__products .newsMain__products__article--title {
+    font-size: 1.8rem; }
+  .indexMain .indexMain__categories .indexMain__categories__card--title {
+    font-size: 1.6rem; } }
 
 /*---------------------*/
 /*------ BUTTONS ------*/
@@ -293,59 +302,126 @@ a {
 
 /*---------------------*/
 /*------ NAVBAR -------*/
-.navbar {
-  width: 100%;
-  position: relative;
-  display: inline-block;
-  padding: 0; }
-  .navbar .navbar__menu {
+.navbarResponsive {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 7.2rem;
+  background-color: #e9e2e8; }
+  .navbarResponsive__links {
+    background-color: #d8dcde;
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    list-style: none;
-    font-size: 0; }
-    .navbar .navbar__menu li {
-      background-color: #d8dcde;
-      display: inline-block;
-      font-size: 2.4rem;
-      padding: 0 0.8rem;
-      position: relative; }
-      .navbar .navbar__menu li a {
-        color: #353b41;
-        display: block;
-        padding: 8px;
-        text-decoration: none; }
-      .navbar .navbar__menu li:hover {
+    justify-content: space-around;
+    align-items: center;
+    width: 60%;
+    height: 4.8rem; }
+    .navbarResponsive__links a {
+      text-decoration: none;
+      color: #353b41;
+      letter-spacing: 2px;
+      font-size: 1.4rem; }
+    .navbarResponsive__links li {
+      list-style: none;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .navbarResponsive__links li:hover {
         background-color: rgba(64, 38, 75, 0.702); }
-        .navbar .navbar__menu li:hover > a {
+        .navbarResponsive__links li:hover > a {
           color: white; }
-        .navbar .navbar__menu li:hover .navbar__submenu {
+        .navbarResponsive__links li:hover .navbar__submenu {
           display: block; }
-      .navbar .navbar__menu li.active {
-        background-color: #40264b; }
-        .navbar .navbar__menu li.active > a {
-          color: white; }
-  .navbar .navbar__submenu {
-    background-color: white;
-    display: none;
+  .navbarResponsive .navbar__submenu {
+    background-color: #d8dcde;
+    display: flex;
+    flex-flow: column nowrap;
     position: absolute;
-    left: 20px;
-    text-align: center;
-    margin: auto; }
-    .navbar .navbar__submenu--bg {
-      background-color: #e9e2e8; }
-    .navbar .navbar__submenu li {
-      background-color: var(--clr-light-lilac);
+    top: 6rem; }
+    .navbarResponsive .navbar__submenu li {
+      background-color: #e9e2e8;
       font-size: 2.4rem;
       text-align: left;
       padding-left: 16px;
       position: relative;
       width: 300px; }
-      .navbar .navbar__submenu li a {
-        color: #353b41;
-        padding: 10px; }
-      .navbar .navbar__submenu li:hover a {
+  .navbarResponsive .burguer {
+    display: none;
+    cursor: pointer; }
+    .navbarResponsive .burguer div {
+      width: 2.4rem;
+      height: 0.3rem;
+      background-color: rgba(64, 38, 75, 0.702);
+      margin: 0.3rem;
+      transition: all 0.3s ease; }
+  .navbarResponsive .nav__search {
+    background-color: white;
+    margin: 0.8rem 0;
+    padding: 8px;
+    width: 240px; }
+    .navbarResponsive .nav__search .search__form {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%; }
+      .navbarResponsive .nav__search .search__form input {
+        border: none; }
+      .navbarResponsive .nav__search .search__form input[type="text"] {
+        font-weight: 300;
+        font-size: 1.6rem; }
+      .navbarResponsive .nav__search .search__form span {
+        width: 3.2rem;
+        height: 3.2rem; }
+
+@media screen and (max-width: 1024px) {
+  .navbarResponsive__links {
+    width: 55%; } }
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden; }
+  .navbarResponsive__links {
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 7.2rem;
+    background-color: #e9e2e8;
+    z-index: 10;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in; }
+    .navbarResponsive__links li {
+      opacity: 0; }
+      .navbarResponsive__links li:hover a {
         color: white; }
+  .navbarResponsive .burguer {
+    display: block; } }
+
+.nav--active {
+  transform: translateX(0%); }
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px); }
+  to {
+    opacity: 1;
+    transform: translateX(0px); } }
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-3px, 5px); }
+
+.toggle .line2 {
+  opacity: 0; }
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-3px, -5px); }
 
 /*---------------------*/
 /*--- PRODUCTS CARD ---*/
@@ -431,8 +507,6 @@ a {
     .indexMain .indexMain__categories .indexMain__categories__card:hover {
       transform: translate(-2px, -2px);
       box-shadow: 2px 2px 10px 4px rgba(0, 0, 255, 0.1); }
-    .indexMain .indexMain__categories .indexMain__categories__card--title {
-      padding: 24px; }
     .indexMain .indexMain__categories .indexMain__categories__card--img {
       width: 180px;
       height: 240px;
