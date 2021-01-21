@@ -11,16 +11,36 @@
   grid-row: 1 / 2;
 }
 
-.mainGrid__main {
+.mainGrid__nav {
   grid-column: 1 / 13;
   grid-row: 2 / 3;
 }
 
-.mainGrid__footer {
+.mainGrid__main {
   grid-column: 1 / 13;
   grid-row: 3 / 4;
 }
+
+.mainGrid__footer {
+  grid-column: 1 / 13;
+  grid-row: 4 / 5;
+}
 /*------------------------*/
+
+/*--- Header Content Grid ----*/
+.header__content--grid {
+  display: grid;
+  grid-template-areas: 'logo search cart';
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (min-width: 540px){
+  .header__content--grid {
+    justify-content: space-around;
+  }
+}
+
 /*--- ProductsList Grid---*/
 
 .listGrid {

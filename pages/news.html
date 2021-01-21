@@ -2,58 +2,92 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sitio de compras donde encontrarás perfumes, ropa casual y camisetas de fútbol">
-    <meta name="keywords" content="PERFUMES, CHOMBAS, CAMISETAS, ROPA, CASUAL, FUTBOL">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <title> Eureka - Novedades </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sitio de compras donde encontrarás perfumes, ropa casual y camisetas de fútbol" />
+    <meta name="keywords" content="PERFUMES, CHOMBAS, CAMISETAS, ROPA, CASUAL, FUTBOL" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Eureka - Novedades</title>
 </head>
 
 <body>
     <div class="mainGrid">
-        <!----------------  HEADER  ------------------>
+        <!------------------ HEADER --------------------->
         <header class="header mainGrid__header">
-            <div class="header__content">
+            <div class="header__content header__content--grid">
                 <div id="logo" class="header__logo">
-                    <a href="../index.html"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka"></a>
+                    <a href="../index.html"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka" /></a>
                 </div>
                 <div class="header__search">
                     <form action="#" class="search__form">
-                        <input type="text" placeholder="Buscar Artículo">
-                        <input type="submit" value=""><span class="icon--search"></span>
+                        <input type="text" placeholder="Buscar Artículo" />
+                        <span class="icon--search"></span>
                     </form>
                 </div>
                 <div class="header__cart">
-                    <a href="cart.html"><img src="../assets/images/shopping-cart.svg" alt="Carrito de compras"
-                            class="icon--cart"><span class="badge bg-danger"> 1 </span></a>
+                    <a href="cart.html"><img src="../assets/images/shopping-cart.svg" alt="Carrito" class="icon--cart" /><span class="badge bg-danger"> 1 </span></a>
                 </div>
             </div>
-            <nav class="navbar">
-                <ul class="navbar__menu">
-                    <li><a href="../index.html"> HOME </a></li>
-                    <li><a href="catalog.html"> CATALOGO </a>
-                        <ul class="navbar__submenu">
-                            <div class="navbar__submenu--bg">
-                                <li><a href="catalog.html#perfume"> Perfumes </a></li>
-                                <li><a href="catalog.html#casual"> Ropa casual </a></li>
-                                <li><a href="catalog.html#sport"> Ropa deportiva </a></li>
-                            </div>
+
+            <nav class="navbar navbar-light navbar-expand-md mainGrid__nav">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../index.html"> HOME </a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="news.html"> NOVEDADES </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="catalog.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    CATALOG
+                  </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item" href="catalog.html#perfume">
+                        Perfumes
+                      </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="catalog.html#casual">
+                        Ropa casual
+                      </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="catalog.html#sport">
+                        Ropa deportiva
+                      </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider" />
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about-us.html"> CONOCENOS </a>
+                            </li>
                         </ul>
-                    </li>
-                    <li class="active"><a href="news.html"> NOVEDADES </a></li>
-                    <li><a href="about-us.html"> CONOCENOS </a></li>
-                </ul>
+                    </div>
+                </div>
             </nav>
         </header>
+
+        <!-------------------------------------------->
         <main class="newsMain mainGrid__main">
             <!------------------------------------------------->
             <!--------------------TITLE------------------------>
             <section class="newsMain__sectionTitle">
-                <h1 class="newsMain__sectionTitle--title"> ~ NOVEDADES ~ </h1>
-                <p>En esta sección vas a encontrar lo <b><em>último</em></b> que fuimos agregando a
-                    nuestro catálogo de productos.
+                <h1 class="newsMain__sectionTitle--title">~ NOVEDADES ~</h1>
+                <p>
+                    En esta sección vas a encontrar lo <b><em>último</em></b> que fuimos agregando a nuestro catálogo de productos.
                 </p>
             </section>
             <!------------------------------------------------->
@@ -61,145 +95,148 @@
 
             <section class="newsMain__products">
                 <article class="newsMain__products__article">
-                    <h2 class="newsMain__products__article--title"> ~ PERFUMES ~ </h2>
+                    <h2 class="newsMain__products__article--title">~ PERFUMES ~</h2>
                     <ul class="listGrid">
                         <li class="card">
-                            <img src="../assets/images/per-mujer/ch.jpg" class="card-img-top" alt="Perfume CH de Carolina Herrera">
+                            <img src="../assets/images/per-mujer/ch.jpg" class="card-img-top" alt="Perfume CH de Carolina Herrera" />
                             <div class="card-body">
                                 <h3 class="card-title">CH</h3>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <select name="pSize" id="pSize">
-                                        <option value="p_thumbail"> 35ml </option>
-                                        <option value="p_fifty"> 50ml </option>
-                                        <option value="p_hundred"> 100ml </option>
-                                        <option value="p_premiun"> Premiun </option>
-                                    </select>
+                      <option value="p_thumbail">35ml</option>
+                      <option value="p_fifty">50ml</option>
+                      <option value="p_hundred">100ml</option>
+                      <option value="p_premiun">Premiun</option>
+                    </select>
                                 </li>
-                                <li class="list-group-item">Precio : $ 100 </li>
+                                <li class="list-group-item">Precio : $ 100</li>
                             </ul>
                             <div class="card-body addToCart">
-                                <a href="cart.html" class="card-link ">Agregar a carrito</a>
+                                <a href="cart.html" class="card-link">Agregar a carrito</a>
                             </div>
                         </li>
 
-
                         <li class="card">
-                            <img src="../assets/images/per-mujer/gg-ch.jpg" class="card-img-top" alt="Perfume good girl de Carolina Herrera">
+                            <img src="../assets/images/per-mujer/gg-ch.jpg" class="card-img-top" alt="Perfume good girl de Carolina Herrera" />
                             <div class="card-body">
                                 <h3 class="card-title">Good Girl</h3>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <select name="pSize" id="pSize">
-                                        <option value="p_thumbail"> 35ml </option>
-                                        <option value="p_fifty"> 50ml </option>
-                                        <option value="p_hundred"> 100ml </option>
-                                        <option value="p_premiun"> Premiun </option>
-                                    </select>
+                      <option value="p_thumbail">35ml</option>
+                      <option value="p_fifty">50ml</option>
+                      <option value="p_hundred">100ml</option>
+                      <option value="p_premiun">Premiun</option>
+                    </select>
                                 </li>
-                                <li class="list-group-item">Precio : $ 100 </li>
+                                <li class="list-group-item">Precio : $ 100</li>
                             </ul>
                             <div class="card-body addToCart">
-                                <a href="cart.html" class="card-link ">Agregar a carrito</a>
+                                <a href="cart.html" class="card-link">Agregar a carrito</a>
                             </div>
                         </li>
-
                     </ul>
                 </article>
                 <article class="newsMain__products__article">
-                    <h2 class="newsMain__products__article--title"> ~ ROPA CASUAL ~ </h2>
+                    <h2 class="newsMain__products__article--title">~ ROPA CASUAL ~</h2>
                     <ul class="listGrid">
                         <li class="card">
-                            <img src="../assets/images/chombas/violeta.jpg" class="card-img-top" alt="Chomba Lacoste">
+                            <img src="../assets/images/chombas/violeta.jpg" class="card-img-top" alt="Chomba Lacoste" />
                             <div class="card-body">
                                 <h3 class="card-title">Chomba Lacoste color violeta</h3>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <select name="tSize" id="tSize">
-                                        <option value="m"> Medium </option>
-                                        <option value="l"> Large </option>
-                                        <option value="xl"> Extra Large </option>
-                                    </select>
+                      <option value="m">Medium</option>
+                      <option value="l">Large</option>
+                      <option value="xl">Extra Large</option>
+                    </select>
                                 </li>
-                                <li class="list-group-item">Precio : $ 1000 </li>
+                                <li class="list-group-item">Precio : $ 1000</li>
                             </ul>
                             <div class="card-body addToCart">
-                                <a href="cart.html" class="card-link ">Agregar a carrito</a>
+                                <a href="cart.html" class="card-link">Agregar a carrito</a>
                             </div>
                         </li>
                         <li class="card">
-                            <img src="../assets/images/chombas/blanco.jpg" class="card-img-top" alt="Chomba Lacoste">
+                            <img src="../assets/images/chombas/blanco.jpg" class="card-img-top" alt="Chomba Lacoste" />
                             <div class="card-body">
                                 <h3 class="card-title">Chomba Lacoste color blanco</h3>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <select name="tSize" id="tSize">
-                                        <option value="m"> Medium </option>
-                                        <option value="l"> Large </option>
-                                        <option value="xl"> Extra Large </option>
-                                    </select>
+                      <option value="m">Medium</option>
+                      <option value="l">Large</option>
+                      <option value="xl">Extra Large</option>
+                    </select>
                                 </li>
-                                <li class="list-group-item">Precio : $ 1000 </li>
+                                <li class="list-group-item">Precio : $ 1000</li>
                             </ul>
                             <div class="card-body addToCart">
-                                <a href="cart.html" class="card-link ">Agregar a carrito<svg
-                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-cart-plus"
-                                        viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                                        <path fill-rule="evenodd"
-                                            d="M8.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z" />
-                                    </svg></a>
+                                <a href="cart.html" class="card-link">Agregar a carrito<svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      class="bi bi-cart-plus"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z"
+                      /></svg></a>
                             </div>
-
                         </li>
                     </ul>
                 </article>
                 <article class="newsMain__products__article">
-                    <h2 class="newsMain__products__article--title"> ~ ROPA DEPORTIVA ~ </h2>
+                    <h2 class="newsMain__products__article--title">
+                        ~ ROPA DEPORTIVA ~
+                    </h2>
                     <ul class="listGrid">
                         <li class="card">
-                            <img src="../assets/images/camisetas/argentina-tit2021.jpg" class="card-img-top"
-                                alt="Camiseta titular de Argentina">
+                            <img src="../assets/images/camisetas/argentina-tit2021.jpg" class="card-img-top" alt="Camiseta titular de Argentina" />
                             <div class="card-body">
                                 <h3 class="card-title">Camiseta Argentina Tit(2021)</h3>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <select name="tSize" id="tSize">
-                                        <option value="m"> Medium </option>
-                                        <option value="l"> Large </option>
-                                        <option value="xl"> Extra Large </option>
-                                    </select>
+                      <option value="m">Medium</option>
+                      <option value="l">Large</option>
+                      <option value="xl">Extra Large</option>
+                    </select>
                                 </li>
-                                <li class="list-group-item">Precio : $ 1000 </li>
+                                <li class="list-group-item">Precio : $ 1000</li>
                             </ul>
                             <div class="card-body addToCart">
-                                <a href="cart.html" class="card-link ">Agregar a carrito</a>
+                                <a href="cart.html" class="card-link">Agregar a carrito</a>
                             </div>
                         </li>
                         <li class="card">
-                            <img src="../assets/images/camisetas/argentina-sup2021.jpg" class="card-img-top"
-                                alt="Camiseta suplente de Argentina">
+                            <img src="../assets/images/camisetas/argentina-sup2021.jpg" class="card-img-top" alt="Camiseta suplente de Argentina" />
                             <div class="card-body">
                                 <h3 class="card-title">Camiseta Argentina Sup(2021)</h3>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <select name="tSize" id="tSize">
-                                        <option value="m"> Medium </option>
-                                        <option value="l"> Large </option>
-                                        <option value="xl"> Extra Large </option>
-                                    </select>
+                      <option value="m">Medium</option>
+                      <option value="l">Large</option>
+                      <option value="xl">Extra Large</option>
+                    </select>
                                 </li>
-                                <li class="list-group-item">Precio : $ 1000 </li>
+                                <li class="list-group-item">Precio : $ 1000</li>
                             </ul>
                             <div class="card-body addToCart">
-                                <a href="cart.html" class="card-link ">Agregar a carrito</a>
+                                <a href="cart.html" class="card-link">Agregar a carrito</a>
                             </div>
                         </li>
                     </ul>
@@ -210,32 +247,24 @@
         <!----------------------- FOOTER -------------------------->
         <footer class="footer mainGrid__footer">
             <div class="footer__logo">
-                <a href="#logo"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka"></a>
+                <a href="#logo"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka" /></a>
             </div>
             <div class="footer__content">
                 <div class="footer__content__social">
-                    <a href="https://www.facebook.com/search/top?q=eureka%20fragancias" target="_blank"><img
-                            src="../assets/images/logo-facebook.svg" alt="Icono de Facebook con enlace a Eureka"
-                            class="icon"></a>
-                    <a href="https://www.instagram.com/eureka.tiendaonline/" target="_blank"><img
-                            src="../assets/images/logo-instagram.svg" alt="Icono de Instagram con enlace a Eureka"
-                            class="icon"></a>
-                    <a href="#"><img src="../assets/images/logo-whatsapp.svg"
-                            alt="Icono de WhatsApp para comunicarse con Eureka" class="icon"></a>
-                    <a href="#"><img src="../assets/images/logo-gmail.svg"
-                            alt="Icono de Gmail para comunicarse con Eureka" class="icon"></a>
+                    <a href="https://www.facebook.com/search/top?q=eureka%20fragancias" target="_blank"><img src="../assets/images/logo-facebook.svg" alt="Icono de Facebook con enlace a Eureka" class="icon" /></a>
+                    <a href="https://www.instagram.com/eureka.tiendaonline/" target="_blank"><img src="../assets/images/logo-instagram.svg" alt="Icono de Instagram con enlace a Eureka" class="icon" /></a>
+                    <a href="#"><img src="../assets/images/logo-whatsapp.svg" alt="Icono de WhatsApp para comunicarse con Eureka" class="icon" /></a>
+                    <a href="#"><img src="../assets/images/logo-gmail.svg" alt="Icono de Gmail para comunicarse con Eureka" class="icon" /></a>
                 </div>
                 <div class="footer__content__copy">
-                    <p> Copyright &copy; 2020 Ezequiel Rebasa</p>
+                    <p>Copyright &copy; 2020 Ezequiel Rebasa</p>
                 </div>
             </div>
         </footer>
     </div>
     <!--------------------------------------------------------->
     <!-- Bootstrap script -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
-        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="/js/bootstrap.min.js"></script>
 </body>
 

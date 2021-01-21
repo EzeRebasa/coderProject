@@ -13,80 +13,56 @@
 
 <body>
     <div class="mainGrid">
-        <!------------- HEADER -------------->
         <header class="header mainGrid__header">
-            <!-- <div class="header__content"> -->
-                <!--<div id="logo" class="logotype">
-                    <a href="../index.html"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka"></a>
+            <div class="header__content header__content--grid">
+                <div id="logo" class="header__logo">
+                    <a href="../index.html"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka" /></a>
                 </div>
-                <div class="searchContainer">
-                    <form action="">
-                        <input type="text" placeholder="Buscar Artículo">
-                        <input type="submit" value=""><span class="icon search"></span>
+                <div class="header__search">
+                    <form action="#" class="search__form">
+                        <input type="text" placeholder="Buscar Artículo" />
+                        <span class="icon--search"></span>
                     </form>
                 </div>
-
-                <div class="emptyDiv"></div>
+                <div class="header__cart">
+                    <a href="cart.html"><img src="../assets/images/shopping-cart.svg" alt="Carrito" class="icon--cart" /><span class="badge bg-danger"> 1 </span></a>
+                </div>
             </div>
-            <nav class="navbar">
-                <ul class="menu">
-                    <li><a href="../index.html"> HOME </a></li>
-                    <li><a href="catalog.html"> CATALOGO </a>
-                        <ul class="subMenu">
-                            <li><a href="catalog.html#perfume"> Perfumes </a></li>
-                            <li><a href="catalog.html#casual"> Ropa casual </a></li>
-                            <li><a href="catalog.html#sport"> Ropa deportiva </a></li>
+
+            <nav class="navbar navbar-light navbar-expand-md mainGrid__nav">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../index.html"> HOME </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="news.html"> NOVEDADES </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="catalog.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    CATALOG
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="catalog.html#perfume"> Perfumes </a></li>
+                                    <li><a class="dropdown-item" href="catalog.html#casual"> Ropa casual </a></li>
+                                    <li><a class="dropdown-item" href="catalog.html#sport"> Ropa deportiva </a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about-us.html"> CONOCENOS </a>
+                            </li>
                         </ul>
-                    </li>
-                    <li><a href="news.html"> NOVEDADES </a></li>
-                    <li><a href="about-us.html"> CONOCENOS </a></li>
-                </ul>
-            </nav> -->
-                <!-- <div id="logo" class="logotype">
-                <a href="../index.html"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka"></a>
-            </div>
-            <div class="searchContainer">
-                <form action="">
-                    <input type="text" placeholder="Buscar Artículo">
-                    <input type="submit" value=""><span class="icon search"></span>
-                </form>
-            </div> -->
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid header__content">
-                        <div id="logo" class="header__logo">
-                            <a href="../index.html"><img src="../assets/images/logo-48x48.svg" alt="Logo Eureka"></a>
-                        </div>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../index.html">HOME</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="catalog.html">CATALOGO</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="news.html">NOVEDADES</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="about-us.html">CONOCENOS</a>
-                                </li>
-
-                            </ul>
-                            <div class="header__search">
-                                <form action="#" class="search__form">
-                                    <input type="text" placeholder="Buscar Artículo">
-                                    <input type="submit" value=""><span class="icon--search"></span>
-                                </form>
-                            </div>
-                        </div>
                     </div>
-                </nav>
-            </div>
+                </div>
+            </nav>
         </header>
         <!------------------------------->
         <!------------- CART ------------>
@@ -94,7 +70,7 @@
             <!-- La idea es armar un pedido y que se envie la información del pedido junto a los datos del
         comprador al WhatsApp del vendedor... ( Algo similar a Tupperware) -->
             <h1 class="cartMain--title"> ~ MI CARRITO ~ </h1>
-     
+
             <div class="container-fluid cartMain__container">
 
                 <div class="row justify-content-center cartMain__container__row">
@@ -115,16 +91,16 @@
                                         <tr>
                                             <th>Item 1</th>
                                             <td>
-                                                < 3 >
+                                                < 3>
                                             </td>
                                             <td> 150 </td>
                                             <td> 450 </td>
                                             <td><input type="button" value="Quitar" class="button--delete"></td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <th>Item 2</th>
                                             <td>
-                                                < 2 >
+                                                < 2>
                                             </td>
                                             <td> 150 </td>
                                             <td> 450 </td>
@@ -133,8 +109,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <td colspan="2"><input type="submit" value="CONFIRMAR PEDIDO"
-                                                    class="button--confirm">
+                                            <td colspan="2"><input type="submit" value="CONFIRMAR PEDIDO" class="button--confirm">
                                             </td>
                                             <td colspan="3"> Total : $ 900 </td>
                                         </tr>
@@ -160,8 +135,7 @@
                                 </div>
                                 <div class="inputForm">
                                     <label for="email" class="form-label"> Email </label>
-                                    <input type="email" name="email" class="form-control" id="email"
-                                        placeholder="usuario@mail.com" required>
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="usuario@mail.com" required>
                                 </div>
                                 <div class="inputForm">
                                     <label for="phone" class="form-label"> Celular de Contacto </label>
@@ -173,43 +147,35 @@
                                 </div>
 
                                 <div class="inputForm form-check form-check-inline">
-                                    <input type="radio" name="building" class="form-check-input" id="building"
-                                        value="house" checked>
+                                    <input type="radio" name="building" class="form-check-input" id="building" value="house" checked>
                                     <label for="building" class="form-check-label"> Casa </label>
                                 </div>
                                 <div class="inputForm form-check form-check-inline">
-                                    <input type="radio" name="building" class="form-check-input" id="building"
-                                        value="apartment">
+                                    <input type="radio" name="building" class="form-check-input" id="building" value="apartment">
                                     <label for="building" class="form-check-label"> Departamento </label>
                                 </div>
 
                                 <div class="inputForm">
                                     <label for="order" class="form-label"> Pedido </label>
-                                    <textarea name="order" class="form-control" id="order"
-                                        readonly>Acá se pegara la confirmacion del pedido</textarea>
+                                    <textarea name="order" class="form-control" id="order" readonly>Acá se pegara la confirmacion del pedido</textarea>
                                 </div>
                                 <div class="inputForm groupFormButtons">
                                     <input type="reset" value="LIMPIAR FORMULARIO" class="button--default">
-                                    <input type="submit" value="REALIZAR PEDIDO" class="button--confirm"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <input type="submit" value="REALIZAR PEDIDO" class="button--confirm" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 </div>
                             </fieldset>
                         </form>
                     </div>
                 </div>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h3 class="modal-title" id="exampleModalLabel"> Solicitud de pedido </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                Su pedido ha sido realizado! A la brevedad lo contactaremos para la confirmacion del
-                                mismo.
-                                Muchas gracias por elegir EUREKA!
+                                Su pedido ha sido realizado! A la brevedad lo contactaremos para la confirmacion del mismo. Muchas gracias por elegir EUREKA!
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="button--default" data-bs-dismiss="modal">Cerrar</button>
@@ -226,20 +192,16 @@
                         <div class="cartMain__container__row__payMethods--imgs">
                             <ul>
                                 <li>
-                                    <img src="../assets/images/medios-pago/mercadopago.png"
-                                    alt="Imagen de MercadoPago" >
+                                    <img src="../assets/images/medios-pago/mercadopago.png" alt="Imagen de MercadoPago">
                                 </li>
                                 <li>
-                                    <img src="../assets/images/medios-pago/pago-facil.png"
-                                    alt="Imagen de Pago Fácil" >
+                                    <img src="../assets/images/medios-pago/pago-facil.png" alt="Imagen de Pago Fácil">
                                 </li>
                                 <li>
-                                    <img src="../assets/images/medios-pago/rapipago.png"
-                                    alt="Imagen de Rapipago" >
+                                    <img src="../assets/images/medios-pago/rapipago.png" alt="Imagen de Rapipago">
                                 </li>
                                 <li>
-                                    <img src="../assets/images/medios-pago/transferencia.png"
-                                    alt="Imagen de Banco" >
+                                    <img src="../assets/images/medios-pago/transferencia.png" alt="Imagen de Banco">
                                 </li>
                             </ul>
                         </div>
@@ -255,16 +217,10 @@
             </div>
             <div class="footer__content">
                 <div class="footer__content__social">
-                    <a href="https://www.facebook.com/search/top?q=eureka%20fragancias" target="_blank"><img
-                            src="../assets/images/logo-facebook.svg" alt="Icono de Facebook con enlace a Eureka"
-                            class="icon"></a>
-                    <a href="https://www.instagram.com/eureka.tiendaonline/" target="_blank"><img
-                            src="../assets/images/logo-instagram.svg" alt="Icono de Instagram con enlace a Eureka"
-                            class="icon"></a>
-                    <a href="#"><img src="../assets/images/logo-whatsapp.svg"
-                            alt="Icono de WhatsApp para comunicarse con Eureka" class="icon"></a>
-                    <a href="#"><img src="../assets/images/logo-gmail.svg"
-                            alt="Icono de Gmail para comunicarse con Eureka" class="icon"></a>
+                    <a href="https://www.facebook.com/search/top?q=eureka%20fragancias" target="_blank"><img src="../assets/images/logo-facebook.svg" alt="Icono de Facebook con enlace a Eureka" class="icon"></a>
+                    <a href="https://www.instagram.com/eureka.tiendaonline/" target="_blank"><img src="../assets/images/logo-instagram.svg" alt="Icono de Instagram con enlace a Eureka" class="icon"></a>
+                    <a href="#"><img src="../assets/images/logo-whatsapp.svg" alt="Icono de WhatsApp para comunicarse con Eureka" class="icon"></a>
+                    <a href="#"><img src="../assets/images/logo-gmail.svg" alt="Icono de Gmail para comunicarse con Eureka" class="icon"></a>
                 </div>
                 <div class="footer__content__copy">
                     <p> Copyright &copy; 2020 Ezequiel Rebasa</p>
@@ -274,9 +230,7 @@
         <!------------------------------->
     </div>
     <!-- Bootstrap script -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
-        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="/js/bootstrap.min.js"></script>
 
     <script>
