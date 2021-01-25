@@ -76,46 +76,44 @@
                 <div class="row justify-content-center cartMain__container__row">
                     <div class="col-lg-6 col-md-8 col-sm-10 cartMain__container__row__cartForm">
                         <form action="#">
-                            <div class="table-responsive">
-                                <table cellspacing=0 cellpadding=0 class="table">
-                                    <thead>
-                                        <tr>
-                                            <th> Producto </th>
-                                            <th> Cantidad </th>
-                                            <th> Precio Unitario ($)</th>
-                                            <th> Subtotal ($) </th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>Item 1</th>
-                                            <td>
-                                                < 3>
-                                            </td>
-                                            <td> 150 </td>
-                                            <td> 450 </td>
-                                            <td><input type="button" value="Quitar" class="button--delete"></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Item 2</th>
-                                            <td>
-                                                < 2>
-                                            </td>
-                                            <td> 150 </td>
-                                            <td> 450 </td>
-                                            <td><input type="button" value="Quitar" class="button--delete"></td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="2"><input type="submit" value="CONFIRMAR PEDIDO" class="button--confirm">
-                                            </td>
-                                            <td colspan="3"> Total : $ 900 </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
+                            <table cellspacing=0 cellpadding=0 class="table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th> Producto </th>
+                                        <th> Cantidad </th>
+                                        <th> Precio Unitario ($)</th>
+                                        <th> Subtotal ($) </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Item 1</td>
+                                        <td>
+                                            <input type="text" value="1" class="productCant">
+                                        </td>
+                                        <td> 150 </td>
+                                        <td> 450 </td>
+                                        <td><input type="button" value="Quitar" class="button--delete"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Item 2</td>
+                                        <td>
+                                            <input type="text" value="1" class="productCant">
+                                        </td>
+                                        <td> 150 </td>
+                                        <td> 450 </td>
+                                        <td><input type="button" value="Quitar" class="button--delete"></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="2"><input type="submit" value="CONFIRMAR PEDIDO" class="button--confirm">
+                                        </td>
+                                        <td colspan="3"> Total : $ 900 </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </form>
                     </div>
 

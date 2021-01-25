@@ -491,27 +491,31 @@ a {
   padding: 0;
   height: fit-content;
   margin-bottom: 1.6rem; }
-  .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form div {
-    margin: 0 1.6rem;
+  .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form {
     /*---------- CART TABLE ---------*/
     /*---------------------------*/ }
-    .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form div .table {
+    .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive {
       background-color: #f2f1f4;
       border-collapse: collapse;
       text-align: center;
       vertical-align: middle;
       width: 100%; }
-      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form div .table td,
-      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form div .table tr,
-      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form div .table th {
-        border: none;
+      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive td,
+      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive tr,
+      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive th {
         padding: 0.8rem; }
-      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form div .table thead tr,
-      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form div .table thead th {
+      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive thead tr,
+      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive thead th {
         font-size: 2rem;
         font-weight: normal;
         background-color: #c8a0d9; }
-      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form div .table tfoot td:last-child {
+      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive tbody tr td:first-child {
+        font-weight: bold; }
+      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive tbody .productCant {
+        border: 1px solid #40264b;
+        text-align: center;
+        width: 48px; }
+      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive tfoot td:last-child {
         font-size: 1.6rem;
         font-weight: bold;
         opacity: 0.8; }
@@ -520,7 +524,6 @@ a {
   padding: 0; }
   .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__dataClient #form {
     background-color: #f2f1f4;
-    margin: 0 1.6rem;
     padding: 16px; }
     .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__dataClient #form fieldset legend {
       font-size: 2rem;
@@ -572,3 +575,49 @@ a {
     justify-content: space-between; }
     .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__payMethods--imgs ul li {
       width: 160px; }
+
+@media only screen and (min-width: 992px) {
+  .cartMain__container__row__cartForm {
+    margin-right: 1.6rem; } }
+
+@media only screen and (max-width: 768px) {
+  table,
+  thead,
+  tbody,
+  tfoot,
+  th,
+  td,
+  tr {
+    display: block; }
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px; }
+  tr {
+    border: 1px solid #ccc; }
+  tbody td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    margin-left: 56px; }
+  tbody td:before {
+    /* Now like a table header */
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap; }
+  tbody td:nth-of-type(1):before {
+    content: "Producto"; }
+  tbody td:nth-of-type(2):before {
+    content: "Cantidad"; }
+  tbody td:nth-of-type(3):before {
+    content: "Precio ($)"; }
+  tbody td:nth-of-type(4):before {
+    content: "Subtotal ($)"; }
+  tbody td:nth-of-type(5):before {
+    content: ""; }
+  tfoot tr {
+    display: flex;
+    justify-content: space-evenly; } }

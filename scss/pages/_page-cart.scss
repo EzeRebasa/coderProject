@@ -2,62 +2,60 @@
     &--title {
         @extend %title;
     }
-
     .cartMain__container {
         .cartMain__container__row {
             .cartMain__container__row__cartForm {
                 padding: 0;
                 height: fit-content;
                 margin-bottom: 1.6rem;
-
                 form {
-                    div {
-                        margin: 0 1.6rem;
-                        /*---------- CART TABLE ---------*/
-                        .table {
-                            background-color: hsl(271, 13%, 95%);
-                            border-collapse: collapse;
-                            text-align: center;
-                            vertical-align: middle;
-                            width: 100%;
-
-                            td,
+                    /*---------- CART TABLE ---------*/
+                    .table-responsive {
+                        background-color: hsl(271, 13%, 95%);
+                        border-collapse: collapse;
+                        text-align: center;
+                        vertical-align: middle;
+                        width: 100%;
+                        td,
+                        tr,
+                        th {
+                            padding: 0.8rem;
+                        }
+                        thead {
                             tr,
                             th {
-                                border: none;
-                                padding: 0.8rem;
+                                font-size: 2rem;
+                                font-weight: normal;
+                                background-color: $clr-lilac;
                             }
-
-                            thead {
-                                tr,
-                                th {
-                                    font-size: 2rem;
-                                    font-weight: normal;
-                                    background-color: $clr-lilac;
-                                }
+                        }
+                        tbody {
+                            tr td:first-child {
+                                font-weight: bold;
                             }
-
-                            tfoot {
-                                td {
-                                    &:last-child {
-                                        font-size: 1.6rem;
-                                        font-weight: bold;
-                                        opacity: 0.8;
-                                    }
+                            .productCant {
+                                border: 1px solid $clr-purple;
+                                text-align: center;
+                                width: 48px;
+                            }
+                        }
+                        tfoot {
+                            td {
+                                &:last-child {
+                                    font-size: 1.6rem;
+                                    font-weight: bold;
+                                    opacity: 0.8;
                                 }
                             }
                         }
-                        /*---------------------------*/
                     }
+                    /*---------------------------*/
                 }
             }
-
             .cartMain__container__row__dataClient {
                 padding: 0;
-                
                 #form {
                     background-color: hsl(271, 13%, 95%);
-                    margin: 0 1.6rem;
                     padding: 16px;
                     fieldset {
                         legend {
@@ -66,7 +64,6 @@
                             margin-bottom: 3.2rem;
                             float: none;
                         }
-
                         .inputForm {
                             input:not(.button--default):not(.button--confirm) {
                                 border: none;
@@ -83,7 +80,6 @@
                                     box-shadow: 0 0 0 0.25rem $clr-light-lilac;
                                 }
                             }
-
                             .form-control {
                                 font-size: 1.2rem;
                                 &:focus {
@@ -94,7 +90,6 @@
                                     box-shadow: 0 0 0 0.25rem $clr-light-lilac;
                                 }
                             }
-
                             input[type="text"],
                             input[type="email"],
                             input[type="number"] {
@@ -104,7 +99,6 @@
                                     transform: scale(1, 1.2);
                                 }
                             }
-                            
                             &.groupFormButtons {
                                 display: flex;
                                 justify-content: center;
@@ -118,29 +112,85 @@
                     }
                 }
             }
-
             .cartMain__container__row__payMethods {
-   
-                margin: 3.2rem ;
-
+                margin: 3.2rem;
                 &--title {
                     @extend %title;
                 }
-
                 &--imgs {
-                    ul{
+                    ul {
                         list-style: none;
                         display: flex;
                         flex-flow: row nowrap;
                         justify-content: space-between;
                         li {
-                    
                             width: 160px;
                         }
                     }
-
                 }
             }
         }
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .cartMain__container__row__cartForm {
+        margin-right: 1.6rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    table,
+    thead,
+    tbody,
+    tfoot,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        border: 1px solid #ccc;
+    }
+    tbody {
+        td {
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            margin-left: 56px;
+        }
+        td:before {
+            /* Now like a table header */
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+        td:nth-of-type(1):before {
+            content: "Producto";
+        }
+        td:nth-of-type(2):before {
+            content: "Cantidad";
+        }
+        td:nth-of-type(3):before {
+            content: "Precio ($)";
+        }
+        td:nth-of-type(4):before {
+            content: "Subtotal ($)";
+        }
+        td:nth-of-type(5):before {
+            content: "";
+        }
+    }
+    tfoot tr {
+        display: flex;
+        justify-content: space-evenly;
     }
 }
