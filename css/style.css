@@ -245,6 +245,15 @@ a {
   grid-gap: 2.4rem;
   justify-content: center; }
 
+/*------ Carrousel ------*/
+.carouselGrid {
+  display: grid;
+  grid-template-areas: ". carousel ."; }
+
+.carousel {
+  grid-area: carousel; }
+
+/*-----------------------*/
 /*---------------------*/
 /*------ HEADER -------*/
 .header {
