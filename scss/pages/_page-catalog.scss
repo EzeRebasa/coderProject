@@ -1,10 +1,15 @@
 .catalogMain {
-  /*--Features--*/
-  .catalogMain__features {
-    @extend %carousel;
-  }
-  .catalogMain__features__title {
-    @extend %title;
+  /*-- Carousel Container--*/
+  .featuresContainer {
+    @extend %containerCarousel;
+
+    /*-- Carousel content (features)--*/
+    .catalogMain__features {
+      @extend %carousel;
+    }
+    .catalogMain__features__title {
+      @extend %title;
+    }
   }
   /*--------------*/
   /*---- Products Catalog ----*/
@@ -16,7 +21,7 @@
       font-weight: bold;
       margin: 1.6rem;
       padding: 1.6rem;
-      
+
       form {
         fieldset {
           padding: 4px 8px 8px 8px;
@@ -24,7 +29,7 @@
           justify-content: space-evenly;
 
           legend {
-            float:none;
+            float: none;
           }
           .filterItem {
             select {
@@ -36,7 +41,7 @@
     }
 
     .catalogMain__products__section {
-      .catalogMain__products__section__article{
+      .catalogMain__products__section__article {
         @extend %productsList;
         &--title {
           @extend %subtitle;

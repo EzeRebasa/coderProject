@@ -25,11 +25,14 @@
   text-align: left;
   padding: 24px 0 24px 24px;
 }
-
+%containerCarousel {
+  display: flex;
+  justify-content: center;
+}
 %carousel {
-  border: 3px solid var(--clr-orange);
-  background-color: var(--clr-light-orange);
+  border: 3px solid $clr-orange;
+  background-color: $clr-light-orange;
   text-align: center;
-  width: 50%;
-  margin: 2.4rem auto 2.4rem;
+  width: 50rem;
+  margin: 2.4rem 1.6rem;
 }

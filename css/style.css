@@ -50,7 +50,7 @@
   padding: 16px;
   margin: 1.6rem; }
 
-.indexMain .indexMain__news .indexMain__news__title, .catalogMain .catalogMain__features__title, .newsMain .newsMain__sectionTitle--title, .aboutMain .aboutMain__title, .cartMain--title, .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__payMethods--title {
+.indexMain .newsContainer .indexMain__news .indexMain__news__title, .catalogMain .featuresContainer .catalogMain__features__title, .newsMain .newsMain__sectionTitle--title, .aboutMain .aboutMain__title, .cartMain--title, .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__payMethods--title {
   text-align: center;
   margin: 2.4rem 0 2.4rem; }
 
@@ -58,12 +58,16 @@
   text-align: left;
   padding: 24px 0 24px 24px; }
 
-.indexMain .indexMain__news, .catalogMain .catalogMain__features {
-  border: 3px solid var(--clr-orange);
-  background-color: var(--clr-light-orange);
+.indexMain .newsContainer, .catalogMain .featuresContainer {
+  display: flex;
+  justify-content: center; }
+
+.indexMain .newsContainer .indexMain__news, .catalogMain .featuresContainer .catalogMain__features {
+  border: 3px solid #f57e00;
+  background-color: rgba(245, 126, 0, 0.3);
   text-align: center;
-  width: 50%;
-  margin: 2.4rem auto 2.4rem; }
+  width: 50rem;
+  margin: 2.4rem 1.6rem; }
 
 /*---------------------*/
 /*------ BUTTONS ------*/
@@ -181,6 +185,15 @@ a {
   color: #353b41;
   text-decoration: none; }
 
+/*--- Bootstrap ---*/
+.container-fluid {
+  padding: 0; }
+
+.carousel-inner > .carousel-item > img {
+  width: 240px;
+  height: 320px; }
+
+/*-----------------*/
 /*---- Icons ----*/
 .icon {
   width: 3.2rem; }
@@ -245,16 +258,6 @@ a {
   grid-gap: 2.4rem;
   justify-content: center; }
 
-/*------ Carrousel ------*/
-.carouselGrid {
-  display: grid;
-  grid-template-areas: ". carousel .";
-  width: 100%; }
-
-.carousel {
-  grid-area: carousel; }
-
-/*-----------------------*/
 /*---------------------*/
 /*------ HEADER -------*/
 .header {
@@ -417,7 +420,6 @@ a {
 /*---------------------*/
 /*=========PAGES========*/
 .indexMain {
-  /*--- Carousel content -- */
   /* --------------------- */ }
   .indexMain .indexMain__title {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAATklEQVQoU2NkYGAwZmBgOMuAACA+CKCIMSIpADGRNaEYgKwQ3WQUjTCF6CYhWw2WAynEpgjmIpg7jUlSiM0TWK2GWUOUZ7ApxggeogIcABHJFtftKVfJAAAAAElFTkSuQmCC);
@@ -430,6 +432,8 @@ a {
       width: auto;
       max-width: 100%;
       height: 320px; }
+  .indexMain .newsContainer {
+    /*--- Carousel content (news)-- */ }
   .indexMain .indexMain__categories .indexMain__categories__title {
     padding: 16px; }
   .indexMain .indexMain__categories .indexMain__categories__section {
@@ -454,10 +458,12 @@ a {
       margin: 0 auto; }
 
 .catalogMain {
-  /*--Features--*/
+  /*-- Carousel Container--*/
   /*--------------*/
   /*---- Products Catalog ----*/
   /*--------------------------*/ }
+  .catalogMain .featuresContainer {
+    /*-- Carousel content (features)--*/ }
   .catalogMain .catalogMain__products .catalogMain__products__filter {
     background-color: rgba(245, 126, 0, 0.3);
     color: #353b41;

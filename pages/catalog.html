@@ -111,96 +111,81 @@
       <!-------------------------------------------->
       <!------------ FEATURED PRODUCTS ------------->
       <main class="catalogMain mainGrid__main">
-        <section class="container-fluid catalogMain__features">
-          <div class="row">
-            <div class="col-3"></div>
-            <div class="col-6">
-              <h1 class="catalogMain__features__title">~ DESTACADOS ~</h1>
-              <!-- CAROUSEL  -->
-              <div
-                id="carouselExampleDark"
-                class="carousel carousel-dark slide"
-                data-bs-ride="carousel"
-              >
-                <ol class="carousel-indicators">
-                  <li
-                    data-bs-target="#carouselExampleDark"
-                    data-bs-slide-to="0"
-                    class="active"
-                  ></li>
-                  <li
-                    data-bs-target="#carouselExampleDark"
-                    data-bs-slide-to="1"
-                  ></li>
-                  <li
-                    data-bs-target="#carouselExampleDark"
-                    data-bs-slide-to="2"
-                  ></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item active" data-bs-interval="10000">
-                    <img
-                      src="../assets/images/per-mujer/ch.jpg"
-                      class="d-block img-fluid"
-                      alt="Perfume CH de Carolina Herrera"
-                    />
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>DESTACADO DE LA SEMANA</h5>
-                      <p>Perfume de mujer</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item" data-bs-interval="2000">
-                    <img
-                      src="../assets/images/camisetas/argentina-sup2021.jpg"
-                      class="d-block img-fluid"
-                      alt="Camiseta suplente de Argentina"
-                    />
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>Camiseta Argentina Suplente</h5>
-                      <p>Nuevo ingreso en talles M L y XL.</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      src="../assets/images/chombas/rojo.jpg"
-                      class="d-block img-fluid"
-                      alt="Chomba Lacoste color rojo"
-                    />
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>Chombas Lacoste</h5>
-                      <p>Chombas de algodón roja.</p>
-                    </div>
-                  </div>
+        <div class="featuresContainer">
+          <section class="catalogMain__features">
+            <h1 class="catalogMain__features__title title">~ DESTACADOS ~</h1>
+            <!-- CAROUSEL  -->
+            <div
+              id="carouselExampleDark"
+              class="carousel slide carousel-fade"
+              data-bs-ride="carousel"
+            >
+              <ol class="carousel-indicators">
+                <li
+                  data-bs-target="#carouselExampleDark"
+                  data-bs-slide-to="0"
+                  class="active"
+                ></li>
+                <li
+                  data-bs-target="#carouselExampleDark"
+                  data-bs-slide-to="1"
+                ></li>
+                <li
+                  data-bs-target="#carouselExampleDark"
+                  data-bs-slide-to="2"
+                ></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="5000">
+                  <img
+                    src="../assets/images/camisetas/argentina-tit2021.jpg"
+                    class="mx-auto d-block"
+                    alt="Camiseta Argentina"
+                  />
                 </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#carouselExampleDark"
-                  role="button"
-                  data-bs-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="visually-hidden">Previous</span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#carouselExampleDark"
-                  role="button"
-                  data-bs-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="visually-hidden">Next</span>
-                </a>
+                <div class="carousel-item" data-bs-interval="5000">
+                  <img
+                    src="../assets/images/camisetas/argentina-sup2021.jpg"
+                    class="mx-auto d-block"
+                    alt="Camiseta suplente Argentina"
+                  />
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                  <img
+                    src="../assets/images/chombas/salmon.jpg"
+                    class="mx-auto d-block"
+                    alt="Chomba lacoste color salmón"
+                  />
+                </div>
               </div>
+              <a
+                class="carousel-control-prev"
+                href="#carouselExampleDark"
+                role="button"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </a>
+              <a
+                class="carousel-control-next"
+                href="#carouselExampleDark"
+                role="button"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </a>
             </div>
-            <div class="col-3"></div>
-          </div>
-        </section>
+            <!-- CAROUSEL END -->
+          </section>
+        </div>
         <!----------------------------------------------->
         <!----------------------------------------------->
         <div class="container-fluid catalogMain__products">

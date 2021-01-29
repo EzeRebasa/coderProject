@@ -77,14 +77,22 @@ a {
   text-decoration: none;
 }
 
+/*--- Bootstrap ---*/
+.container-fluid {
+  padding: 0;
+}
+.carousel-inner > .carousel-item > img {
+  width: 240px;
+  height: 320px;
+}
+/*-----------------*/
 /*---- Icons ----*/
 .icon {
   width: $iconWidth;
   &--search {
     background-image: url(../assets/images/search.svg);
     background-repeat: no-repeat;
-    filter: invert(91%) sepia(15%) saturate(4106%) hue-rotate(197deg)
-      brightness(89%) contrast(90%);
+    filter: invert(91%) sepia(15%) saturate(4106%) hue-rotate(197deg) brightness(89%) contrast(90%);
   }
   &--cart {
     width: $iconWidth + 0.8rem;

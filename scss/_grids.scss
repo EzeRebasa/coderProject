@@ -72,17 +72,5 @@
 }
 
 
-/*------ Carrousel ------*/
-
-.carouselGrid {
-    display: grid;
-    grid-template-areas: ". carousel .";
-    width: 100%;
-}
-
-.carousel {
-    grid-area: carousel;
-}
 
 
-/*-----------------------*/
