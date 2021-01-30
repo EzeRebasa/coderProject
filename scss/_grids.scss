@@ -27,7 +27,6 @@
     grid-row: 4 / 5;
 }
 
-
 /*------------------------*/
 
 
@@ -55,32 +54,31 @@
     }
     
 }
-
-
 /*--- ProductsList Grid---*/
 
 .listGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 240px);
-    grid-template-rows: minmax(360px, auto);
+    grid-template-columns: repeat(auto-fit, 24rem);
+    grid-template-rows: minmax(36rem, auto);
     grid-gap: 2.4rem;
     justify-content: center;
 }
-
-
 /*------------------------*/
-
-
 /*------ Categories Grid-------*/
 
 .categoriesGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 320px);
+    grid-template-columns: repeat(auto-fit, 32rem);
     grid-template-rows: auto;
     grid-gap: 2.4rem;
     justify-content: center;
 }
 
-
+/*---- AboutMain Grid ----*/
+.aboutMain__content--Grid {
+    display: grid;
+    grid-template-rows: repeat(3 , minmax( 1fr));
+}
+/*-----------------------*/
 
 

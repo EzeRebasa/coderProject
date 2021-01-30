@@ -7,25 +7,65 @@
     background-color: hsl(271, 13%, 98%);
     padding: 16px;
 
-    section {
+    .aboutMain__content__about,
+    .aboutMain__content__products,
+    .aboutMain__content__localization {
       background-image: linear-gradient(45deg, $clr-light-purple, transparent);
       padding: 24px;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 16px;
+      & > * {
+        flex: auto;
+      }
 
-      .aboutMain__content__about,
-      .aboutMain__content__products,
-      .aboutMain__content__localization {
-        &--text {
-          padding: 16px;
-          font-size: 2.4rem;
-        }
-        .map {
-          overflow: hidden;
-        }
+      &--text {
+        flex: 1 1 60%;
+        font-size: 2.4rem;
+        text-align: center;
+        color: $clr-text;
+        padding: 16px;
+      }
+      &--img {
+        background-color: $clr-white;
+        flex: 1 1 40%;
+        overflow: hidden;
+        max-width: 200px;
+        border-radius: 50%;
+      }
+    }
+    .aboutMain__content__localization {
+
+      .iframe {
+        max-width: 200px;
+        max-height: 200px;
+        border-radius: 50%;
       }
     }
     .aboutMain__content__about,
     .aboutMain__content__products {
       margin-bottom: 6.4rem;
+    }
+  }
+}
+
+
+@media screen and (max-width: 540px) {
+  .aboutMain {
+    .aboutMain__content {
+      .aboutMain__content__about,
+      .aboutMain__content__products,
+      .aboutMain__content__localization {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        bo
+        &--text {
+          font-size: 1.6rem;
+          font-weight: bold;
+        }
+      }
     }
   }
 }
