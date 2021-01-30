@@ -538,6 +538,8 @@ a {
       overflow: hidden;
       max-width: 200px;
       border-radius: 50%; }
+  .aboutMain .aboutMain__content .aboutMain__content__about img {
+    padding: 32px; }
   .aboutMain .aboutMain__content .aboutMain__content__localization .iframe {
     max-width: 200px;
     max-height: 200px;
@@ -553,8 +555,8 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center; }
-    bo .aboutMain .aboutMain__content .aboutMain__content__about--text, bo
-    .aboutMain .aboutMain__content .aboutMain__content__products--text, bo
+    .aboutMain .aboutMain__content .aboutMain__content__about--text,
+    .aboutMain .aboutMain__content .aboutMain__content__products--text,
     .aboutMain .aboutMain__content .aboutMain__content__localization--text {
       font-size: 1.6rem;
       font-weight: bold; } }

@@ -35,8 +35,11 @@
         border-radius: 50%;
       }
     }
-    .aboutMain__content__localization {
+    .aboutMain__content__about img{
+      padding: 32px;
+    }
 
+    .aboutMain__content__localization {
       .iframe {
         max-width: 200px;
         max-height: 200px;
@@ -54,18 +57,20 @@
 @media screen and (max-width: 540px) {
   .aboutMain {
     .aboutMain__content {
+      
       .aboutMain__content__about,
       .aboutMain__content__products,
       .aboutMain__content__localization {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        bo
+        
         &--text {
           font-size: 1.6rem;
           font-weight: bold;
         }
       }
+    
     }
   }
 }
