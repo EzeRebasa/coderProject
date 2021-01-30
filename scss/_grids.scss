@@ -40,10 +40,20 @@
     align-items: center;
 }
 
+.footer__content--grid {
+    display: grid;
+    grid-template-areas: 'logo social .'
+                         'logo copy .';
+    justify-content: space-between;
+    align-items: center;
+    grid-gap: 10px;
+}
+
 @media screen and (min-width: 540px) {
-    .header__content--grid {
+    .header__content--grid, .footer__content--grid {
         justify-content: space-around;
     }
+    
 }
 
 

@@ -1,34 +1,37 @@
 .footer {
-  /*margin & padding in generic-classes/%pannels */
-  display: flex;
-  flex-flow: row nowrap;
-
-  .footer__logo {
-    @extend %logoSize;
-  }
 
   .footer__content {
-    width: 80%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
+    @extend %footerHeaderContent;
+    padding:1.6rem 0;
+    .footer__content__logo {
+      @extend %logoSize;
+      grid-area: logo;
+    }
+  
     .footer__content__social {
       display: flex;
       flex-flow: row nowrap;
       justify-content: center;
       gap: 16px;
+      grid-area: social;
     }
     .footer__content__copy {
       width: 100%;
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: flex-end;
-      & > p {
-        margin-right: 2.4rem;
+      grid-area: copy;
+      & > p {  
+        margin: auto;
       }
     }
+  }
+}
+@media screen and (max-width: 540px) {
+  .footer {
+    padding: 4px;
+    padding-bottom: 0;
+    .footer__content {
+      .footer__content__copy {
+        font-size: 12px;
+      }
+    } 
   }
 }

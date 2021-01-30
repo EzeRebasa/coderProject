@@ -85,6 +85,12 @@ a {
   width: 240px;
   height: 320px;
 }
+@media only screen and (max-width: 540px) {
+  .carousel-inner > .carousel-item > img {
+    width: 180px;
+    height: 240px;
+  }
+}
 /*-----------------*/
 /*---- Icons ----*/
 .icon {
