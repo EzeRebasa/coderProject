@@ -3,51 +3,89 @@ class Cart {
         this.articles = [];
     }
 
-    addArticle = function (art) {
-        if (art instanceof Article) {
-            if(art.category != "" && art.name != "" && art.size != "" && art.price != "") {
-                this.articles.push(art);
-                console.log('El Articulo se ingresó correctamente!');
-            }
+    // Getters & Setters
+
+    setArticleCant = function (articleId, cant) {
+        if (cant == 0) {
+            this.removeArticleById(articleId);
+        } else if (cant > 0) {
+            let art = this.getArticleById(articleId);
+            art.cant = cant;
+            console.log(art);
         } else {
-            console.log('El objeto ingresado no es un Artículo!');
+            console.log('Debe ingresar valores positivos');
         }
     }
 
     getArticles = function () {
+
         if (this.articles) {
             this.articles.forEach(art => {
-                art.getFullDescription();
+                console.log(art);;
             });
         }
     }
-}
 
+    getArticleById = function (articleId) {
+
+        let article = this.articles.find(art => art.id === articleId);
+
+        if (article) {
+            return article;
+        } else {
+            console.log(`El artículo con id ${articleId} no se encuentra`);
+        }
+    }
+
+    // Methods
+
+    addArticleToCart = function (art) {
+        if (art) {
+            if (art.category != "" && art.name != "" && art.size != "" && art.price != "") {
+                this.articles.push(art);
+                console.log('El Articulo se ingresó correctamente!');
+            } else {
+                console.log('Verifique los datos ingresados...');
+            }
+        } else {
+            console.log('No hay Artículo!');
+        }
+    }
+
+    removeArticleById = function (id) {
+        let article = this.getArticleById(id);
+        let index = this.articles.indexOf(article);
+
+        if (article) {
+            this.articles.splice(index, 1);
+            console.log(`Se eliminó el artículo ${article.name} del carrito`);
+        } else {
+            console.log('Error al intentar borrar');
+        }
+    }
+    
+    validateCart = function () {
+        let order = '';
+        this.articles.forEach(art => {
+            let size = art.category === 'Perfume' ? 'Medida' : 'Talle';
+            let price = art.price * art.cant; 
+
+            order += `[Artículo]: ${art.name} [${size}]: ${art.size} [Items]: ${art.cant} [Precio]: ${price}`;
+            order += '\n'; // Porqué se me muestra /n en el string?? :S
+        });
+        return order;
+    }
+
+}
 class Article {
+
     constructor(category, name, size, price) {
-        this.latestId = 0;
         this.id = Article.incrementId();
         this.category = category;
         this.name = name;
         this.size = size;
         this.cant = 1;
         this.price = price;
-    }
-
-    getShortDescription = function () {
-        console.log(`Artículo : ${this.name}
-        ${this.category === "Perfume" ? 'Medida' : 'Talle'} : ${this.size}
-        `);
-    }
-
-    getFullDescription = function () {
-        console.log(`Id : ${this.id}
-        Category : ${this.category}
-        Artículo : ${this.name}
-        ${this.category === "Perfume" ? 'Medida' : 'Talle'} : ${this.size}
-        Cantidad : ${this.cant}
-        Precio : ${this.price}
-        `);
     }
 
     static incrementId() {
@@ -60,13 +98,54 @@ class Article {
     }
 }
 
+class Order {
+    constructor(firstName, lastName, email, phoneNumber, address, house, order){
+        this.firstName = firstName || '';
+        this.lastName = lastName || '';
+        this.email = email || '';
+        this.phoneNumber = phoneNumber || '';
+        this.address = address || '';
+        this.house = house || '';
+        this.order = order || '';
+    }
+    /** Completar setters... */
+
+    setOrder = function(order) {
+        if(order != ''){
+            this.order = order;
+        }else{
+            console.log('No se guardó ninguna orden');
+        }
+    }
+}
 
 let cart = new Cart();
+
+/** Cuando se presiona en la card agregar a carrito armo un objeto artículo y se lo mando a 
+ * carrito para que lo trabaje */
+
 let art_1 = new Article('Perfume', 'Kenzo', '150ml', 1200);
 let art_2 = new Article('Ropa', 'Remera', 'M', 1000);
 
-let art_3 = new String('No soy un Artículo');
+cart.addArticleToCart(art_1);
+cart.addArticleToCart(art_2);
 
-cart.addArticle(art_1);
-cart.addArticle(art_2);
-cart.addArticle(art_3);
+/** Método que se ejecutará cuando se presione el botón quitar del carrito o cuando se 
+ * introduzca 0 en el input de cantidad
+ */
+
+
+/** */
+cart.getArticles();
+
+/** Cuando se quiera modificar la cantidad de items de un artículo */
+cart.setArticleCant(1, -1);
+
+/** Cuando se presiona en confirmar pedido se instancia una Order/pedido 
+ * la idea es que se copie esa info en el campo Pedido del form
+*/
+let newOrder = new Order();
+
+let orderText = cart.validateCart();
+newOrder.setOrder(orderText);
+console.log(newOrder);
