@@ -126,9 +126,13 @@ let cart = new Cart();
 
 let art_1 = new Article('Perfume', 'Kenzo', '150ml', 1200);
 let art_2 = new Article('Ropa', 'Remera', 'M', 1000);
+let art_3 = new Article('Perfume', 'Calsa', 'XL', 1500);
+let art_4 = new Article('Ropa', 'Chomba', 'M', 1300);
 
 cart.addArticleToCart(art_1);
 cart.addArticleToCart(art_2);
+cart.addArticleToCart(art_3);
+cart.addArticleToCart(art_4);
 
 /** Método que se ejecutará cuando se presione el botón quitar del carrito o cuando se 
  * introduzca 0 en el input de cantidad
@@ -144,8 +148,28 @@ cart.setArticleCant(1, -1);
 /** Cuando se presiona en confirmar pedido se instancia una Order/pedido 
  * la idea es que se copie esa info en el campo Pedido del form
 */
-let newOrder = new Order();
+// let newOrder = new Order();
 
-let orderText = cart.validateCart();
-newOrder.setOrder(orderText);
-console.log(newOrder);
+// let orderText = cart.validateCart();
+// newOrder.setOrder(orderText);
+// console.log(newOrder);
+
+
+/** DESAFIO COMPLEMENTARIO */
+console.log('***************Antes de Ordenar**************');
+cart.getArticles();
+
+cart.articles.sort( (a, b) => {
+    if (a.name > b.name) {
+      return 1;
+    }
+    if (a.name < b.name) {
+      return -1;
+    }
+    // a must be equal to b
+    return 0;
+});
+
+console.log('************Después de ordenar**************');
+cart.getArticles();
+
