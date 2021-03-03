@@ -143,7 +143,7 @@ cart.addArticleToCart(art_4);
 cart.getArticles();
 
 /** Cuando se quiera modificar la cantidad de items de un artículo */
-cart.setArticleCant(1, -1);
+cart.setArticleCant(3, 3);
 
 /** Cuando se presiona en confirmar pedido se instancia una Order/pedido 
  * la idea es que se copie esa info en el campo Pedido del form
@@ -159,17 +159,22 @@ cart.setArticleCant(1, -1);
 console.log('***************Antes de Ordenar**************');
 cart.getArticles();
 
-cart.articles.sort( (a, b) => {
-    if (a.name > b.name) {
-      return 1;
-    }
-    if (a.name < b.name) {
-      return -1;
-    }
-    // a must be equal to b
-    return 0;
-});
+ascendentSort(cart.articles, 'name')
 
 console.log('************Después de ordenar**************');
 cart.getArticles();
 
+function ascendentSort(array, value) {
+
+    array.sort( (a, b) => {
+            if (a[value] > b[value]) {
+              return 1;
+            }
+            if (a[value] < b[value]) {
+              return -1;
+            }
+            // a must be equal to b
+            return 0;
+    });
+
+}
