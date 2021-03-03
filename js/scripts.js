@@ -51,7 +51,7 @@ class Cart {
             console.log('No hay Artículo!');
         }
     }
-
+    
     removeArticleById = function (id) {
         let article = this.getArticleById(id);
         let index = this.articles.indexOf(article);
@@ -63,12 +63,38 @@ class Cart {
             console.log('Error al intentar borrar');
         }
     }
+
+    orderArticles = function(valueCompare, order = 'asc') { // Ascendent order by default
+
+        this.articles.sort((a, b) => {
     
+            if (order === 'asc') {
+                if (a[valueCompare] > b[valueCompare]) {
+                    return 1;
+                }
+                if (a[valueCompare] < b[valueCompare]) {
+                    return -1;
+                }
+                // a must be equal to b
+                return 0;
+            } else if (order === 'desc') {
+                if (a[valueCompare] < b[valueCompare]) {
+                    return 1;
+                }
+                if (a[valueCompare] > b[valueCompare]) {
+                    return -1;
+                }
+                // a must be equal to b
+                return 0;
+            }
+        });
+    }
+
     validateCart = function () {
         let order = '';
         this.articles.forEach(art => {
             let size = art.category === 'Perfume' ? 'Medida' : 'Talle';
-            let price = art.price * art.cant; 
+            let price = art.price * art.cant;
 
             order += `[Artículo]: ${art.name} [${size}]: ${art.size} [Items]: ${art.cant} [Precio]: ${price}`;
             order += '\n'; // Porqué se me muestra /n en el string?? :S
@@ -86,6 +112,7 @@ class Article {
         this.size = size;
         this.cant = 1;
         this.price = price;
+        this.totalPrice = this.price * this.cant;
     }
 
     static incrementId() {
@@ -99,7 +126,7 @@ class Article {
 }
 
 class Order {
-    constructor(firstName, lastName, email, phoneNumber, address, house, order){
+    constructor(firstName, lastName, email, phoneNumber, address, house, order) {
         this.firstName = firstName || '';
         this.lastName = lastName || '';
         this.email = email || '';
@@ -110,10 +137,10 @@ class Order {
     }
     /** Completar setters... */
 
-    setOrder = function(order) {
-        if(order != ''){
+    setOrder = function (order) {
+        if (order != '') {
             this.order = order;
-        }else{
+        } else {
             console.log('No se guardó ninguna orden');
         }
     }
@@ -159,22 +186,12 @@ cart.setArticleCant(3, 3);
 console.log('***************Antes de Ordenar**************');
 cart.getArticles();
 
-ascendentSort(cart.articles, 'name')
+cart.orderArticles('id', 'desc');
 
 console.log('************Después de ordenar**************');
 cart.getArticles();
 
-function ascendentSort(array, value) {
 
-    array.sort( (a, b) => {
-            if (a[value] > b[value]) {
-              return 1;
-            }
-            if (a[value] < b[value]) {
-              return -1;
-            }
-            // a must be equal to b
-            return 0;
-    });
 
-}
+
+
