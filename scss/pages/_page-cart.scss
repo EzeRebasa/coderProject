@@ -11,10 +11,10 @@
                 form {
                     /*---------- CART TABLE ---------*/
                     .table-responsive {
+                        display: none;
                         background-color: hsl(271, 13%, 95%);
                         border-collapse: collapse;
                         text-align: center;
-                        vertical-align: middle;
                         width: 100%;
                         td,
                         tr,
@@ -50,6 +50,20 @@
                         }
                     }
                     /*---------------------------*/
+                }
+                .cartMessage {
+                    display: grid;
+                    place-items: center;
+                    height: 20rem;
+                    background-color: hsl(271, 13%, 95%);
+                    p {
+                        font-family: SourceSansPro;
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 3.2rem;
+                        color: $clr-text;
+                        opacity: 0.5;
+                    }
                 }
             }
             .cartMain__container__row__dataClient {

@@ -1,0 +1,200 @@
+[
+    {
+        "id": 1,
+        "category": "sportswear",
+        "name": "shirt",
+        "size": [
+            {"M": "Medium" } ,
+            {"L": "Large"},
+            {"XL": "Extra Large"}
+        ],
+        "cant": 2,
+        "price": 1500,
+        "fullPrice": 3000,
+        "image": "images/camisetas/argentina-sup2021.jpg",
+        "description": "Camiseta Argentina Suplente 2021"
+    },
+    {
+        "id": 2,
+        "category": "sportswear",
+        "name": "shirt",
+        "size": [
+            {"M": "Medium" } ,
+            {"L": "Large"},
+            {"XL": "Extra Large"}
+        ],
+        "cant": 2,
+        "price": 1500,
+        "fullPrice": 3000,
+        "image": "images/camisetas/argentina-tit2021.jpg",
+        "description": "Camiseta Argentina Titular 2021"
+    },
+    {
+        "id": 3,
+        "category": "sportswear",
+        "name": "shirt",
+        "size": [
+            {"M": "Medium" } ,
+            {"L": "Large"},
+            {"XL": "Extra Large"}
+        ],
+        "cant": 3,
+        "price": 1500,
+        "fullPrice": 4500,
+        "image": "images/camisetas/boca-sup2021.jpg",
+        "description": "Camiseta Boca Suplente 2021"
+    },
+    {
+        "id": 4,
+        "category": "sportswear",
+        "name": "shirt",
+        "size": [
+            {"M": "Medium" } ,
+            {"L": "Large"},
+            {"XL": "Extra Large"}
+        ],
+        "cant": 3,
+        "price": 1500,
+        "fullPrice": 4500,
+        "image": "images/camisetas/boca-tit2021.jpg",
+        "description": "Camiseta Boca Titular 2021"
+    },
+    {
+        "id": 5,
+        "category": "sportswear",
+        "name": "shirt",
+        "size": [
+            {"M": "Medium" } ,
+            {"L": "Large"},
+            {"XL": "Extra Large"}
+        ],
+        "cant": 3,
+        "price": 1500,
+        "fullPrice": 4500,
+        "image": "images/camisetas/river-sup2021.jpg",
+        "description": "Camiseta River Suplente 2021"
+    },
+    {
+        "id": 6,
+        "category": "casualCloths",
+        "name": "chomba",
+        "size": [
+            {"M": "Medium" } ,
+            {"L": "Large"},
+            {"XL": "Extra Large"}
+        ],
+        "cant": 3,
+        "price": 1500,
+        "fullPrice": 4500,
+        "image": "images/chombas/blanco.jpg",
+        "description": "Chomba Lacoste blanca"
+    },
+    {
+        "id": 7,
+        "category": "casualCloths",
+        "name": "chomba",
+        "size": [
+            {"M": "Medium" } ,
+            {"L": "Large"},
+            {"XL": "Extra Large"}
+        ],
+        "cant": 3,
+        "price": 1500,
+        "fullPrice": 4500,
+        "image": "images/chombas/negro.jpg",
+        "description": "Chomba Lacoste negra"
+    },
+    {
+        "id": 8,
+        "category": "casualCloths",
+        "name": "chomba",
+        "size": [
+            {"M": "Medium" } ,
+            {"L": "Large"},
+            {"XL": "Extra Large"}
+        ],
+        "cant": 3,
+        "price": 1500,
+        "fullPrice": 4500,
+        "image": "images/chombas/rojo.jpg",
+        "description": "Chomba Lacoste roja"
+    },
+    {
+        "id": 9,
+        "category": "casualCloths",
+        "name": "chomba",
+        "size": [
+            {"M": "Medium" } ,
+            {"L": "Large"},
+            {"XL": "Extra Large"}
+        ],
+        "cant": 3,
+        "price": 1500,
+        "fullPrice": 4500,
+        "image": "images/chombas/salmon.jpg",
+        "description": "Chomba Lacoste salmón"
+    },
+    {
+        "id": 10,
+        "category": "casualCloths",
+        "name": "chomba",
+        "size": [
+            {"M": "Medium" } ,
+            {"L": "Large"},
+            {"XL": "Extra Large"}
+        ],
+        "cant": 3,
+        "price": 1500,
+        "fullPrice": 4500,
+        "image": "images/chombas/violeta.jpg",
+        "description": "Chomba Lacoste violeta"
+    },
+    {
+        "id": 11,
+        "category": "perfume",
+        "name": "ch",
+        "size": [
+            {"thumbail": "35ml" } ,
+            {"fifty": "50ml"},
+            {"hundred": "100ml"},
+            {"premiun": "Premiun Box"}
+        ],
+        "cant": 3,
+        "price": 1500,
+        "fullPrice": 4500,
+        "image": "images/per-mujer/ch.jpg",
+        "description": "Perfume CH mujer"
+    },
+    {
+        "id": 12,
+        "category": "perfume",
+        "name": "gg-ch",
+        "size": [
+            {"thumbail": "35ml" } ,
+            {"fifty": "50ml"},
+            {"hundred": "100ml"},
+            {"premiun": "Premiun Box"}
+        ],
+        "cant": 3,
+        "price": 1500,
+        "fullPrice": 4500,
+        "image": "images/per-mujer/gg-ch.jpg",
+        "description": "Perfume Good Girl CH mujer"
+    },
+    {
+        "id": 13,
+        "category": "perfume",
+        "name": "vi-givenchy",
+        "size": [
+            {"thumbail": "35ml" } ,
+            {"fifty": "50ml"},
+            {"hundred": "100ml"},
+            {"premiun": "Premiun Box"}
+        ],
+        "cant": 3,
+        "price": 1500,
+        "fullPrice": 4500,
+        "image": "images/per-mujer/vi-givenchy.jpg",
+        "description": "Perfume Vi Givenchy mujer"
+    }
+]
