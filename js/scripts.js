@@ -177,25 +177,17 @@ const cart = new Cart();
 /** Cuando se presiona en la card agregar a carrito armo un objeto artículo y se lo mando a 
  * carrito para que lo trabaje */
 
-const art_1 = new Article('Perfume', 'Kenzo', '150ml', 1200);
-const art_2 = new Article('Ropa', 'Remera', 'M', 1000);
-const art_3 = new Article('Perfume', 'Calsa', 'XL', 1500);
-const art_4 = new Article('Ropa', 'Chomba', 'M', 1300);
 
-cart.addArticleToCart(art_1);
-cart.addArticleToCart(art_2);
-cart.addArticleToCart(art_3);
-cart.addArticleToCart(art_4);
 
 /** Método que se ejecutará cuando se presione el botón quitar del carrito o cuando se 
  * introduzca 0 en el input de cantidad
  */
 
 /** */
-cart.getArticles();
+// cart.getArticles();
 
 /** Cuando se quiera modificar la cantidad de items de un artículo */
-cart.setArticleCant(3, 3);
+// cart.setArticleCant(3, 3);
 
 /** Cuando se presiona en confirmar pedido se instancia una Order/pedido 
  * la idea es que se copie esa info en el campo Pedido del form
@@ -250,79 +242,52 @@ function getDataJSON() {
 }
 
 function buildListArticles(jsonObjArray) {
-  const path = '../assets/'; 
+  const path = '../assets/';
   const perfumesList = document.querySelector('#perfume ul');
   const sportList = document.querySelector('#sport ul');
   const casualList = document.querySelector('#casual ul');
 
   jsonObjArray.map(art => {
-
-    const li = document.createElement('li');
-    li.className = 'card';
-
-    const img = document.createElement('img');
-    img.className = 'card-img-top';
-    img.setAttribute('alt', `${art.description}`);
-    img.setAttribute('src', `${path}${art.image}`);
-    li.append(img);
-
-    const div = document.createElement('div');
-    div.className = 'card-body';
-    li.append(div);
-
-    const h3 = document.createElement('h3');
-    h3.className = 'card-title';
-    h3.textContent = `${art.description}`;
-    div.append(h3);
-
-    const ulChild = document.createElement('ul');
-    ulChild.className = 'list-group list-group-flush';
-    li.append(ulChild);
-
-    const ulChild_li = document.createElement('li');
-    ulChild_li.className = 'list-group-item';
-    ulChild.append(ulChild_li);
-
-    const select = document.createElement('select');
-    select.setAttribute('name', 'size');
-    select.setAttribute('id', 'size');
-    ulChild_li.append(select);
-
-    art.size.map(size => {  
-      const option = document.createElement('option');
-      option.setAttribute('value', `${Object.keys(size)}`);
-      option.textContent = `${Object.values(size)}`;
-      select.append(option);
-    });
-
-    const ulChild_li2 = document.createElement('li');
-    ulChild_li2.className = 'list-group-item';
-    ulChild_li2.textContent = `Precio : ${art.price}`;
-    ulChild.append(ulChild_li2);
-
-    const addCartDiv = document.createElement('div');
-    addCartDiv.className = 'card-body addToCart';
-    li.append(addCartDiv);
-
-    const a = document.createElement('a');
-    a.className = 'card-link';
-    a.textContent = 'Agregar a carrito';
-    a.setAttribute('href', 'cart.html');
-    addCartDiv.append(a);
-
-    a.addEventListener('click', () => {
-      cart.addArticleToCart(art);
-      localStorage.setItem(`${art.id}`, JSON.stringify(art));
-    });
+    let htmlText = '';
+    htmlText = `<li class="card">
+              <img src='${path}${art.image}' class="card-img-top"
+                alt='${art.description}' />
+              <div class="card-body">
+                <h3 class="card-title">${art.description}</h3>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <select name="size" id="size">
+                    ${art.size.map(size => `<option value='${Object.keys(size)}'>${Object.values(size)}</option>`)}
+                  </select>
+                </li>
+                <li class="list-group-item">Precio :$${art.price}</li>
+              </ul>
+              <div class="card-body addToCart">
+                <a href="cart.html" class="card-link">Agregar a carrito <svg xmlns="http://www.w3.org/2000/svg"
+                   fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                   <path fill-rule="evenodd"
+                     d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5
+                       8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 
+                       7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 
+                       1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                   <path fill-rule="evenodd"
+                     d="M8.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 
+                     0 0 1 .5-.5z" />
+                 </svg></a>
+              </div>
+            </li>`;
 
     if (art.category === 'sportswear') {
-      sportList.append(li);
+      sportList.innerHTML += htmlText;
     } else if (art.category === 'casualCloths') {
-      casualList.append(li);
+      casualList.innerHTML += htmlText;
     } else if (art.category === 'perfume') {
-      perfumesList.append(li);
+      perfumesList.innerHTML += htmlText;
     }
-  })
+  });
+
+
 }
 
 getDataJSON();

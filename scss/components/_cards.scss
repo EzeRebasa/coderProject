@@ -9,9 +9,11 @@
         font-size: 1.6rem;
         font-style: normal;
         font-weight: bold;
+        padding: 1rem;
     }
     .card-body {
         text-align: center;
+        padding: 0;
         &.addToCart {
             display: inline-block;
             background-color: $clr-inactiveConfirm;
