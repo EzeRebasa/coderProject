@@ -1,6 +1,6 @@
 class Cart {
   constructor() {
-    this.articles = [];
+    this.articles = this.getArticles() || [];
   }
 
   // Getters & Setters
@@ -19,13 +19,17 @@ class Cart {
     }
   }
 
-  getArticles = function () {
+  /**
+  * 
+  * @returns the stored articles in the cart 
+  */
 
-    if (this.articles) {
-      this.articles.forEach(art => {
-        console.log(art);;
-      });
+  getArticles = function () {
+    const articles = JSON.parse(localStorage.getItem('cart'));
+    if (articles) {
+      return articles;
     }
+    return null;
   }
 
   getArticleById = function (articleId) {
@@ -35,11 +39,26 @@ class Cart {
     if (article) {
       return article;
     } else {
-      alert(`El artículo con id ${articleId} no se encuentra`);
+      console.log(`El artículo con id ${articleId} no se encuentra`);
     }
   }
 
+  /**
+   * 
+   * @returns {number} of items cart
+   */
+  getTotalArticles = function () {
+    let items = 0;
+
+    if (this.articles) {
+      this.articles.forEach(() => items++);
+    }
+
+    return items;
+  }
+
   // Methods
+
   /**
    * 
    * @param {Article} art // Receives an object Article
@@ -51,7 +70,7 @@ class Cart {
 
       } else if (art.category != "" && art.name != "" && art.size != "" && art.price != "") {
         this.articles.push(art);
-        storageArticle();
+        this.storageArticles();
         alert('El Articulo se ingresó correctamente!');
       } else {
         alert('Verifique los datos ingresados...');
@@ -71,7 +90,7 @@ class Cart {
 
     if (article) {
       this.articles.splice(index, 1);
-      storageArticle();
+      this.storageArticles();
       alert(`Se eliminó el artículo ${article.name} del carrito`);
     } else {
       alert('Error al intentar borrar');
@@ -108,7 +127,16 @@ class Cart {
       }
     });
   }
+// class="badge bg-danger" data-badge="0"
+  updateBadge = function () {
+    const badge = document.querySelector('.badge');
+    badge.textContent = cart.getTotalArticles();
+  }
 
+  /**
+   * 
+   * @returns the order to be pasted in the textarea of ​​the form
+   */
   validateCart = function () {
     let order = '';
     this.articles.forEach(art => {
@@ -116,19 +144,19 @@ class Cart {
       let price = art.price * art.cant;
 
       order += `[Artículo]: ${art.name} [${size}]: ${art.size} [Items]: ${art.cant} [Precio]: ${price}`;
-      order += '\n'; // Porqué se me muestra /n en el string?? :S
+      order += '\n';
     });
     return order;
   }
+
   /**
-   * 
-   * @returns Number of items cart
+   * Will keep the cart updated with what the user has entered
    */
-  getTotalArticles = function () {
-    let items = 0;
-    this.articles.forEach(art => items++);
-    return items;
+  storageArticles = function () {
+    localStorage.setItem('cart', JSON.stringify(cart.articles));
+    this.updateBadge();
   }
+
 
 }
 class Article {
@@ -175,7 +203,7 @@ class Order {
     }
   }
 }
-const cart = new Cart();
+
 
 /** Cuando se presiona en la card agregar a carrito armo un objeto artículo y se lo mando a 
  * carrito para que lo trabaje */
@@ -207,8 +235,7 @@ const cart = new Cart();
 // cart.getArticles();
 
 /** Suma de items para el badge */
-const badgeCart = document.querySelector('.badge')
-badgeCart.textContent = cart.getTotalArticles();
+
 
 /**
  * 
@@ -232,10 +259,9 @@ function cartContentVisibility(content) {
 const getDataAsync = async () => {
   let response = await fetch('../database/data.json');
   let articles = await response.json();
-
+  myData = articles;
   buildListArticles(articles);
 }
-
 
 function buildListArticles(jsonObjArray) {
   const path = '../assets/';
@@ -243,7 +269,6 @@ function buildListArticles(jsonObjArray) {
   const sportList = document.querySelector('#sport ul');
   const casualList = document.querySelector('#casual ul');
 
- 
   jsonObjArray.map(art => {
     let htmlText = '';
     const { id, image, description, size, price } = art
@@ -262,7 +287,7 @@ function buildListArticles(jsonObjArray) {
                 <li class="list-group-item">Precio : $${price}</li>
               </ul>
               <div class="card-body addToCart">
-                <a href="cart.html" class="card-link" data-id=${art.id}>Agregar a carrito <svg xmlns="http://www.w3.org/2000/svg"
+                <a class="card-link" data-id=${id} onclick="addToCart(event)">Agregar a carrito <svg xmlns="http://www.w3.org/2000/svg"
                    fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
                    <path fill-rule="evenodd"
                      d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5
@@ -275,7 +300,6 @@ function buildListArticles(jsonObjArray) {
                  </svg></a>
               </div>
             </li>`;
-
     if (art.category === 'sportswear') {
       sportList.innerHTML += htmlText;
     } else if (art.category === 'casualCloths') {
@@ -283,24 +307,19 @@ function buildListArticles(jsonObjArray) {
     } else if (art.category === 'perfume') {
       perfumesList.innerHTML += htmlText;
     }
-
-  });
-  const addToCart = document.querySelectorAll('.card-link');
-  console.log(addToCart);
-  addToCart.forEach( a => {
-    a.addEventListener('click', ()=>{
-      cart.addArticleToCart(art)
-    })
   });
 }
+
+
+function addToCart(event) {
+  let foundProduct = myData.find(product => product.id == event.target.dataset.id);
+  cart.addArticleToCart(foundProduct)
+  console.log(cart.articles)
+}
+
+
+const cart = new Cart();
+cart.updateBadge();
 getDataAsync();
-
-
-function addToCart(art) {
-  cart.addArticleToCart(art)
-}
-function storageArticle() {
-  localStorage.setItem('cart', JSON.stringify(cart.articles));
-}
 
 
