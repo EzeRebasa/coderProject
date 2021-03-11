@@ -9,12 +9,11 @@ class Cart {
     if (cant == 0) {
       this.removeArticleById(articleId);
     } else if (cant > 0) {
+
       let art = this.getArticleById(articleId);
       art.cant = cant;
       art.fullPrice = art.cant * art.price;
 
-      console.log('MOSTRANDO CANTIDAD');
-      console.log(art);
     } else {
       console.log('Debe ingresar valores positivos');
     }
@@ -36,7 +35,7 @@ class Cart {
     if (article) {
       return article;
     } else {
-      console.log(`El artículo con id ${articleId} no se encuentra`);
+      alert(`El artículo con id ${articleId} no se encuentra`);
     }
   }
 
@@ -48,14 +47,17 @@ class Cart {
 
   addArticleToCart = function (art) {
     if (art) {
-      if (art.category != "" && art.name != "" && art.size != "" && art.price != "") {
+      if (this.getArticleById(art.id)) {
+
+      } else if (art.category != "" && art.name != "" && art.size != "" && art.price != "") {
         this.articles.push(art);
-        console.log('El Articulo se ingresó correctamente!');
+        storageArticle();
+        alert('El Articulo se ingresó correctamente!');
       } else {
-        console.log('Verifique los datos ingresados...');
+        alert('Verifique los datos ingresados...');
       }
     } else {
-      console.log('No hay Artículo!');
+      alert('No hay Artículo!');
     }
   }
   /**
@@ -69,9 +71,10 @@ class Cart {
 
     if (article) {
       this.articles.splice(index, 1);
-      console.log(`Se eliminó el artículo ${article.name} del carrito`);
+      storageArticle();
+      alert(`Se eliminó el artículo ${article.name} del carrito`);
     } else {
-      console.log('Error al intentar borrar');
+      alert('Error al intentar borrar');
     }
   }
 
@@ -172,8 +175,8 @@ class Order {
     }
   }
 }
-
 const cart = new Cart();
+
 /** Cuando se presiona en la card agregar a carrito armo un objeto artículo y se lo mando a 
  * carrito para que lo trabaje */
 
@@ -192,16 +195,16 @@ const cart = new Cart();
 /** Cuando se presiona en confirmar pedido se instancia una Order/pedido 
  * la idea es que se copie esa info en el campo Pedido del form
 */
-let newOrder = new Order();
+// let newOrder = new Order();
 
-let orderText = cart.validateCart();
-newOrder.setOrder(orderText);
-console.log(newOrder);
+// let orderText = cart.validateCart();
+// newOrder.setOrder(orderText);
+// console.log(newOrder);
 
-cart.orderArticles('id', 'desc');
+// cart.orderArticles('id', 'desc');
 
-console.log('************Después de ordenar**************');
-cart.getArticles();
+// console.log('************Después de ordenar**************');
+// cart.getArticles();
 
 /** Suma de items para el badge */
 const badgeCart = document.querySelector('.badge')
@@ -226,20 +229,13 @@ function cartContentVisibility(content) {
   }
 }
 
-function getDataJSON() {
-  const requestURL = '../database/data.json';
-  const request = new XMLHttpRequest();
+const getDataAsync = async () => {
+  let response = await fetch('../database/data.json');
+  let articles = await response.json();
 
-  request.open('GET', requestURL);
-
-  request.responseType = 'json';
-  request.send();
-
-  request.onload = function () {
-    const articles = request.response;
-    buildListArticles(articles);
-  }
+  buildListArticles(articles);
 }
+
 
 function buildListArticles(jsonObjArray) {
   const path = '../assets/';
@@ -247,24 +243,26 @@ function buildListArticles(jsonObjArray) {
   const sportList = document.querySelector('#sport ul');
   const casualList = document.querySelector('#casual ul');
 
+ 
   jsonObjArray.map(art => {
     let htmlText = '';
+    const { id, image, description, size, price } = art
     htmlText = `<li class="card">
-              <img src='${path}${art.image}' class="card-img-top"
-                alt='${art.description}' />
+              <img src='${path}${image}' class="card-img-top"
+                alt='${description}' />
               <div class="card-body">
-                <h3 class="card-title">${art.description}</h3>
+                <h3 class="card-title">${description}</h3>
               </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                   <select name="size" id="size">
-                    ${art.size.map(size => `<option value='${Object.keys(size)}'>${Object.values(size)}</option>`)}
+                    ${size.map(s => `<option value='${Object.keys(s)}'>${Object.values(s)}</option>`)}
                   </select>
                 </li>
-                <li class="list-group-item">Precio :$${art.price}</li>
+                <li class="list-group-item">Precio : $${price}</li>
               </ul>
               <div class="card-body addToCart">
-                <a href="cart.html" class="card-link">Agregar a carrito <svg xmlns="http://www.w3.org/2000/svg"
+                <a href="cart.html" class="card-link" data-id=${art.id}>Agregar a carrito <svg xmlns="http://www.w3.org/2000/svg"
                    fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
                    <path fill-rule="evenodd"
                      d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5
@@ -285,10 +283,24 @@ function buildListArticles(jsonObjArray) {
     } else if (art.category === 'perfume') {
       perfumesList.innerHTML += htmlText;
     }
+
   });
+  const addToCart = document.querySelectorAll('.card-link');
+  console.log(addToCart);
+  addToCart.forEach( a => {
+    a.addEventListener('click', ()=>{
+      cart.addArticleToCart(art)
+    })
+  });
+}
+getDataAsync();
 
 
+function addToCart(art) {
+  cart.addArticleToCart(art)
+}
+function storageArticle() {
+  localStorage.setItem('cart', JSON.stringify(cart.articles));
 }
 
-getDataJSON();
 
