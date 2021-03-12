@@ -395,9 +395,12 @@ a {
     font-family: SourceSansPro;
     font-size: 1.6rem;
     font-style: normal;
-    font-weight: bold; }
+    font-weight: bold;
+    display: block;
+    padding: 1rem; }
   .card .card-body {
-    text-align: center; }
+    text-align: center;
+    padding: 0; }
     .card .card-body.addToCart {
       display: inline-block;
       background-color: rgba(46, 204, 112, 0.5);
@@ -565,40 +568,40 @@ a {
   padding: 0;
   height: fit-content;
   margin-bottom: 1.6rem; }
-  .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form {
-    /*---------- CART TABLE ---------*/
-    /*---------------------------*/ }
-    .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive {
-      display: none;
-      background-color: #f2f1f4;
-      border-collapse: collapse;
-      text-align: center;
-      width: 100%; }
-      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive td,
-      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive tr,
-      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive th {
-        padding: 0.8rem; }
-      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive thead tr,
-      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive thead th {
-        font-size: 2rem;
-        font-weight: normal;
-        background-color: #c8a0d9; }
-      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive tbody tr td:first-child {
-        font-weight: bold; }
-      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive tbody .productCant {
-        border: 1px solid #40264b;
-        text-align: center;
-        width: 48px; }
-      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm form .table-responsive tfoot td:last-child {
-        font-size: 1.6rem;
-        font-weight: bold;
-        opacity: 0.8; }
-  .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartMessage {
+  .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm {
     display: grid;
     place-items: center;
-    height: 20rem;
+    min-height: 20rem;
     background-color: #f2f1f4; }
-    .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartMessage p {
+    .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm form {
+      /*---------- CART TABLE ---------*/
+      /*---------------------------*/ }
+      .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm form .table-responsive {
+        display: none;
+        background-color: #f2f1f4;
+        border-collapse: collapse;
+        text-align: center;
+        width: 100%; }
+        .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm form .table-responsive td,
+        .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm form .table-responsive tr,
+        .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm form .table-responsive th {
+          padding: 0.8rem; }
+        .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm form .table-responsive thead tr,
+        .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm form .table-responsive thead th {
+          font-size: 2rem;
+          font-weight: normal;
+          background-color: #c8a0d9; }
+        .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm form .table-responsive tbody tr td:first-child {
+          font-weight: bold; }
+        .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm form .table-responsive tbody .productCant {
+          border: 1px solid #40264b;
+          text-align: center;
+          width: 48px; }
+        .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm form .table-responsive tfoot td:last-child {
+          font-size: 1.6rem;
+          font-weight: bold;
+          opacity: 0.8; }
+    .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm p {
       font-family: SourceSansPro;
       font-style: normal;
       font-weight: bold;

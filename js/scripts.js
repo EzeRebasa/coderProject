@@ -49,11 +49,9 @@ class Cart {
    */
   getTotalArticles = function () {
     let items = 0;
-
     if (this.articles) {
       this.articles.forEach(() => items++);
     }
-
     return items;
   }
 
@@ -75,8 +73,6 @@ class Cart {
       } else {
         alert('Verifique los datos ingresados...');
       }
-    } else {
-      alert('No hay Artículo!');
     }
   }
   /**
@@ -85,6 +81,7 @@ class Cart {
    */
 
   removeArticleById = function (id) {
+
     let article = this.getArticleById(id);
     let index = this.articles.indexOf(article);
 
@@ -127,7 +124,7 @@ class Cart {
       }
     });
   }
-// class="badge bg-danger" data-badge="0"
+  // class="badge bg-danger" data-badge="0"
   updateBadge = function () {
     const badge = document.querySelector('.badge');
     badge.textContent = cart.getTotalArticles();
@@ -204,57 +201,11 @@ class Order {
   }
 }
 
-
-/** Cuando se presiona en la card agregar a carrito armo un objeto artículo y se lo mando a 
- * carrito para que lo trabaje */
-
-
-
-/** Método que se ejecutará cuando se presione el botón quitar del carrito o cuando se 
- * introduzca 0 en el input de cantidad
- */
-
-/** */
-// cart.getArticles();
-
-/** Cuando se quiera modificar la cantidad de items de un artículo */
-// cart.setArticleCant(3, 3);
-
-/** Cuando se presiona en confirmar pedido se instancia una Order/pedido 
- * la idea es que se copie esa info en el campo Pedido del form
-*/
-// let newOrder = new Order();
-
-// let orderText = cart.validateCart();
-// newOrder.setOrder(orderText);
-// console.log(newOrder);
-
-// cart.orderArticles('id', 'desc');
-
-// console.log('************Después de ordenar**************');
-// cart.getArticles();
-
-/** Suma de items para el badge */
-
-
 /**
  * 
  * @param {number} content // Si hay artículos se muestra el carrito sino un mensaje de vacío
  *  
  */
-
-function cartContentVisibility(content) {
-  const cartForm = document.querySelector('.cartForm');
-  const cartMessage = document.querySelector('.cartMessage');
-
-  if (content) {
-    cartForm.style.display = "block";
-    cartMessage.style.display = "none";
-  } else {
-    cartForm.style.display = "none";
-    cartMessage.style.display = "block";
-  }
-}
 
 const getDataAsync = async () => {
   let response = await fetch('../database/data.json');
@@ -271,7 +222,7 @@ function buildListArticles(jsonObjArray) {
 
   jsonObjArray.map(art => {
     let htmlText = '';
-    const { id, image, description, size, price } = art
+    const { id, image, description, size, price } = art;
     htmlText = `<li class="card">
               <img src='${path}${image}' class="card-img-top"
                 alt='${description}' />
@@ -317,9 +268,88 @@ function addToCart(event) {
   console.log(cart.articles)
 }
 
+function buildRowCart(article) {
+  const { id, description, cant, price, fullPrice } = article;
+  const row = document.createElement('tr')
+  let text = '';
+  text = `
+            <tr>
+            <td>${description}</td>
+            <td>
+              <input type="text" value="${cant}" class="productCant" />
+            </td>
+            <td>${price}</td>
+            <td>${fullPrice}</td>
+            <td>
+              <input
+                type="button"
+                value="Quitar"
+                class="button--delete"
+                onclick="removeArticleById(${id})"
+              />
+            </td>
+          </tr>
+  `;
+  row.innerHTML = text;
+  return row;
+}
 
+function buildTableCart() {
+  const form = document.querySelector('.cartMain__container__row__cartForm');
+
+  let htmlForm = '';
+  htmlForm = `<form action="#">
+          <table cellspacing="0" cellpadding="0" class="table-responsive">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario ($)</th>
+                <th>Subtotal ($)</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody class="tbody">
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="2">
+                  <input
+                    type="submit"
+                    value="CONFIRMAR PEDIDO"
+                    class="button--confirm"
+                  />
+                </td>
+                <td colspan="3">Total : $ 900</td>
+              </tr>
+            </tfoot>
+          </table>
+        </form>
+  `;
+  form.innerHTML = htmlForm;
+  const tbody = document.querySelector('.tbody');
+  console.log(tbody);
+  cart.getArticles().forEach(art => {
+    tbody.innerHTML += `   <tr>
+    <td>${art.description}</td>
+    <td>
+      <input type="text" value="${art.cant}" class="productCant" />
+    </td>
+    <td>${art.price}</td>
+    <td>${art.fullPrice}</td>
+    <td>
+      <input
+        type="button"
+        value="Quitar"
+        class="button--delete"
+        onclick="removeArticleById(${art.id})"
+      />
+    </td>
+  </tr>`
+  })
+}
+
+getDataAsync();
 const cart = new Cart();
 cart.updateBadge();
-getDataAsync();
-
-
+buildTableCart();
