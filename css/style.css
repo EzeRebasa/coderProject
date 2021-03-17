@@ -577,7 +577,6 @@ a {
       /*---------- CART TABLE ---------*/
       /*---------------------------*/ }
       .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm form .table-responsive {
-        display: none;
         background-color: #f2f1f4;
         border-collapse: collapse;
         text-align: center;

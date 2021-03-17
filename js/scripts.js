@@ -5,25 +5,10 @@ class Cart {
 
   // Getters & Setters
 
-  setArticleCant = function (articleId, cant) {
-    if (cant == 0) {
-      this.removeArticleById(articleId);
-    } else if (cant > 0) {
-
-      let art = this.getArticleById(articleId);
-      art.cant = cant;
-      art.fullPrice = art.cant * art.price;
-
-    } else {
-      console.log('Debe ingresar valores positivos');
-    }
-  }
-
   /**
   * 
   * @returns the stored articles in the cart 
   */
-
   getArticles = function () {
     const articles = JSON.parse(localStorage.getItem('cart'));
     if (articles) {
@@ -34,7 +19,7 @@ class Cart {
 
   getArticleById = function (articleId) {
 
-    let article = this.articles.find(art => art.id === articleId);
+    let article = this.articles.find(art => art.id == articleId);
 
     if (article) {
       return article;
@@ -83,11 +68,13 @@ class Cart {
   removeArticleById = function (id) {
 
     let article = this.getArticleById(id);
+
     let index = this.articles.indexOf(article);
 
     if (article) {
       this.articles.splice(index, 1);
       this.storageArticles();
+      buildTableCart();
       alert(`Se eliminó el artículo ${article.name} del carrito`);
     } else {
       alert('Error al intentar borrar');
@@ -124,7 +111,7 @@ class Cart {
       }
     });
   }
-  // class="badge bg-danger" data-badge="0"
+  
   updateBadge = function () {
     const badge = document.querySelector('.badge');
     badge.textContent = cart.getTotalArticles();
@@ -134,17 +121,19 @@ class Cart {
    * 
    * @returns the order to be pasted in the textarea of ​​the form
    */
-  validateCart = function () {
-    let order = '';
-    this.articles.forEach(art => {
-      let size = art.category === 'Perfume' ? 'Medida' : 'Talle';
-      let price = art.price * art.cant;
 
-      order += `[Artículo]: ${art.name} [${size}]: ${art.size} [Items]: ${art.cant} [Precio]: ${price}`;
-      order += '\n';
-    });
-    return order;
-  }
+  //TODO: Check cant
+  // validateCart = function () {
+  //   let order = '';
+  //   this.articles.forEach(art => {
+  //     let size = art.category === 'Perfume' ? 'Medida' : 'Talle';
+  //     let price = art.price * art.cant;
+
+  //     order += `[Artículo]: ${art.name} [${size}]: ${art.size} [Items]: ${art.cant} [Precio]: ${price}`;
+  //     order += '\n';
+  //   });
+  //   return order;
+  // }
 
   /**
    * Will keep the cart updated with what the user has entered
@@ -163,7 +152,6 @@ class Article {
     this.category = category;
     this.name = name;
     this.size = size;
-    this.cant = 1;
     this.price = price;
     this.fullPrice = price;
   }
@@ -176,7 +164,6 @@ class Article {
     }
     return this.latestId;
   }
-
 
 }
 
@@ -223,6 +210,7 @@ function buildListArticles(jsonObjArray) {
   jsonObjArray.map(art => {
     let htmlText = '';
     const { id, image, description, size, price } = art;
+
     htmlText = `<li class="card">
               <img src='${path}${image}' class="card-img-top"
                 alt='${description}' />
@@ -262,94 +250,130 @@ function buildListArticles(jsonObjArray) {
 }
 
 
-function addToCart(event) {
-  let foundProduct = myData.find(product => product.id == event.target.dataset.id);
-  cart.addArticleToCart(foundProduct)
-  console.log(cart.articles)
-}
-
-function buildRowCart(article) {
-  const { id, description, cant, price, fullPrice } = article;
-  const row = document.createElement('tr')
-  let text = '';
-  text = `
-            <tr>
-            <td>${description}</td>
-            <td>
-              <input type="text" value="${cant}" class="productCant" />
-            </td>
-            <td>${price}</td>
-            <td>${fullPrice}</td>
-            <td>
-              <input
-                type="button"
-                value="Quitar"
-                class="button--delete"
-                onclick="removeArticleById(${id})"
-              />
-            </td>
-          </tr>
-  `;
-  row.innerHTML = text;
-  return row;
-}
-
 function buildTableCart() {
-  const form = document.querySelector('.cartMain__container__row__cartForm');
+  cleanHTML();
 
-  let htmlForm = '';
-  htmlForm = `<form action="#">
-          <table cellspacing="0" cellpadding="0" class="table-responsive">
-            <thead>
-              <tr>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Precio Unitario ($)</th>
-                <th>Subtotal ($)</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody class="tbody">
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="2">
-                  <input
-                    type="submit"
-                    value="CONFIRMAR PEDIDO"
-                    class="button--confirm"
-                  />
-                </td>
-                <td colspan="3">Total : $ 900</td>
-              </tr>
-            </tfoot>
-          </table>
-        </form>
-  `;
-  form.innerHTML = htmlForm;
-  const tbody = document.querySelector('.tbody');
-  console.log(tbody);
-  cart.getArticles().forEach(art => {
-    tbody.innerHTML += `   <tr>
-    <td>${art.description}</td>
-    <td>
-      <input type="text" value="${art.cant}" class="productCant" />
-    </td>
-    <td>${art.price}</td>
-    <td>${art.fullPrice}</td>
-    <td>
-      <input
-        type="button"
-        value="Quitar"
-        class="button--delete"
-        onclick="removeArticleById(${art.id})"
-      />
-    </td>
-  </tr>`
-  })
+  divCartForm.className = 'cartForm';
+  divCart.append(divCartForm);
+
+  let htmlText = '';
+  if (cart.getArticles().length !== 0) {
+
+
+    htmlText = `
+            <table cellspacing="0" cellpadding="0" class="table-responsive">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Cantidad</th>
+                  <th>Precio Unitario ($)</th>
+                  <th>Subtotal ($)</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody class="tbody">`;
+    cart.getArticles().forEach(art => {
+
+      htmlText += `<tr>
+                  <td>${art.description}</td>
+                  <td class="tdCant">
+                    <button 
+                      class="subtract" 
+                      type="button"
+                      onclick="subtractItem(${art.id})" 
+                    >  - </button>
+                    <input type="text" value=${1} class="artCant" data-cant=${art.id} />
+                    <button 
+                      class="add"
+                      type="button"
+                      onclick="addItem(${art.id})" 
+                    > + </button>
+                  </td>
+                  <td>${art.price}</td>
+                  <td>${art.fullPrice}</td>
+                  <td>
+                    <button
+                      class="button--delete"
+                      onclick="removeArticle(${art.id})"
+                    >Quitar</button>
+                  </td>
+                </tr>`
+    });
+    htmlText += `</tbody >
+              
+                  <tfoot>
+                    <tr>
+                      <td colspan="2">
+                        <input
+                          type="submit"
+                          value="CONFIRMAR PEDIDO"
+                          class="button--confirm"
+                        />
+                      </td>
+                      <td colspan="3">Total : $ 900</td>
+                    </tr>
+                  </tfoot>
+            </table >`;
+    formElement.innerHTML = htmlText;
+    divCartForm.append(formElement);
+  } else {
+
+    const message = document.createElement('p');
+    message.textContent = 'NO HAY ARTICULOS EN EL CARRITO';
+
+    divCartForm.append(message);
+  }
+
 }
+
+function removeArticle(id) {
+  cart.removeArticleById(id);
+}
+
+function addToCart(event) {
+  let foundArticle = myData.find(article => article.id == event.target.dataset.id);
+  cart.addArticleToCart(foundArticle);
+  console.log(cart.articles);
+}
+
+function cleanHTML() {
+  while (divCartForm.firstChild) {
+    divCartForm.removeChild(divCartForm.firstChild);
+  }
+}
+/**
+ * 
+ * @param {number} id  Receives an 'id' of article 
+ */
+function addItem(id) {
+  const cant = document.querySelector(`[data-cant='${id}']`);
+  console.log(cant.value);
+  cant.value = Number(cant.value) + 1;
+}
+/**
+ * 
+ * @param {number} id  Receives an 'id' of article 
+ */
+function subtractItem(id) {
+  const cant = document.querySelector(`[data-cant='${id}']`);
+
+  if(cant.value > 1){
+    cant.value = Number(cant.value) - 1;
+  }else {
+    removeArticle(cant.dataset.cant);
+  }
+}
+
+const divCart = document.querySelector('.cartMain__container__row__cartForm');
+const divCartForm = document.createElement('div');
+const formElement = document.createElement('form');
 
 getDataAsync();
 const cart = new Cart();
 cart.updateBadge();
 buildTableCart();
+
+
+// document.querySelector('.add').addEventListener('click', addItem);
+// document.querySelector('.subtract').addEventListener('click', subtractItem);
+
