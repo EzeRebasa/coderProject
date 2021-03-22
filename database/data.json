@@ -9,7 +9,6 @@
             {"XL": "Extra Large"}
         ],
         "price": 1500,
-        "fullPrice": 3000,
         "image": "images/camisetas/argentina-sup2021.jpg",
         "description": "Camiseta Argentina Suplente 2021"
     },
@@ -23,7 +22,6 @@
             {"XL": "Extra Large"}
         ],
         "price": 1500,
-        "fullPrice": 3000,
         "image": "images/camisetas/argentina-tit2021.jpg",
         "description": "Camiseta Argentina Titular 2021"
     },
@@ -37,7 +35,6 @@
             {"XL": "Extra Large"}
         ],
         "price": 1500,
-        "fullPrice": 4500,
         "image": "images/camisetas/boca-sup2021.jpg",
         "description": "Camiseta Boca Suplente 2021"
     },
@@ -51,7 +48,6 @@
             {"XL": "Extra Large"}
         ],
         "price": 1500,
-        "fullPrice": 4500,
         "image": "images/camisetas/boca-tit2021.jpg",
         "description": "Camiseta Boca Titular 2021"
     },
@@ -65,7 +61,6 @@
             {"XL": "Extra Large"}
         ],
         "price": 1500,
-        "fullPrice": 4500,
         "image": "images/camisetas/river-sup2021.jpg",
         "description": "Camiseta River Suplente 2021"
     },
@@ -79,7 +74,6 @@
             {"XL": "Extra Large"}
         ],
         "price": 1500,
-        "fullPrice": 4500,
         "image": "images/chombas/blanco.jpg",
         "description": "Chomba Lacoste blanca"
     },
@@ -93,7 +87,6 @@
             {"XL": "Extra Large"}
         ],
         "price": 1500,
-        "fullPrice": 4500,
         "image": "images/chombas/negro.jpg",
         "description": "Chomba Lacoste negra"
     },
@@ -107,7 +100,6 @@
             {"XL": "Extra Large"}
         ],
         "price": 1500,
-        "fullPrice": 4500,
         "image": "images/chombas/rojo.jpg",
         "description": "Chomba Lacoste roja"
     },
@@ -121,7 +113,6 @@
             {"XL": "Extra Large"}
         ],
         "price": 1500,
-        "fullPrice": 4500,
         "image": "images/chombas/salmon.jpg",
         "description": "Chomba Lacoste salmón"
     },
@@ -135,7 +126,6 @@
             {"XL": "Extra Large"}
         ],
         "price": 1500,
-        "fullPrice": 4500,
         "image": "images/chombas/violeta.jpg",
         "description": "Chomba Lacoste violeta"
     },
@@ -150,7 +140,6 @@
             {"premiun": "Premiun Box"}
         ],
         "price": 1500,
-        "fullPrice": 4500,
         "image": "images/per-mujer/ch.jpg",
         "description": "Perfume CH mujer"
     },
@@ -165,7 +154,6 @@
             {"premiun": "Premiun Box"}
         ],
         "price": 1500,
-        "fullPrice": 4500,
         "image": "images/per-mujer/gg-ch.jpg",
         "description": "Perfume Good Girl CH mujer"
     },
@@ -180,7 +168,6 @@
             {"premiun": "Premiun Box"}
         ],
         "price": 1500,
-        "fullPrice": 4500,
         "image": "images/per-mujer/vi-givenchy.jpg",
         "description": "Perfume Vi Givenchy mujer"
     }

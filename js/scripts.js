@@ -1,8 +1,41 @@
+class Article {
+
+  constructor(id, category, name, size, price) {
+      this.id = id;
+      this.category = category;
+      this.name = name;
+      this.size = size;
+      this.cant = 1;
+      this.price = price;
+      this.fullPrice = this.price * this.cant ;
+  }
+}
+
+class Order {
+  constructor(firstName, lastName, email, phoneNumber, address, house, order) {
+    this.firstName = firstName || '';
+    this.lastName = lastName || '';
+    this.email = email || '';
+    this.phoneNumber = phoneNumber || '';
+    this.address = address || '';
+    this.house = house || '';
+    this.order = order || '';
+  }
+  /** Completar setters... */
+
+  setOrder = function (order) {
+    if (order != '') {
+      this.order = order;
+    } else {
+      console.log('No se guardó ninguna orden');
+    }
+  }
+}
+
 class Cart {
   constructor() {
-    this.articles = this.getArticles() || [];
+      this.articles = this.getArticles() || [];
   }
-
   // Getters & Setters
 
   /**
@@ -10,22 +43,22 @@ class Cart {
   * @returns the stored articles in the cart 
   */
   getArticles = function () {
-    const articles = JSON.parse(localStorage.getItem('cart'));
-    if (articles) {
-      return articles;
-    }
-    return null;
+      const articles = JSON.parse(localStorage.getItem('cart'));
+      if (articles) {
+          return articles;
+      }
+      return null;
   }
 
   getArticleById = function (articleId) {
 
-    let article = this.articles.find(art => art.id == articleId);
+      let article = this.articles.find(art => art.id == articleId);
 
-    if (article) {
-      return article;
-    } else {
-      console.log(`El artículo con id ${articleId} no se encuentra`);
-    }
+      if (article) {
+          return article;
+      } else {
+          console.log(`El artículo con id ${articleId} no se encuentra`);
+      }
   }
 
   /**
@@ -33,11 +66,11 @@ class Cart {
    * @returns {number} of items cart
    */
   getTotalArticles = function () {
-    let items = 0;
-    if (this.articles) {
-      this.articles.forEach(() => items++);
-    }
-    return items;
+      let items = 0;
+      if (this.articles) {
+          this.articles.forEach(() => items++);
+      }
+      return items;
   }
 
   // Methods
@@ -48,17 +81,19 @@ class Cart {
    */
 
   addArticleToCart = function (art) {
-    if (art) {
-      if (this.getArticleById(art.id)) {
+    console.log(art);
+      if (art) {
+          if (this.getArticleById(art.id)) {
 
-      } else if (art.category != "" && art.name != "" && art.size != "" && art.price != "") {
-        this.articles.push(art);
-        this.storageArticles();
-        alert('El Articulo se ingresó correctamente!');
-      } else {
-        alert('Verifique los datos ingresados...');
+          } else if (art.id != "" && art.category != "" && art.name != "" && art.size != "" && art.price != "") {
+             
+            this.articles.push(art);
+              this.storageArticles();
+              alert('El Articulo se ingresó correctamente!');
+          } else {
+              alert('Verifique los datos ingresados...');
+          }
       }
-    }
   }
   /**
    * 
@@ -67,18 +102,18 @@ class Cart {
 
   removeArticleById = function (id) {
 
-    let article = this.getArticleById(id);
+      let article = this.getArticleById(id);
 
-    let index = this.articles.indexOf(article);
+      let index = this.articles.indexOf(article);
 
-    if (article) {
-      this.articles.splice(index, 1);
-      this.storageArticles();
-      buildTableCart();
-      alert(`Se eliminó el artículo ${article.name} del carrito`);
-    } else {
-      alert('Error al intentar borrar');
-    }
+      if (article) {
+          this.articles.splice(index, 1);
+          this.storageArticles();
+          buildTableCart();
+          alert(`Se eliminó el artículo ${article.name} del carrito`);
+      } else {
+          alert('Error al intentar borrar');
+      }
   }
 
   /**
@@ -88,33 +123,33 @@ class Cart {
    */
   orderArticles = function (valueCompare, order = 'asc') { // Ascendent order by default
 
-    this.articles.sort((a, b) => {
+      this.articles.sort((a, b) => {
 
-      if (order === 'asc') {
-        if (a[valueCompare] > b[valueCompare]) {
-          return 1;
-        }
-        if (a[valueCompare] < b[valueCompare]) {
-          return -1;
-        }
-        // a must be equal to b
-        return 0;
-      } else if (order === 'desc') {
-        if (a[valueCompare] < b[valueCompare]) {
-          return 1;
-        }
-        if (a[valueCompare] > b[valueCompare]) {
-          return -1;
-        }
-        // a must be equal to b
-        return 0;
-      }
-    });
+          if (order === 'asc') {
+              if (a[valueCompare] > b[valueCompare]) {
+                  return 1;
+              }
+              if (a[valueCompare] < b[valueCompare]) {
+                  return -1;
+              }
+              // a must be equal to b
+              return 0;
+          } else if (order === 'desc') {
+              if (a[valueCompare] < b[valueCompare]) {
+                  return 1;
+              }
+              if (a[valueCompare] > b[valueCompare]) {
+                  return -1;
+              }
+              // a must be equal to b
+              return 0;
+          }
+      });
   }
-  
+
   updateBadge = function () {
-    const badge = document.querySelector('.badge');
-    badge.textContent = cart.getTotalArticles();
+      const badge = document.querySelector('.badge');
+      badge.textContent = cart.getTotalArticles();
   }
 
   /**
@@ -139,53 +174,10 @@ class Cart {
    * Will keep the cart updated with what the user has entered
    */
   storageArticles = function () {
-    localStorage.setItem('cart', JSON.stringify(cart.articles));
-    this.updateBadge();
+      localStorage.setItem('cart', JSON.stringify(cart.articles));
+      this.updateBadge();
   }
 
-
-}
-class Article {
-
-  constructor(category, name, size, price) {
-    this.id = Article.incrementId();
-    this.category = category;
-    this.name = name;
-    this.size = size;
-    this.price = price;
-    this.fullPrice = price;
-  }
-
-  static incrementId() {
-    if (!this.latestId) {
-      this.latestId = 1;
-    } else {
-      this.latestId++;
-    }
-    return this.latestId;
-  }
-
-}
-
-class Order {
-  constructor(firstName, lastName, email, phoneNumber, address, house, order) {
-    this.firstName = firstName || '';
-    this.lastName = lastName || '';
-    this.email = email || '';
-    this.phoneNumber = phoneNumber || '';
-    this.address = address || '';
-    this.house = house || '';
-    this.order = order || '';
-  }
-  /** Completar setters... */
-
-  setOrder = function (order) {
-    if (order != '') {
-      this.order = order;
-    } else {
-      console.log('No se guardó ninguna orden');
-    }
-  }
 }
 
 /**
@@ -219,7 +211,7 @@ function buildListArticles(jsonObjArray) {
               </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                  <select name="size" id="size">
+                  <select name="size" id="size" >
                     ${size.map(s => `<option value='${Object.keys(s)}'>${Object.values(s)}</option>`)}
                   </select>
                 </li>
@@ -238,7 +230,8 @@ function buildListArticles(jsonObjArray) {
                      0 0 1 .5-.5z" />
                  </svg></a>
               </div>
-            </li>`;
+            </li>`;        
+
     if (art.category === 'sportswear') {
       sportList.innerHTML += htmlText;
     } else if (art.category === 'casualCloths') {
@@ -247,6 +240,7 @@ function buildListArticles(jsonObjArray) {
       perfumesList.innerHTML += htmlText;
     }
   });
+  
 }
 
 
@@ -255,10 +249,10 @@ function buildTableCart() {
 
   divCartForm.className = 'cartForm';
   divCart.append(divCartForm);
+  let total = 0;
 
   let htmlText = '';
   if (cart.getArticles().length !== 0) {
-
 
     htmlText = `
             <table cellspacing="0" cellpadding="0" class="table-responsive">
@@ -274,23 +268,25 @@ function buildTableCart() {
               <tbody class="tbody">`;
     cart.getArticles().forEach(art => {
 
+      total += art.fullPrice;
+      
       htmlText += `<tr>
-                  <td>${art.description}</td>
+                  <td>${art.name}</td>
                   <td class="tdCant">
                     <button 
                       class="subtract" 
                       type="button"
                       onclick="subtractItem(${art.id})" 
                     >  - </button>
-                    <input type="text" value=${1} class="artCant" data-cant=${art.id} />
+                    <input type="text" value=${art.cant} class="artCant" data-cant=${art.id} />
                     <button 
                       class="add"
                       type="button"
                       onclick="addItem(${art.id})" 
                     > + </button>
                   </td>
-                  <td>${art.price}</td>
-                  <td>${art.fullPrice}</td>
+                  <td data-price=${art.id}>${art.price}</td>
+                  <td data-full-price=${art.id}>${art.fullPrice}</td>
                   <td>
                     <button
                       class="button--delete"
@@ -310,7 +306,7 @@ function buildTableCart() {
                           class="button--confirm"
                         />
                       </td>
-                      <td colspan="3">Total : $ 900</td>
+                      <td colspan="3">Total : $ ${total}</td>
                     </tr>
                   </tfoot>
             </table >`;
@@ -330,10 +326,12 @@ function removeArticle(id) {
   cart.removeArticleById(id);
 }
 
-function addToCart(event) {
+function addToCart(event) {   
   let foundArticle = myData.find(article => article.id == event.target.dataset.id);
-  cart.addArticleToCart(foundArticle);
-  console.log(cart.articles);
+  const {id, category, name, size, price} = foundArticle;
+
+  const article = new Article(id, category, name, size, price); 
+  cart.addArticleToCart(article);
 }
 
 function cleanHTML() {
@@ -356,13 +354,15 @@ function addItem(id) {
  */
 function subtractItem(id) {
   const cant = document.querySelector(`[data-cant='${id}']`);
-
+  
   if(cant.value > 1){
     cant.value = Number(cant.value) - 1;
+
   }else {
-    removeArticle(cant.dataset.cant);
+    removeArticle(id);
   }
 }
+
 
 const divCart = document.querySelector('.cartMain__container__row__cartForm');
 const divCartForm = document.createElement('div');
@@ -374,6 +374,4 @@ cart.updateBadge();
 buildTableCart();
 
 
-// document.querySelector('.add').addEventListener('click', addItem);
-// document.querySelector('.subtract').addEventListener('click', subtractItem);
 
