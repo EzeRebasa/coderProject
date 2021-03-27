@@ -134,10 +134,10 @@
         "category": "perfume",
         "name": "ch",
         "size": [
-            {"thumbail": "35ml" } ,
-            {"fifty": "50ml"},
-            {"hundred": "100ml"},
-            {"premiun": "Premiun Box"}
+            {"35ml": "35ml" } ,
+            {"50ml": "50ml"},
+            {"100ml": "100ml"},
+            {"box": "Premiun Box"}
         ],
         "price": 1500,
         "image": "images/per-mujer/ch.jpg",
@@ -148,10 +148,10 @@
         "category": "perfume",
         "name": "gg-ch",
         "size": [
-            {"thumbail": "35ml" } ,
-            {"fifty": "50ml"},
-            {"hundred": "100ml"},
-            {"premiun": "Premiun Box"}
+            {"35ml": "35ml" } ,
+            {"50ml": "50ml"},
+            {"100ml": "100ml"},
+            {"box": "Premiun Box"}
         ],
         "price": 1500,
         "image": "images/per-mujer/gg-ch.jpg",
@@ -162,10 +162,10 @@
         "category": "perfume",
         "name": "vi-givenchy",
         "size": [
-            {"thumbail": "35ml" } ,
-            {"fifty": "50ml"},
-            {"hundred": "100ml"},
-            {"premiun": "Premiun Box"}
+            {"35ml": "35ml" } ,
+            {"50ml": "50ml"},
+            {"100ml": "100ml"},
+            {"box": "Premiun Box"}
         ],
         "price": 1500,
         "image": "images/per-mujer/vi-givenchy.jpg",

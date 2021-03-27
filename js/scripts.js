@@ -1,13 +1,12 @@
 class Article {
 
   constructor(id, category, name, size, price) {
-      this.id = id;
-      this.category = category;
-      this.name = name;
-      this.size = size;
-      this.cant = 1;
-      this.price = price;
-      this.fullPrice = this.price * this.cant ;
+    this.id = id;
+    this.category = category;
+    this.name = name;
+    this.size = size;
+    this.price = price;
+    this.fullPrice = this.price * this.cant;
   }
 }
 
@@ -34,7 +33,7 @@ class Order {
 
 class Cart {
   constructor() {
-      this.articles = this.getArticles() || [];
+    this.articles = this.getArticles() || [];
   }
   // Getters & Setters
 
@@ -42,35 +41,35 @@ class Cart {
   * 
   * @returns the stored articles in the cart 
   */
-  getArticles = function () {
-      const articles = JSON.parse(localStorage.getItem('cart'));
-      if (articles) {
-          return articles;
-      }
-      return null;
+  getArticles = () => {
+    const articles = JSON.parse(localStorage.getItem('cart'));
+    if (articles) {
+      return articles;
+    }
+    return null;
   }
 
-  getArticleById = function (articleId) {
+  getArticleById = (articleId) => {
 
-      let article = this.articles.find(art => art.id == articleId);
+    let article = this.articles.find(art => art.id == articleId);
 
-      if (article) {
-          return article;
-      } else {
-          console.log(`El artículo con id ${articleId} no se encuentra`);
-      }
+    if (article) {
+      return article;
+    } else {
+      console.log(`El artículo con id ${articleId} no se encuentra`);
+    }
   }
 
   /**
    * 
    * @returns {number} of items cart
    */
-  getTotalArticles = function () {
-      let items = 0;
-      if (this.articles) {
-          this.articles.forEach(() => items++);
-      }
-      return items;
+  getTotalArticles = () => {
+    let items = 0;
+    if (this.articles) {
+      this.articles.forEach(() => items++);
+    }
+    return items;
   }
 
   // Methods
@@ -82,18 +81,21 @@ class Cart {
 
   addArticleToCart = function (art) {
     console.log(art);
-      if (art) {
-          if (this.getArticleById(art.id)) {
-
-          } else if (art.id != "" && art.category != "" && art.name != "" && art.size != "" && art.price != "") {
-             
-            this.articles.push(art);
-              this.storageArticles();
-              alert('El Articulo se ingresó correctamente!');
-          } else {
-              alert('Verifique los datos ingresados...');
-          }
+    if (art) {
+      const artToAdd = this.getArticleById(art.id);
+      console.log(artToAdd);
+      if (artToAdd) {
+        artToAdd.cant += 1;
+        console.log(artToAdd);
+      } else if (art.id != "" && art.category != "" && art.name != "" && art.size != "" && art.price != "") {
+        art = { cant: 1, ...art };
+        this.articles = [art, ...this.articles];
+        alert('El Articulo se ingresó correctamente!');
+      } else {
+        alert('Verifique los datos ingresados...');
       }
+    }
+    this.storageArticles();
   }
   /**
    * 
@@ -101,19 +103,18 @@ class Cart {
    */
 
   removeArticleById = function (id) {
+    console.log(`Remove : id ${id}`);
+    let article = this.getArticleById(id);
+    let index = this.articles.indexOf(article);
 
-      let article = this.getArticleById(id);
-
-      let index = this.articles.indexOf(article);
-
-      if (article) {
-          this.articles.splice(index, 1);
-          this.storageArticles();
-          buildTableCart();
-          alert(`Se eliminó el artículo ${article.name} del carrito`);
-      } else {
-          alert('Error al intentar borrar');
-      }
+    if (article) {
+      this.articles.splice(index, 1);
+      this.storageArticles();
+      buildTableCart();
+      alert(`Se eliminó el artículo ${article.name} del carrito`);
+    } else {
+      alert('Error al intentar borrar');
+    }
   }
 
   /**
@@ -123,33 +124,33 @@ class Cart {
    */
   orderArticles = function (valueCompare, order = 'asc') { // Ascendent order by default
 
-      this.articles.sort((a, b) => {
+    this.articles.sort((a, b) => {
 
-          if (order === 'asc') {
-              if (a[valueCompare] > b[valueCompare]) {
-                  return 1;
-              }
-              if (a[valueCompare] < b[valueCompare]) {
-                  return -1;
-              }
-              // a must be equal to b
-              return 0;
-          } else if (order === 'desc') {
-              if (a[valueCompare] < b[valueCompare]) {
-                  return 1;
-              }
-              if (a[valueCompare] > b[valueCompare]) {
-                  return -1;
-              }
-              // a must be equal to b
-              return 0;
-          }
-      });
+      if (order === 'asc') {
+        if (a[valueCompare] > b[valueCompare]) {
+          return 1;
+        }
+        if (a[valueCompare] < b[valueCompare]) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      } else if (order === 'desc') {
+        if (a[valueCompare] < b[valueCompare]) {
+          return 1;
+        }
+        if (a[valueCompare] > b[valueCompare]) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      }
+    });
   }
 
   updateBadge = function () {
-      const badge = document.querySelector('.badge');
-      badge.textContent = cart.getTotalArticles();
+    const badge = document.querySelector('.badge');
+    badge.textContent = cart.getTotalArticles();
   }
 
   /**
@@ -174,8 +175,8 @@ class Cart {
    * Will keep the cart updated with what the user has entered
    */
   storageArticles = function () {
-      localStorage.setItem('cart', JSON.stringify(cart.articles));
-      this.updateBadge();
+    localStorage.setItem('cart', JSON.stringify(cart.articles));
+    this.updateBadge();
   }
 
 }
@@ -211,7 +212,7 @@ function buildListArticles(jsonObjArray) {
               </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                  <select name="size" id="size" >
+                  <select name="size" id="size${id}" >
                     ${size.map(s => `<option value='${Object.keys(s)}'>${Object.values(s)}</option>`)}
                   </select>
                 </li>
@@ -230,7 +231,7 @@ function buildListArticles(jsonObjArray) {
                      0 0 1 .5-.5z" />
                  </svg></a>
               </div>
-            </li>`;        
+            </li>`;
 
     if (art.category === 'sportswear') {
       sportList.innerHTML += htmlText;
@@ -240,9 +241,8 @@ function buildListArticles(jsonObjArray) {
       perfumesList.innerHTML += htmlText;
     }
   });
-  
-}
 
+}
 
 function buildTableCart() {
   cleanHTML();
@@ -252,7 +252,7 @@ function buildTableCart() {
   let total = 0;
 
   let htmlText = '';
-  if (cart.getArticles().length !== 0) {
+  if ((cart.getArticles()) && (cart.getArticles().length !== 0)) {
 
     htmlText = `
             <table cellspacing="0" cellpadding="0" class="table-responsive">
@@ -269,15 +269,15 @@ function buildTableCart() {
     cart.getArticles().forEach(art => {
 
       total += art.fullPrice;
-      
+
       htmlText += `<tr>
-                  <td>${art.name}</td>
+                  <td>${art.name} - ${art.size}</td>
                   <td class="tdCant">
                     <button 
                       class="subtract" 
                       type="button"
                       onclick="subtractItem(${art.id})" 
-                    >  - </button>
+                    > - </button>
                     <input type="text" value=${art.cant} class="artCant" data-cant=${art.id} />
                     <button 
                       class="add"
@@ -323,14 +323,18 @@ function buildTableCart() {
 }
 
 function removeArticle(id) {
+  console.log('Entro en remove');
   cart.removeArticleById(id);
 }
 
-function addToCart(event) {   
-  let foundArticle = myData.find(article => article.id == event.target.dataset.id);
-  const {id, category, name, size, price} = foundArticle;
+function addToCart(event) {
 
-  const article = new Article(id, category, name, size, price); 
+  let foundArticle = myData.find(article => article.id == event.target.dataset.id);
+  console.log(foundArticle);
+  const { id, category, name, price } = foundArticle;
+  const size = document.querySelector(`#size${id}`).value;
+  const idArt = `${id}${size}`;
+  const article = new Article(idArt, category, name, size, price);
   cart.addArticleToCart(article);
 }
 
@@ -339,14 +343,21 @@ function cleanHTML() {
     divCartForm.removeChild(divCartForm.firstChild);
   }
 }
+
 /**
- * 
- * @param {number} id  Receives an 'id' of article 
- */
+* 
+* @param {number} id  Receives an 'id' of article 
+*/
 function addItem(id) {
+  console.log('entra');
+  const art = cart.getArticleById(id);
+  art.cant += 1;
+
   const cant = document.querySelector(`[data-cant='${id}']`);
   console.log(cant.value);
   cant.value = Number(cant.value) + 1;
+
+  cart.storageArticles();
 }
 /**
  * 
@@ -354,11 +365,13 @@ function addItem(id) {
  */
 function subtractItem(id) {
   const cant = document.querySelector(`[data-cant='${id}']`);
-  
-  if(cant.value > 1){
-    cant.value = Number(cant.value) - 1;
 
-  }else {
+  if (cant.value > 1) {
+    const art = cart.getArticleById(id);
+    art.cant -= 1;
+    cant.value = Number(cant.value) - 1;
+    cart.storageArticles();
+  } else {
     removeArticle(id);
   }
 }
