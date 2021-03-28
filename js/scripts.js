@@ -6,8 +6,9 @@ class Article {
     this.name = name;
     this.size = size;
     this.price = price;
-    this.fullPrice = this.price * this.cant;
+    this.fullPrice = this.price;
   }
+
 }
 
 class Order {
@@ -80,7 +81,7 @@ class Cart {
    */
 
   addArticleToCart = function (art) {
-    console.log(art);
+
     if (art) {
       const artToAdd = this.getArticleById(art.id);
       console.log(artToAdd);
@@ -171,6 +172,7 @@ class Cart {
   //   return order;
   // }
 
+
   /**
    * Will keep the cart updated with what the user has entered
    */
@@ -243,7 +245,7 @@ function buildListArticles(jsonObjArray) {
   });
 
 }
-
+//TODO: totalPrice and subtotal
 function buildTableCart() {
   cleanHTML();
 
@@ -267,7 +269,6 @@ function buildTableCart() {
               </thead>
               <tbody class="tbody">`;
     cart.getArticles().forEach(art => {
-
       total += art.fullPrice;
 
       htmlText += `<tr>
@@ -276,21 +277,21 @@ function buildTableCart() {
                     <button 
                       class="subtract" 
                       type="button"
-                      onclick="subtractItem(${art.id})" 
+                      onclick=subtractItem('${art.id}') 
                     > - </button>
                     <input type="text" value=${art.cant} class="artCant" data-cant=${art.id} />
                     <button 
                       class="add"
                       type="button"
-                      onclick="addItem(${art.id})" 
+                      onclick="addItem('${art.id}')" 
                     > + </button>
                   </td>
-                  <td data-price=${art.id}>${art.price}</td>
-                  <td data-full-price=${art.id}>${art.fullPrice}</td>
+                  <td id="subtotal" data-price=${art.id}>${art.price}</td>
+                  <td id="total" data-full-price=${art.id}></td>
                   <td>
                     <button
                       class="button--delete"
-                      onclick="removeArticle(${art.id})"
+                      onclick="removeArticle('${art.id}')"
                     >Quitar</button>
                   </td>
                 </tr>`
@@ -331,10 +332,10 @@ function addToCart(event) {
 
   let foundArticle = myData.find(article => article.id == event.target.dataset.id);
   console.log(foundArticle);
-  const { id, category, name, price } = foundArticle;
+  const { id, category, description, price } = foundArticle;
   const size = document.querySelector(`#size${id}`).value;
   const idArt = `${id}${size}`;
-  const article = new Article(idArt, category, name, size, price);
+  const article = new Article(idArt, category, description, size, price);
   cart.addArticleToCart(article);
 }
 
@@ -354,7 +355,7 @@ function addItem(id) {
   art.cant += 1;
 
   const cant = document.querySelector(`[data-cant='${id}']`);
-  console.log(cant.value);
+  console.log(cant);
   cant.value = Number(cant.value) + 1;
 
   cart.storageArticles();
@@ -364,7 +365,7 @@ function addItem(id) {
  * @param {number} id  Receives an 'id' of article 
  */
 function subtractItem(id) {
-  const cant = document.querySelector(`[data-cant='${id}']`);
+   const cant = document.querySelector(`[data-cant='${id}']`);
 
   if (cant.value > 1) {
     const art = cart.getArticleById(id);
@@ -375,7 +376,6 @@ function subtractItem(id) {
     removeArticle(id);
   }
 }
-
 
 const divCart = document.querySelector('.cartMain__container__row__cartForm');
 const divCartForm = document.createElement('div');
