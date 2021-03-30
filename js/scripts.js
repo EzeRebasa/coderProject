@@ -73,6 +73,24 @@ class Cart {
     return items;
   }
 
+  setFullPrice = (art) => {
+    art.fullPrice = art.cant * art.price;
+    const fullPriceRow = document.querySelector(`[data-full-price='${art.id}']`);
+    fullPriceRow.innerHTML = art.fullPrice;
+  };
+
+  setTotal = () => {
+    let total = 0;
+
+    this.articles.forEach(art => {
+      total += art.fullPrice;
+      this.setFullPrice(art);
+    });
+    const totalPrice = document.querySelector('.total');
+    console.log(totalPrice);
+    totalPrice.innerHTML = total;
+  }
+
   // Methods
 
   /**
@@ -82,20 +100,20 @@ class Cart {
 
   addArticleToCart = function (art) {
 
-    if (art) {
-      const artToAdd = this.getArticleById(art.id);
+    const artToAdd = this.getArticleById(art.id);
+
+    if (artToAdd) {
+      artToAdd.cant += 1;
+      this.setFullPrice(artToAdd);
       console.log(artToAdd);
-      if (artToAdd) {
-        artToAdd.cant += 1;
-        console.log(artToAdd);
-      } else if (art.id != "" && art.category != "" && art.name != "" && art.size != "" && art.price != "") {
-        art = { cant: 1, ...art };
-        this.articles = [art, ...this.articles];
-        alert('El Articulo se ingresó correctamente!');
-      } else {
-        alert('Verifique los datos ingresados...');
-      }
+    } else if (art.id != "" && art.category != "" && art.name != "" && art.size != "" && art.price != "") {
+      art = { cant: 1, ...art };
+      this.articles = [art, ...this.articles];
+      alert('El Articulo se ingresó correctamente!');
+    } else {
+      alert('Verifique los datos ingresados...');
     }
+
     this.storageArticles();
   }
   /**
@@ -111,7 +129,7 @@ class Cart {
     if (article) {
       this.articles.splice(index, 1);
       this.storageArticles();
-      buildTableCart();
+      // buildTableCart();
       alert(`Se eliminó el artículo ${article.name} del carrito`);
     } else {
       alert('Error al intentar borrar');
@@ -171,7 +189,6 @@ class Cart {
   //   });
   //   return order;
   // }
-
 
   /**
    * Will keep the cart updated with what the user has entered
@@ -270,9 +287,8 @@ function buildTableCart() {
               <tbody class="tbody">`;
     cart.getArticles().forEach(art => {
       total += art.fullPrice;
-
       htmlText += `<tr>
-                  <td>${art.name} - ${art.size}</td>
+                  <td  data-name="${art.id}" >${art.name} - ${art.size}</td>
                   <td class="tdCant">
                     <button 
                       class="subtract" 
@@ -286,8 +302,8 @@ function buildTableCart() {
                       onclick="addItem('${art.id}')" 
                     > + </button>
                   </td>
-                  <td id="subtotal" data-price=${art.id}>${art.price}</td>
-                  <td id="total" data-full-price=${art.id}></td>
+                  <td data-price=${art.id}>${art.price}</td>
+                  <td class="subtotal" data-full-price=${art.id}> ${art.fullPrice} </td>
                   <td>
                     <button
                       class="button--delete"
@@ -302,17 +318,19 @@ function buildTableCart() {
                     <tr>
                       <td colspan="2">
                         <input
+                          id="cartSubmit"
                           type="submit"
                           value="CONFIRMAR PEDIDO"
                           class="button--confirm"
                         />
                       </td>
-                      <td colspan="3">Total : $ ${total}</td>
+                      <td colspan="3" class="total" > ${total} </td>
                     </tr>
                   </tfoot>
             </table >`;
     formElement.innerHTML = htmlText;
     divCartForm.append(formElement);
+
   } else {
 
     const message = document.createElement('p');
@@ -320,7 +338,6 @@ function buildTableCart() {
 
     divCartForm.append(message);
   }
-
 }
 
 function removeArticle(id) {
@@ -350,14 +367,15 @@ function cleanHTML() {
 * @param {number} id  Receives an 'id' of article 
 */
 function addItem(id) {
-  console.log('entra');
+
   const art = cart.getArticleById(id);
   art.cant += 1;
 
   const cant = document.querySelector(`[data-cant='${id}']`);
-  console.log(cant);
-  cant.value = Number(cant.value) + 1;
 
+  cart.setFullPrice(art);
+
+  cant.value = Number(cant.value) + 1;
   cart.storageArticles();
 }
 /**
@@ -365,11 +383,12 @@ function addItem(id) {
  * @param {number} id  Receives an 'id' of article 
  */
 function subtractItem(id) {
-   const cant = document.querySelector(`[data-cant='${id}']`);
+  const cant = document.querySelector(`[data-cant='${id}']`);
 
   if (cant.value > 1) {
     const art = cart.getArticleById(id);
     art.cant -= 1;
+    cart.setFullPrice(art); // I update the subtotal in the table
     cant.value = Number(cant.value) - 1;
     cart.storageArticles();
   } else {
@@ -381,10 +400,33 @@ const divCart = document.querySelector('.cartMain__container__row__cartForm');
 const divCartForm = document.createElement('div');
 const formElement = document.createElement('form');
 
+formElement.setAttribute('id', 'cartFormData');
+
 getDataAsync();
 const cart = new Cart();
 cart.updateBadge();
 buildTableCart();
 
 
+let data = [];
+
+$('#cartSubmit').on('click', () => {
+  $('#cartFormData').on('submit', (e) => {
+    e.preventDefault();
+    let artText = '';
+    cart.articles.forEach(art => {
+      artText = `
+      ============================
+      Artículo: ${art.name} 
+      Tamaño: ${art.size}
+      Unidades: ${art.cant}
+      Precio unitario:$ ${art.price}
+      Sub-total: $ ${art.fullPrice}
+      ============================\n`
+      $('#order')[0].innerHTML += artText;
+      data = [artText, ...data];
+    });
+    let total = `Total: $${$('.total')[0].innerHTML}`;
+  });
+});
 
