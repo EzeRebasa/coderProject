@@ -23,12 +23,8 @@ class Order {
   }
   /** Completar setters... */
 
-  setOrder = function (order) {
-    if (order != '') {
-      this.order = order;
-    } else {
-      console.log('No se guardó ninguna orden');
-    }
+  setOrder = () => {
+    this.orderMessage =`*Cliente*: _${this.firstName}_ _${this.lastName}_%0A *Email*: ${this.email}%0A *Cel*: ${this.phone}%0A *Domicilio*: ${this.address} ${this.house}%0A *Pedido*: ${this.order}`
   }
 }
 
@@ -129,7 +125,7 @@ class Cart {
     if (article) {
       this.articles.splice(index, 1);
       this.storageArticles();
-      // buildTableCart();
+      buildTableCart();
       alert(`Se eliminó el artículo ${article.name} del carrito`);
     } else {
       alert('Error al intentar borrar');
@@ -207,10 +203,15 @@ class Cart {
  */
 
 const getDataAsync = async () => {
-  let response = await fetch('../database/data.json');
-  let articles = await response.json();
-  myData = articles;
-  buildListArticles(articles);
+  try {
+    let response = await fetch('../database/data.json');
+    let articles = await response.json();
+    myData = articles;
+    buildListArticles(articles);
+  } catch (error) {
+    console.log(error.message);
+  }
+
 }
 
 function buildListArticles(jsonObjArray) {
@@ -324,7 +325,7 @@ function buildTableCart() {
                           class="button--confirm"
                         />
                       </td>
-                      <td colspan="3" class="total" > ${total} </td>
+                      <td colspan="3" class="total" >${total}</td>
                     </tr>
                   </tfoot>
             </table >`;
@@ -396,37 +397,92 @@ function subtractItem(id) {
   }
 }
 
+
+
 const divCart = document.querySelector('.cartMain__container__row__cartForm');
 const divCartForm = document.createElement('div');
 const formElement = document.createElement('form');
-
 formElement.setAttribute('id', 'cartFormData');
 
-getDataAsync();
+
 const cart = new Cart();
 cart.updateBadge();
-buildTableCart();
 
+let pathname = window.location.pathname;
+pathname = pathname.substring(7);
 
-let data = [];
+if (pathname === 'cart.html') {
+  buildTableCart();
+  orderText();
+} else if((pathname === 'news.html') || (pathname === 'catalog.html')){
+  getDataAsync();
+}
 
-$('#cartSubmit').on('click', () => {
-  $('#cartFormData').on('submit', (e) => {
-    e.preventDefault();
-    let artText = '';
-    cart.articles.forEach(art => {
-      artText = `
-      ============================
-      Artículo: ${art.name} 
-      Tamaño: ${art.size}
-      Unidades: ${art.cant}
-      Precio unitario:$ ${art.price}
-      Sub-total: $ ${art.fullPrice}
-      ============================\n`
-      $('#order')[0].innerHTML += artText;
-      data = [artText, ...data];
+/**
+ * This function generate the text with the order and inserts it in the form
+ */
+function orderText() {
+
+  const order = $('#order')[0];
+  $('#cartSubmit').on('click', () => {
+    $('#cartFormData').on('submit', (e) => {
+      e.preventDefault();
+      let artText = '';
+      cart.articles.forEach(art => {
+        artText = `============================%0A *Artículo: ${art.name} %0A Tamaño: ${art.size} %0A Unidades: ${art.cant} %0A Precio unitario:$ ${art.price} %0A Sub-total: $ ${art.fullPrice}* %0A ============================ %0A`
+        order.innerHTML += artText;
+      });
+      order.innerHTML += `*Total*: *$${$('.total')[0].innerHTML}*`;
+      $('#cartSubmit').attr('disabled', true);
     });
-    let total = `Total: $${$('.total')[0].innerHTML}`;
   });
+}
+
+/**
+ * FORM DATA CAPTURE
+*/
+$(':reset').on('click', () => {
+  $('#order').html('');
 });
+
+
+const urlDesktop = 'https://web.whatsapp.com/';
+const urlMobile = 'whatsapp://';
+const telefono = '5492235659263';
+
+$('#orderSubmit').on('click', (e) => {
+  e.preventDefault();
+  let firstname = $('#firstname').val();
+  let lastname = $('#lastname').val();
+  let email = $('#email').val();
+  let phone = $('#phone').val();
+  let address = $('#address').val();
+  let buildingType = $("[name=building]:checked").val();
+  let textOrder = $('#order').val();
+
+  const order = new Order(firstname, lastname, email, phone, address, buildingType, textOrder);
+
+  setTimeout(() => {
+    order.setOrder();
+    let mensaje = `send?phone=${telefono}&text=${order.orderMessage}`;
+    if (isMobile()) {
+      window.open(urlMobile + mensaje, '_blank')
+    } else {
+      window.open(urlDesktop + mensaje, '_blank')
+    }
+  }, 3000);
+
+})
+
+
+function isMobile() {
+  if (sessionStorage.desktop)
+    return false;
+  else if (localStorage.mobile)
+    return true;
+  var mobile = ['iphone', 'ipad', 'android', 'blackberry', 'nokia', 'opera mini', 'windows mobile', 'windows phone', 'iemobile'];
+  for (var i in mobile)
+    if (navigator.userAgent.toLowerCase().indexOf(mobile[i].toLowerCase()) > 0) return true;
+  return false;
+}
 
