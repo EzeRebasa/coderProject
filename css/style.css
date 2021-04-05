@@ -330,7 +330,11 @@ a {
   right: 0px;
   min-width: 30rem;
   z-index: 10;
-  background-color: gray; }
+  border: 2px solid #40264b;
+  background-color: #c8a0d9; }
+  .toggle-cart p {
+    padding: 1.6rem;
+    color: #353b41; }
 
 @media screen and (max-width: 540px) {
   .header {

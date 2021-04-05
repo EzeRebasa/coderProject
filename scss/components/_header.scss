@@ -60,7 +60,12 @@
   right: 0px;
   min-width: 30rem ;
   z-index: 10;
-  background-color: gray;
+  border: 2px solid $clr-purple;
+  background-color: $clr-lilac;
+  p {
+    padding: 1.6rem;
+    color: $clr-text;
+  }
 }
 
 @media screen and (max-width: 540px) {

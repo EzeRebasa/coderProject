@@ -486,8 +486,17 @@ function isMobile() {
   return false;
 }
 
+/**
+ * 
+ * @param {string} message // Message that will be displayed when adding an article
+ */
+
 function showToggleCart(message) {
-  console.log(`Entró  ${JSON.stringify($('.toggle-cart')[0])}`);
+  console.log(JSON.stringify($('.toggle-cart')));
+  $('.toggle-cart').empty();
   $('.toggle-cart').prepend(`<p> ${message} </p>`);
-  $('.toggle-cart').fadeIn();
+  $('.toggle-cart').slideToggle('slow')
+                    .delay(2000)
+                    .slideToggle('slow');
 }
+
