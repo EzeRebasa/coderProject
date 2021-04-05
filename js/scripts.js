@@ -102,11 +102,11 @@ class Cart {
       artToAdd.cant += 1;
       // this.setFullPrice(artToAdd);
       console.log(artToAdd);
-      showToggleCart(`Tiene ${artToAdd.cant} unidades de ${artToAdd.name} en el carrito!`);
+      showToggleCart('add',`Tiene ${artToAdd.cant} unidades de ${artToAdd.name} en el carrito!`);
     } else if (art.id != "" && art.category != "" && art.name != "" && art.size != "" && art.price != "") {
       art = { cant: 1, ...art };
       this.articles = [art, ...this.articles];
-      showToggleCart(`Se agregó ${art.name} al carrito!`);
+      showToggleCart('add',`Se agregó ${art.name} al carrito!`);
     } else {
       alert('Verifique los datos ingresados...');
     }
@@ -127,7 +127,7 @@ class Cart {
       this.articles.splice(index, 1);
       this.storageArticles();
       buildTableCart();
-      alert(`Se eliminó el artículo ${article.name} del carrito`);
+      showToggleCart('remove',`Se eliminó ${article.name} del carrito`);
     } else {
       alert('Error al intentar borrar');
     }
@@ -491,8 +491,21 @@ function isMobile() {
  * @param {string} message // Message that will be displayed when adding an article
  */
 
-function showToggleCart(message) {
+function showToggleCart(method, message) {
   console.log(JSON.stringify($('.toggle-cart')));
+  let bgColor = '#e9e2e8';
+  let bdColor = '#40264bb3';
+  if(method === 'add') {
+    bgColor = '#2ecc7080';
+    bdColor = '#2ecc70';
+  }else if( method === 'remove') {
+    bgColor = '#ff634780';
+    bdColor = '#ff6347'; 
+  }
+  
+  $('.toggle-cart').css({"background-color": bgColor,
+    "border": `2px solid ${bdColor}`
+});
   $('.toggle-cart').empty();
   $('.toggle-cart').prepend(`<p> ${message} </p>`);
   $('.toggle-cart').slideToggle('slow')
