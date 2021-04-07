@@ -101,7 +101,7 @@
           <!------------------------------->
           <!-------- CUSTOMER DATA ----------->
           <div class="col-lg-5 col-md-8 col-sm-10 cartMain__container__row__dataClient">
-            <form action="#" id="form">
+            <form action="" id="form">
               <fieldset>
                 <legend>Datos de cliente</legend>
                 <div class="inputForm">
@@ -143,40 +143,16 @@
 
                 <div class="inputForm">
                   <label for="order" class="form-label"> Pedido </label>
-                  <textarea name="order" class="form-control" id="order" readonly>
+                  <textarea name="order" class="form-control" id="order" readonly required>
                      Descripción de orden.
                     </textarea>
                 </div>
                 <div class="inputForm groupFormButtons">
                   <input type="reset" value="LIMPIAR FORMULARIO" class="button--default" />
-                  <input type="submit" id="orderSubmit" value="REALIZAR PEDIDO" class="button--confirm"
-                    data-bs-toggle="modal" data-bs-target="#exampleModal" />
+                  <input type="submit" id="orderSubmit" value="REALIZAR PEDIDO" class="button--confirm"/>
                 </div>
               </fieldset>
             </form>
-          </div>
-        </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLabel">
-                  Solicitud de pedido
-                </h3>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Su pedido ha sido realizado! A la brevedad lo contactaremos
-                para la confirmacion del mismo. Muchas gracias por elegir
-                EUREKA!
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="button--default" data-bs-dismiss="modal">
-                  Cerrar
-                </button>
-                <!-- <button type="button" class="button confirm" data-bs-dismiss="modal">Aceptar</button> -->
-              </div>
-            </div>
           </div>
         </div>
         <!------------------------------->

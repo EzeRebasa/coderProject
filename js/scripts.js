@@ -1,3 +1,9 @@
+/**
+ * ============================================================
+ * ======================== CLASSES ===========================
+ * ============================================================
+ */
+
 class Article {
 
   constructor(id, category, name, size, price) {
@@ -10,7 +16,6 @@ class Article {
   }
 
 }
-
 class Order {
   constructor(firstName, lastName, email, phoneNumber, address, house, order) {
     this.firstName = firstName || '';
@@ -84,7 +89,7 @@ class Cart {
     });
     const totalPrice = document.querySelector('.total');
     console.log(totalPrice);
-    totalPrice.innerHTML = total;
+    totalPrice.innerHTML = `$${total}`;
   }
 
   // Methods
@@ -101,12 +106,11 @@ class Cart {
     if (artToAdd) {
       artToAdd.cant += 1;
       // this.setFullPrice(artToAdd);
-      console.log(artToAdd);
-      showToggleCart('add',`Tiene ${artToAdd.cant} unidades de ${artToAdd.name} en el carrito!`);
+      showToggleCart('add', `Tiene ${artToAdd.cant} unidades de ${artToAdd.name} en el carrito!`);
     } else if (art.id != "" && art.category != "" && art.name != "" && art.size != "" && art.price != "") {
       art = { cant: 1, ...art };
       this.articles = [art, ...this.articles];
-      showToggleCart('add',`Se agregó ${art.name} al carrito!`);
+      showToggleCart('add', `Se agregó ${art.name} al carrito!`);
     } else {
       alert('Verifique los datos ingresados...');
     }
@@ -119,7 +123,7 @@ class Cart {
    */
 
   removeArticleById = function (id) {
-    console.log(`Remove : id ${id}`);
+
     let article = this.getArticleById(id);
     let index = this.articles.indexOf(article);
 
@@ -127,7 +131,7 @@ class Cart {
       this.articles.splice(index, 1);
       this.storageArticles();
       buildTableCart();
-      showToggleCart('remove',`Se eliminó ${article.name} del carrito`);
+      showToggleCart('remove', `Se eliminó ${article.name} del carrito`);
     } else {
       alert('Error al intentar borrar');
     }
@@ -170,32 +174,49 @@ class Cart {
   }
 
   /**
-   * 
-   * @returns the order to be pasted in the textarea of ​​the form
-   */
-
-  //TODO: Check cant
-  // validateCart = function () {
-  //   let order = '';
-  //   this.articles.forEach(art => {
-  //     let size = art.category === 'Perfume' ? 'Medida' : 'Talle';
-  //     let price = art.price * art.cant;
-
-  //     order += `[Artículo]: ${art.name} [${size}]: ${art.size} [Items]: ${art.cant} [Precio]: ${price}`;
-  //     order += '\n';
-  //   });
-  //   return order;
-  // }
-
-  /**
    * Will keep the cart updated with what the user has entered
    */
   storageArticles = function () {
     localStorage.setItem('cart', JSON.stringify(cart.articles));
     this.updateBadge();
   }
-
 }
+/**
+ * ============================================================
+ * ========================== CODE ============================
+ * ============================================================
+ */
+
+const divCart = document.querySelector('.cartMain__container__row__cartForm');
+const divCartForm = document.createElement('div');
+const formElement = document.createElement('form');
+formElement.setAttribute('id', 'cartFormData');
+
+const cart = new Cart();
+cart.updateBadge();
+
+let pathname = window.location.pathname;
+pathname = pathname.substring(7);
+
+if (pathname === 'cart.html') {
+  buildTableCart();
+  orderText();
+  submitOrder();
+
+} else if ((pathname === 'news.html') || (pathname === 'catalog.html')) {
+    getDataAsync();
+}
+
+
+$('.artCant').on('change', () => {
+  alert('Cambio');
+})
+
+/**
+ * ==================================================================
+ * ======================== FUNCTIONS ===============================
+ * ==================================================================
+ */
 
 /**
  * 
@@ -203,16 +224,16 @@ class Cart {
  *  
  */
 
-const getDataAsync = async () => {
+async function getDataAsync() {
   try {
     let response = await fetch('../database/data.json');
     let articles = await response.json();
     myData = articles;
+
     buildListArticles(articles);
   } catch (error) {
     console.log(error.message);
   }
-
 }
 
 function buildListArticles(jsonObjArray) {
@@ -262,9 +283,8 @@ function buildListArticles(jsonObjArray) {
       perfumesList.innerHTML += htmlText;
     }
   });
-
 }
-//TODO: totalPrice and subtotal
+
 function buildTableCart() {
   cleanHTML();
 
@@ -343,13 +363,12 @@ function buildTableCart() {
 }
 
 function removeArticle(id) {
-  console.log('Entro en remove');
   cart.removeArticleById(id);
 }
 
 function addToCart(event) {
+
   let foundArticle = myData.find(article => article.id == event.target.dataset.id);
-  console.log(foundArticle);
   const { id, category, description, price } = foundArticle;
   const size = document.querySelector(`#size${id}`).value;
   const idArt = `${id}${size}`;
@@ -362,20 +381,22 @@ function cleanHTML() {
     divCartForm.removeChild(divCartForm.firstChild);
   }
 }
+/**
+ * ==============================================
+ * FUNCTIONS THAT MODIFY THE QUANTITY OF ARTICLES
+ * ==============================================
+*/
 
 /**
-* 
 * @param {number} id  Receives an 'id' of article 
 */
 function addItem(id) {
 
   const art = cart.getArticleById(id);
   art.cant += 1;
-
   const cant = document.querySelector(`[data-cant='${id}']`);
-
   cart.setFullPrice(art);
-
+  cart.setTotal();
   cant.value = Number(cant.value) + 1;
   cart.storageArticles();
 }
@@ -390,6 +411,7 @@ function subtractItem(id) {
     const art = cart.getArticleById(id);
     art.cant -= 1;
     cart.setFullPrice(art); // I update the subtotal in the table
+    cart.setTotal();
     cant.value = Number(cant.value) - 1;
     cart.storageArticles();
   } else {
@@ -399,28 +421,68 @@ function subtractItem(id) {
 
 
 
-const divCart = document.querySelector('.cartMain__container__row__cartForm');
-const divCartForm = document.createElement('div');
-const formElement = document.createElement('form');
-formElement.setAttribute('id', 'cartFormData');
+/**
+ * ===========================================
+ * FORM DATA CAPTURE AND MESSAGE SUBMISSION
+ * ===========================================
+*/
+function submitOrder() {
+
+  $(':reset').on('click', () => {
+    $('#order').html('');
+    $('#cartSubmit').attr('disabled', false);
+  });
+
+  const urlDesktop = 'https://web.whatsapp.com/';
+  const urlMobile = 'whatsapp://';
+  const telefono = ''; // Acá añadir whatsapp adonde recibir los mensajes
 
 
-const cart = new Cart();
-cart.updateBadge();
 
-let pathname = window.location.pathname;
-pathname = pathname.substring(7);
+  $('#orderSubmit').on('click', (e) => {
+    e.preventDefault();
 
-if (pathname === 'cart.html') {
-  buildTableCart();
-  orderText();
-} else if ((pathname === 'news.html') || (pathname === 'catalog.html')) {
-  getDataAsync();
+    let isValid = document.querySelector('#form').checkValidity();
+
+    if (isValid) {
+
+      let firstname = $('#firstname').val();
+      let lastname = $('#lastname').val();
+      let email = $('#email').val();
+      let phone = $('#phone').val();
+      let address = $('#address').val();
+      let buildingType = $("[name=building]:checked").val();
+      let textOrder = $('#order').val();
+
+      const order = new Order(firstname, lastname, email, phone, address, buildingType, textOrder);
+
+      setTimeout(() => {
+        order.setOrder();
+        let mensaje = `send?phone=${telefono}&text=${order.orderMessage}`;
+        if (isMobile()) {
+          window.open(urlMobile + mensaje, '_blank')
+        } else {
+          window.open(urlDesktop + mensaje, '_blank')
+        }
+      }, 3000);
+    }
+  })
+
+  function isMobile() {
+    if (sessionStorage.desktop)
+      return false;
+    else if (localStorage.mobile)
+      return true;
+    var mobile = ['iphone', 'ipad', 'android', 'blackberry', 'nokia', 'opera mini', 'windows mobile', 'windows phone', 'iemobile'];
+    for (var i in mobile)
+      if (navigator.userAgent.toLowerCase().indexOf(mobile[i].toLowerCase()) > 0) return true;
+    return false;
+  }
 }
-
 /**
  * This function generate the text with the order and inserts it in the form
  */
+
 function orderText() {
 
   const order = $('#order')[0];
@@ -428,88 +490,53 @@ function orderText() {
     $('#cartFormData').on('submit', (e) => {
       e.preventDefault();
       let artText = '';
+      order.innerHTML = '';
       cart.articles.forEach(art => {
-        artText = `============================%0A *Artículo: ${art.name} %0A Tamaño: ${art.size} %0A Unidades: ${art.cant} %0A Precio unitario:$ ${art.price} %0A Sub-total: $ ${art.fullPrice}* %0A ============================ %0A`
-        order.innerHTML += artText;
+        artText += `============================%0A *Artículo: ${art.name} %0A Tamaño: ${art.size} %0A Unidades: ${art.cant} %0A Precio unitario:$ ${art.price} %0A Sub-total: $ ${art.fullPrice}* %0A ============================ %0A`;
       });
-      order.innerHTML += `*Total*: *$${$('.total')[0].innerHTML}*`;
+      console.log(order);
+      artText += `*Total*: *${$('.total')[0].innerHTML}*`;
+      order.innerHTML = artText;
       $('#cartSubmit').attr('disabled', true);
     });
   });
 }
-
 /**
- * FORM DATA CAPTURE
+ * ===========================================
+ *                         
+ * ===========================================
 */
-$(':reset').on('click', () => {
-  $('#order').html('');
-});
-
-
-const urlDesktop = 'https://web.whatsapp.com/';
-const urlMobile = 'whatsapp://';
-const telefono = ''; // Acá añadir whatsapp adonde recibir los mensajes
-
-$('#orderSubmit').on('click', (e) => {
-  e.preventDefault();
-  let firstname = $('#firstname').val();
-  let lastname = $('#lastname').val();
-  let email = $('#email').val();
-  let phone = $('#phone').val();
-  let address = $('#address').val();
-  let buildingType = $("[name=building]:checked").val();
-  let textOrder = $('#order').val();
-
-  const order = new Order(firstname, lastname, email, phone, address, buildingType, textOrder);
-
-  setTimeout(() => {
-    order.setOrder();
-    let mensaje = `send?phone=${telefono}&text=${order.orderMessage}`;
-    if (isMobile()) {
-      window.open(urlMobile + mensaje, '_blank')
-    } else {
-      window.open(urlDesktop + mensaje, '_blank')
-    }
-  }, 3000);
-
-})
-
-
-function isMobile() {
-  if (sessionStorage.desktop)
-    return false;
-  else if (localStorage.mobile)
-    return true;
-  var mobile = ['iphone', 'ipad', 'android', 'blackberry', 'nokia', 'opera mini', 'windows mobile', 'windows phone', 'iemobile'];
-  for (var i in mobile)
-    if (navigator.userAgent.toLowerCase().indexOf(mobile[i].toLowerCase()) > 0) return true;
-  return false;
-}
 
 /**
  * 
+ * @param {string} method // receives 'add' or 'remove' according to the method that calls it
  * @param {string} message // Message that will be displayed when adding an article
+ * 
  */
 
 function showToggleCart(method, message) {
-  console.log(JSON.stringify($('.toggle-cart')));
+
   let bgColor = '#e9e2e8';
   let bdColor = '#40264bb3';
-  if(method === 'add') {
+  if (method === 'add') {
     bgColor = '#2ecc7080';
     bdColor = '#2ecc70';
-  }else if( method === 'remove') {
+  } else if (method === 'remove') {
     bgColor = '#ff634780';
-    bdColor = '#ff6347'; 
+    bdColor = '#ff6347';
   }
-  
-  $('.toggle-cart').css({"background-color": bgColor,
+
+  $('.toggle-cart').css({
+    "background-color": bgColor,
     "border": `2px solid ${bdColor}`
-});
+  });
   $('.toggle-cart').empty();
   $('.toggle-cart').prepend(`<p> ${message} </p>`);
   $('.toggle-cart').slideToggle('slow')
-                    .delay(2000)
-                    .slideToggle('slow');
+    .delay(2000)
+    .slideToggle('slow');
 }
+
+
+
 
