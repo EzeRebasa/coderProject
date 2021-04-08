@@ -204,13 +204,19 @@ if (pathname === 'cart.html') {
   submitOrder();
 
 } else if ((pathname === 'news.html') || (pathname === 'catalog.html')) {
-    getDataAsync();
+  getDataAsync();
 }
 
 
-$('.artCant').on('change', () => {
-  alert('Cambio');
-})
+ 
+
+$('.artCant').on('keypress', (e) => {
+  if (e.key == 'Enter') {
+    e.preventDefault();
+    $('.artCant').blur();
+  }
+});
+
 
 /**
  * ==================================================================
@@ -308,19 +314,20 @@ function buildTableCart() {
               </thead>
               <tbody class="tbody">`;
     cart.getArticles().forEach(art => {
-      total += art.fullPrice;
       htmlText += `<tr>
                   <td  data-name="${art.id}" >${art.name} - ${art.size}</td>
                   <td class="tdCant">
                     <button 
                       class="subtract" 
                       type="button"
+                      data-cant-subtract=${art.id}
                       onclick=subtractItem('${art.id}') 
                     > - </button>
                     <input type="text" value=${art.cant} class="artCant" data-cant=${art.id} />
                     <button 
                       class="add"
                       type="button"
+                      data-cant-add=${art.id}
                       onclick="addItem('${art.id}')" 
                     > + </button>
                   </td>
@@ -346,10 +353,11 @@ function buildTableCart() {
                           class="button--confirm"
                         />
                       </td>
-                      <td colspan="3" class="total" >${total}</td>
+                      <td colspan="3" class="total" ></td>
                     </tr>
                   </tfoot>
             </table >`;
+
     formElement.innerHTML = htmlText;
     divCartForm.append(formElement);
 
@@ -360,6 +368,7 @@ function buildTableCart() {
 
     divCartForm.append(message);
   }
+  cart.setTotal();
 }
 
 function removeArticle(id) {

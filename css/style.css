@@ -587,6 +587,7 @@ a {
     min-height: 20rem;
     text-align: center; }
     .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm form {
+      height: 100%;
       /*---------- CART TABLE ---------*/
       /*---------------------------*/ }
       .cartMain .cartMain__container .cartMain__container__row .cartMain__container__row__cartForm .cartForm form .table-responsive {
