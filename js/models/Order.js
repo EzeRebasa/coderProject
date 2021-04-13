@@ -1,4 +1,4 @@
-export class Order {
+class Order {
     constructor(firstName, lastName, email, phoneNumber, address, house, order) {
         this.firstName = firstName || '';
         this.lastName = lastName || '';

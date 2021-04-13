@@ -1,4 +1,4 @@
-export class Cart {
+class Cart {
     constructor() {
         this.articles = this.getArticles() || [];
     }
@@ -137,7 +137,7 @@ export class Cart {
      * Will keep the cart updated with what the user has entered
      */
     storageArticles = function () {
-        localStorage.setItem('cart', JSON.stringify(cart.articles));
-        this.updateBadge();
+        localStorage.setItem('cart', JSON.stringify(this.articles));
+        updateBadge();
     }
 }
